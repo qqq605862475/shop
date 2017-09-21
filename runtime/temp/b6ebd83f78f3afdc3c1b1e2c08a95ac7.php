@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1505962480;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505962357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1505963266;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505962357;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -257,15 +257,18 @@
                                         <thead class="">
                                         <tr>
                                             <th class="text-center">ID</th>
-                                            <th class="text-center">文章标题</th>
-                                            <th class="text-center">图片</th>
-                                            <th class="text-center">所属栏目</th>
-                                            <th class="text-center">文章作者</th>
-                                            <th class="text-center">点击量</th>
-                                            <th class="text-center">关键字</th>
-                                            <th class="text-center">是否推荐</th>
-                                            <th class="text-center">发布时间</th>
-                                            <th class="text-center">操作</th>
+                                            <th class="text-center">商品名字</th>
+                                            <th class="text-center">商品售价</th>
+                                            <th class="text-center">市场价</th>
+                                            <th class="text-center">是否上市</th>
+                                            <th class="text-center">库存</th>
+                                            <th class="text-center">是否冻结库存</th>
+                                            <th class="text-center">添加时间</th>
+                                            <th class="text-center">最近更新时间</th>
+                                            <th class="text-center">最近更新管理员ID</th>
+                                            <th class="text-center">是否热销</th>
+                                            <th class="text-center">是否新品</th>
+                                            <th class="text-center">最近更新管理员ID</th>
                                         </tr>
                                         </thead>
                                         <tbody>
