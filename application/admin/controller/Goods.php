@@ -12,7 +12,7 @@ class Goods extends Base{
 
     public function index(){
         //查询所有分类
-        $data=GoodsModel::allCate();
+        $data=GoodsModel::allGoods();
         //把变量分配到模版
         $this->assign('data',$data);
 

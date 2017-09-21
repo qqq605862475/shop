@@ -12,6 +12,10 @@ use think\Model;
 class Goods extends Model {
 
     static public function allGoods(){
+        $data=db('cate')->order('id asc')->paginate(8);
+
+        return $data;
+
 
 
     }
