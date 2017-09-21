@@ -6,10 +6,15 @@
  * Time: 10:48
  */
 namespace app\admin\controller;
+ use app\admin\model\Goods as GoodsModel;
 
 class Goods extends Base{
 
     public function index(){
+        //查询所有分类
+        $data=GoodsModel::allCate();
+        //把变量分配到模版
+        $this->assign('data',$data);
 
         return $this->fetch("list");
     }
