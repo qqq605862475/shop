@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"E:\XAMPP\htdocs\shop\public/../application/index\view\index\index.html";i:1505973133;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

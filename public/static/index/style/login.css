@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.login-container {
+    width: 1200px;
+    min-width: 1200px;
+    padding-top: 15px;
+    margin: 0 auto;
+    height: 920px;
+}
+
+.login-left {
+    width: 360px;
+    float: left;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+.login-left > div, .login-left > input {
+    width: 360px;
+}
+
+.login-right {
+    width: 790px;
+    float: right;
+    text-align: center;
+}
+div{
+    color:rgb(21, 55, 74);
+}
+.login-title1 {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 20px;
+    height: 52px;
+    border-bottom: 2px solid rgb(214,226,230);
+    margin-bottom: 10px;
+}
+
+.login-title2 {
+    font-size: 14px;
+    height: 40px;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.username, .password {
+    height: 40px;
+    border: 2px solid rgb(214,226,230);
+}
+
+.login-remember > input, .login-remember > div {
+    display: inline;
+}
+
+.submit-btn {
+    color: white;
+    background-color: rgb(21, 55, 74);
+    height: 40px;
+    margin-top: 20px;
+}
+.login-title2 a{
+    font-weight: 500;
+}
