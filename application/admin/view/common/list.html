@@ -36,7 +36,7 @@
                                 </thead>
                                 <tbody>
 
-                                {foreach $indexData as $v}
+                                {foreach $indexData['data'] as $v}
                                 <tr>
                                     <td align="center">{$v.manager_id}</td>
                                     <td align="center">{$v.username}</td>
@@ -70,6 +70,7 @@
                 </div>
             </div>
         </div>
+        {$indexData['page']}
     </div>
     <!-- /Page Body -->
 </div>

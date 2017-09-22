@@ -1,5 +1,5 @@
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\index\index.html";i:1505974064;}*/ ?>
-<?php echo widget('Common/header'); ?>
+<?php echo widget('Admin/header'); ?>
 
 	<!-- /头部 -->
 	
@@ -8,7 +8,7 @@
 
 
 			            <!-- Page Sidebar -->
-            <?php echo widget('Common/left'); ?>
+            <?php echo widget('Admin/left'); ?>
 
 
 

@@ -7,21 +7,26 @@
  */
 namespace app\admin\model;
 use think\Controller;
-class Common extends Controller{
+class Admin extends Controller{
 //    加载数据
     static public function getData($name,$id){
         if (empty($id)&&$id!='0'){
             $data=db($name)
-                ->select();
+                ->paginate(3);
         }else{
             $data=db($name)
                 ->where('manager_id',$id)
-                ->select();
+                ->paginate(3);
         }
         if(!isset($data)){
             return false;
         }
-        return $data;
+        $page=$data->render();
+        $data=$data->all();
+        return [
+            'data'=>$data,
+            'page'=>$page
+        ];
     }
 //    用户添加
     static public function addData($data){

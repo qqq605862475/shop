@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\list.html";i:1505992571;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\admin\list.html";i:1505993649;s:78:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505993649;s:76:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505974064;s:76:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\list.html";i:1506003131;}*/ ?>
 <div class="page-content">
     <!-- Page Breadcrumb -->
     <div class="page-breadcrumbs">
@@ -37,7 +37,7 @@
                                 </thead>
                                 <tbody>
 
-                                <?php foreach($indexData as $v): ?>
+                                <?php foreach($indexData['data'] as $v): ?>
                                 <tr>
                                     <td align="center"><?php echo $v['manager_id']; ?></td>
                                     <td align="center"><?php echo $v['username']; ?></td>
@@ -71,6 +71,7 @@
                 </div>
             </div>
         </div>
+        <?php echo $indexData['page']; ?>
     </div>
     <!-- /Page Body -->
 </div>
