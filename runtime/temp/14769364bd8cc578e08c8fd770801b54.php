@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\index\index.html";i:1505469134;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -19,7 +19,6 @@
     <link href="__STATIC__/admin/style/typicons.css" rel="stylesheet">
     <link href="__STATIC__/admin/style/animate.css" rel="stylesheet">
 
-</head>
 <body>
 <!-- 头部 -->
 <div class="navbar">

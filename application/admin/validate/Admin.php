@@ -14,7 +14,7 @@ class Admin extends Validate{
     //验证规则
     protected $rule=[
 
-      'username'=>'require|max:25|unique:admin',
+      'username'=>'require|max:25|unique:manager',
       'password'=>'require',
     ];
 
