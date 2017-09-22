@@ -10,7 +10,7 @@ namespace app\admin\widget;
 
 use think\Controller;
 
-class Common extends Controller {
+class Admin extends Controller {
 
     public function header(){
 
@@ -22,4 +22,15 @@ class Common extends Controller {
         return $this->fetch('common/left');
 
     }
+    public function lis(){
+
+        return $this->fetch('common/list');
+
+    }
+    public function ae(){
+
+        return $this->fetch('common/ae');
+
+    }
+
 }

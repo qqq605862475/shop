@@ -763,7 +763,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
         /** This object is populated by user included external brush files. */
         brushes : {},
 
-        /** Common regular expressions. */
+        /** Admin regular expressions. */
         regexLib : {
             multiLineCComments			: /\/\*[\s\S]*?\*\//gm,
             singleLineCComments			: /\/\/.*$/gm,
