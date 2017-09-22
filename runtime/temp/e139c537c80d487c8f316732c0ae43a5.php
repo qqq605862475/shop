@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\add.html";i:1505984514;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505977779;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\add.html";i:1506066254;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506058953;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -378,22 +378,6 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-tag"></i>
-                <span class="menu-text">标签</span>
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li>
-                    <a href="<?php echo url('Tags/index'); ?>">
-                                    <span class="menu-text">
-                                        标签列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
 
         <li>
@@ -413,22 +397,7 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-link"></i>
-                <span class="menu-text">链接</span>
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li>
-                    <a href="<?php echo url('Links/index'); ?>">
-                                    <span class="menu-text">
-                                        链接列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
+
 
         <li>
             <a href="#" class="menu-dropdown">
@@ -512,6 +481,31 @@
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="pic"
+                                                   class="col-sm-2 control-label no-padding-right">商品图片</label>
+                                            <div class="col-sm-6">
+
+                                                <input type="file" name="pic" id="pic" onchange="previewFile()">
+                                                <img src=""  width="300" alt="" class="img22"/>
+                                            </div>
+                                        </div>
+                                        <script language=javascript>
+                                            function previewFile() {
+                                                var preview = document.querySelector('.img22');
+                                                var file  = document.querySelector('input[type=file]').files[0];
+                                                var reader = new FileReader();
+                                                reader.onloadend = function () {
+                                                    preview.src = reader.result;
+                                                };
+                                                if (file) {
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    preview.src = "";
+                                                }
+                                            }
+                                        </script>
 
                                         <div class="form-group">
                                             <label for="sell_price"

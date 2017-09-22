@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1505994904;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505977779;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1506078478;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506058953;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -142,22 +142,6 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-tag"></i>
-                <span class="menu-text">标签</span>
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li>
-                    <a href="<?php echo url('Tags/index'); ?>">
-                                    <span class="menu-text">
-                                        标签列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
 
         <li>
@@ -177,22 +161,7 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-link"></i>
-                <span class="menu-text">链接</span>
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li>
-                    <a href="<?php echo url('Links/index'); ?>">
-                                    <span class="menu-text">
-                                        链接列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
+
 
         <li>
             <a href="#" class="menu-dropdown">
@@ -243,10 +212,12 @@
             <!-- Page Body -->
             <div class="page-body">
 
+
                 <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon"
                         onClick="javascript:window.location.href = '<?php echo url('Goods/add'); ?>'"><i class="fa fa-plus"></i>
                     Add
                 </button>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
@@ -263,36 +234,46 @@
                                             <th class="text-center">市场价</th>
                                             <th class="text-center">是否上架</th>
                                             <th class="text-center">库存</th>
-                                            <th class="text-center">是否冻结库存</th>
-                                            <th class="text-center">是否热销</th>
-                                            <th class="text-center">是否新品</th>
-                                            <th class="text-center">是否删除</th>
-                                            <th class="text-center">添加时间</th>
+                                            <th class="text-center">库存状态</th>
+                                            <th class="text-center">商品状态</th>
                                             <th class="text-center">最近更新时间</th>
-                                            <th class="text-center">最近更新管理员</th>
+                                            <th class="text-center">更新管理员</th>
                                             <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php foreach($data as $v): ?>
+
                                         <tr>
-                                            <td align="center" style="padding: 0"><?php echo $v['goods_id']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['goods_name']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['name']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['name']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['sell_price']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['market_price']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['maketable']==1?'是':'否'; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['store']; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['freez']==1?'是':'否'; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['is_hot']==1?'是':'否'; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['is_new']==1?'是':'否'; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['recycle']==1?'删除':'存在'; ?></td>
-                                            <td align="center" style="padding: 0"><?php echo date("Y-m-d H:i:s",$v['create_time']); ?></td>
-                                            <td align="center" style="padding: 0"><?php echo date("Y-m-d H:i:s",$v['last_modify']); ?></td>
-                                            <td align="center" style="padding: 0"><?php echo $v['last_modify_id']; ?></td>
+                                            <td align="center" >
+                                                <?php echo $v['goods_id']; ?>
+                                            </td>
+                                            <td align="center" ><?php echo $v['goods_name']; ?></td>
+                                            <td align="center" ><?php echo $v['name']; ?></td>
+                                            <td align="center">
+                                                <?php if($v['image_url'] != ''): if($v['is_face'] == 1): ?>
+                                                <img src="<?php echo $v['image_url']; ?>" width="80px">
+                                                      <?php endif; else: ?>
+                                                暂无封面
+                                                <?php endif; ?>
+                                            </td>
+                                            <td align="center"><?php echo $v['sell_price']; ?></td>
+                                            <td align="center" ><?php echo $v['market_price']; ?></td>
+                                            <td align="center"><?php echo $v['maketable']==1?'已上架':'未上架'; ?></td>
+                                            <td align="center" ><?php echo $v['store']; ?></td>
+                                            <td align="center"><?php echo $v['freez']==1?'已冻结':'正常'; ?></td>
+                                            <td align="center" ><?php echo $v['recycle']==1?'已删除':'正常'; ?></td>
+                                            <td align="center" ><?php echo date("Y-m-d H:i:s",$v['last_modify']); ?></td>
+                                            <td align="center" ><?php echo $v['last_modify_id']; ?></td>
+
 
                                             <td align="center">
+
+                                                <a href="<?php echo url('Image/index',['id'=>$v['goods_id']]); ?>"
+                                                   class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-picture-o"></i> 图片管理
+                                                </a>
+
                                                 <a href="<?php echo url('Goods/edit',['id'=>$v['goods_id']]); ?>"
                                                    class="btn btn-primary btn-sm shiny">
                                                     <i class="fa fa-edit"></i> 编辑
@@ -312,6 +293,7 @@
 
                                             </td>
                                         </tr>
+
 
                                         <?php endforeach; ?>
                                         </tbody>

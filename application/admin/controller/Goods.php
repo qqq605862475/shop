@@ -44,6 +44,42 @@ class Goods extends Base
                 'desc' => input('desc'),
                 'content' => input('content'),
             ];
+            $image=[
+            ];
+            //判断图片有没有上传
+            if ($_FILES['pic']['tmp_name']!=''){
+
+                //上传图片
+                $arr= $this->upload('pic');
+                if ($arr['status']=='success'){
+                    //把图片路径放入数据库
+                    $image['image_url']=$arr['url'];
+
+                    $pic = \think\Image::open('.'.$image['image_url']);
+                    $dirName=dirname($image['image_url']);//路径名
+                    $baseName=basename($image['image_url']);//文件名
+
+
+                    $pic->thumb(650, 650)->save('.'.$dirName.'/650_'.$baseName);
+
+                    $image['image_b_url']=$dirName.'/650_'.$baseName;
+
+                    $pic->thumb(250, 250)->save('.'.$dirName.'/250_'.$baseName);
+                    $image['image_m_url']=$dirName.'/250_'.$baseName;
+                    $pic->thumb(100, 100)->save('.'.$dirName.'/100_'.$baseName);
+                    $image['image_s_url']=$dirName.'/100_'.$baseName;
+
+
+                }else{
+                    //返回错误信息
+                    return $this->error($arr['msg']);
+                }
+
+
+            }
+
+
+
 
 
             //判断是否上架
@@ -101,7 +137,7 @@ class Goods extends Base
             //最近更新管理员名字
 
             //操作数据库
-            $res=GoodsModel::add($data);
+            $res=GoodsModel::add($data,$image);
             //
             //返回结果
             if($res){
@@ -112,6 +148,40 @@ class Goods extends Base
             }
         }
         return $this->fetch();
+    }
+
+    //处理图片上传的方法
+    private function upload($filename)
+    {
+        //获取表单上传的文件 判断是不是POST提交
+        $file = request()->file($filename);
+
+        //如果上传了文件
+        if ($file) {
+            //将上传文件存到指定路径   tp5\public\uploads
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+
+            //上传成功后 获取上传信息
+            if ($info) {
+
+                //拼接图片完整路径
+                $url = '/uploads/' . $info->getSaveName();
+                //把路径中的反斜线替换成正斜线
+                $url = str_replace('\\', '/', $url);
+
+
+                return [
+                    'status' => 'success',
+                    'url' => $url,
+                ];
+            } else {
+                //上传失败错误信息
+                return [
+                    'status' => 'error',
+                    'msg' => $file->getError(),
+                ];
+            }
+        }
     }
 
     //商品编辑

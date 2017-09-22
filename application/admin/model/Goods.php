@@ -20,11 +20,15 @@ class Goods extends Model {
 //          ->join('think_work w','a.id = w.artist_id')
 //          ->join('think_card c','a.card_id = c.id')
 //          ->select();
-        $data=\db('goods')
+        $data=db('goods')
             ->alias('a')//别名
-            ->field('a.*,c.name')
-            ->join('cate c','a.cate_id =c.id','left')//两表的关联条件
-            ->paginate(2);
+            ->field('a.goods_id,a.goods_name,a.sell_price,a.market_price,
+            a.maketable,a.store,a.freez,a.recycle,a.last_modify,a.last_modify_id,
+            c.name,d.is_face,d.image_url')
+            ->join('cate c','a.cate_id =c.id','left')
+            ->join('image d','d.goods_id=a.goods_id','left')
+            ->where(['d.is_face'=>1])
+            ->paginate(6);
 //        echo \db()->getLastSql();
 //        exit;
 
@@ -32,13 +36,26 @@ class Goods extends Model {
         return $data;
 
     }
-    static public function add($data){
+    static public function add($data,$image){
         if(empty($data)){
+            return false;
+        }
+        if(empty($image)){
             return false;
         }
 
 
         $res=db('goods')->insert($data);
+
+
+        $goods=db('goods')->where(['goods_name'=>$data['goods_name']])->find();
+        $image['goods_id']=$goods['goods_id'];
+        $image['is_face']=1;
+
+
+        $imgageBase=db('image')->insert($image);
+
+
 
         return $res!==false?true:false;
 

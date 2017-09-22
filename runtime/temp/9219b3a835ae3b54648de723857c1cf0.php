@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\cate\addtopcate.html";i:1505897485;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505977779;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\cate\addtopcate.html";i:1505897485;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506058953;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -140,22 +140,6 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-tag"></i>
-                <span class="menu-text">标签</span>
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li>
-                    <a href="<?php echo url('Tags/index'); ?>">
-                                    <span class="menu-text">
-                                        标签列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
 
         <li>
@@ -175,22 +159,7 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-link"></i>
-                <span class="menu-text">链接</span>
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li>
-                    <a href="<?php echo url('Links/index'); ?>">
-                                    <span class="menu-text">
-                                        链接列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
+
 
         <li>
             <a href="#" class="menu-dropdown">

@@ -2,21 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2017/9/15
- * Time: 17:41
+ * Date: 2017/9/22
+ * Time: 13:48
  */
 namespace app\admin\widget;
 
-
 use think\Controller;
 
-class Admin extends Controller {
+class Admin extends Controller{
+    public function index(){
 
+        return $this->fetch();
+    }
     public function header(){
 
-      return $this->fetch('common/header');
+        return $this->fetch('common/header');
 
-  }
+    }
     public function left(){
 
         return $this->fetch('common/left');
@@ -32,5 +34,9 @@ class Admin extends Controller {
         return $this->fetch('common/ae');
 
     }
+
+
+
+
 
 }

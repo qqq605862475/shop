@@ -50,7 +50,7 @@ class Admin extends Base
         $data=[
             'way'=>1,
             'manager_id'=>'',
-            'username'=>'示列：小明',
+            'username'=>'',
             'password'=>'',
             'lock'=>''
         ];

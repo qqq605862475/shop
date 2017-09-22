@@ -27,10 +27,12 @@
             <!-- Page Body -->
             <div class="page-body">
 
+
                 <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon"
                         onClick="javascript:window.location.href = '{:url(\'Goods/add\')}'"><i class="fa fa-plus"></i>
                     Add
                 </button>
+
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
@@ -47,36 +49,48 @@
                                             <th class="text-center">市场价</th>
                                             <th class="text-center">是否上架</th>
                                             <th class="text-center">库存</th>
-                                            <th class="text-center">是否冻结库存</th>
-                                            <th class="text-center">是否热销</th>
-                                            <th class="text-center">是否新品</th>
-                                            <th class="text-center">是否删除</th>
-                                            <th class="text-center">添加时间</th>
+                                            <th class="text-center">库存状态</th>
+                                            <th class="text-center">商品状态</th>
                                             <th class="text-center">最近更新时间</th>
-                                            <th class="text-center">最近更新管理员</th>
+                                            <th class="text-center">更新管理员</th>
                                             <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         {foreach $data as $v}
+
                                         <tr>
-                                            <td align="center" style="padding: 0">{$v.goods_id}</td>
-                                            <td align="center" style="padding: 0">{$v.goods_name}</td>
-                                            <td align="center" style="padding: 0">{$v.name}</td>
-                                            <td align="center" style="padding: 0">{$v.name}</td>
-                                            <td align="center" style="padding: 0">{$v.sell_price}</td>
-                                            <td align="center" style="padding: 0">{$v.market_price}</td>
-                                            <td align="center" style="padding: 0">{$v.maketable==1?'是':'否'}</td>
-                                            <td align="center" style="padding: 0">{$v.store}</td>
-                                            <td align="center" style="padding: 0">{$v.freez==1?'是':'否'}</td>
-                                            <td align="center" style="padding: 0">{$v.is_hot==1?'是':'否'}</td>
-                                            <td align="center" style="padding: 0">{$v.is_new==1?'是':'否'}</td>
-                                            <td align="center" style="padding: 0">{$v.recycle==1?'删除':'存在'}</td>
-                                            <td align="center" style="padding: 0">{$v.create_time|date="Y-m-d H:i:s",###}</td>
-                                            <td align="center" style="padding: 0">{$v.last_modify|date="Y-m-d H:i:s",###}</td>
-                                            <td align="center" style="padding: 0">{$v.last_modify_id}</td>
+                                            <td align="center" >
+                                                {$v.goods_id}
+                                            </td>
+                                            <td align="center" >{$v.goods_name}</td>
+                                            <td align="center" >{$v.name}</td>
+                                            <td align="center">
+                                                {if condition="$v.image_url neq ''"}
+                                                     {if condition="$v.is_face eq 1"}
+                                                <img src="{$v.image_url}" width="80px">
+                                                      {/if}
+                                                {else}
+                                                暂无封面
+                                                {/if}
+                                            </td>
+                                            <td align="center">{$v.sell_price}</td>
+                                            <td align="center" >{$v.market_price}</td>
+                                            <td align="center">{$v.maketable==1?'已上架':'未上架'}</td>
+                                            <td align="center" >{$v.store}</td>
+                                            <td align="center">{$v.freez==1?'已冻结':'正常'}</td>
+                                            <td align="center" >{$v.recycle==1?'已删除':'正常'}</td>
+                                            <td align="center" >{$v.last_modify|date="Y-m-d H:i:s",###}</td>
+                                            <td align="center" >{$v.last_modify_id}</td>
+
 
                                             <td align="center">
+
+                                                <a href="{:url('Image/index',['id'=>$v.goods_id])}"
+                                                   class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-picture-o"></i> 图片管理
+                                                </a>
+
                                                 <a href="{:url('Goods/edit',['id'=>$v.goods_id])}"
                                                    class="btn btn-primary btn-sm shiny">
                                                     <i class="fa fa-edit"></i> 编辑
@@ -96,6 +110,7 @@
 
                                             </td>
                                         </tr>
+
 
                                         {/foreach}
                                         </tbody>
