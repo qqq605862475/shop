@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.register-container {
+    width: 1200px;
+    min-width: 1200px;
+    padding-top: 15px;
+    margin: 0 auto;
+    height: 1100px;
+}
+
+.register-left {
+    width: 420px;
+    float: left;
+    margin-right: 10px;
+}
+
+.register-right {
+    width: 750px;
+    float: right;
+}
+
+.register-right img {
+    display: block;
+    width: 750px;
+    height: 624px;
+}
+
+div {
+    color: rgb(21, 55, 74);
+}
+
+.register-title {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 20px;
+    height: 52px;
+}
+
+.line {
+    width: 420px;
+    margin-bottom: 10px;
+}
+
+.line-left {
+    display: inline-block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 50px;
+    font-weight: 600;
+    width: 80px;
+}
+
+.line-right, .username, .password, .check-password {
+    display: inline-block;
+    width: 325px;
+}
+.pwd-strength{
+    display: inline-block;
+    width: 111px;
+    height: 8px;
+    background-color: rgb(214, 226, 230);
+}
+p span{
+    font-size: 13px;
+}
+.cc-right1,.cc-right1 input, .vc-right1 input, .cc-right2 {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+}
+.cc-right2{
+    display: inline-block;
+    width: 100px;
+    position: relative;
+    left: 10px;
+    height: 20px;
+    text-align: center;
+}
+.cc-right2 img{
+    width: 65px;
+    height: 20px;
+    vertical-align:middle;
+}
+.cc-right3{
+    display: inline-block;
+    width: 110px;
+}
+.vc-right1,.vc-right2{
+    display: inline-block;
+}
+
+.username, .password, .check-password, .cc-right1 input, .vc-right1 input{
+    height: 40px;
+    padding-left: 10px;
+    border: 2px solid rgb(214, 226, 230);
+}
+.line-right span{
+    font-weight: 600;
+}
+.tip{
+    position: relative;
+    top: -15px;
+}
+.submit-btn1 {
+    color: white;
+    background-color: rgb(21, 55, 74);
+    width: 140px;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.submit-btn2 {
+    color: white;
+    background-color: rgb(21, 55, 74);
+    width: 420px;
+    height: 40px;
+    margin-top: 20px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-size: 16px;
+}

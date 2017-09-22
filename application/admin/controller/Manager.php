@@ -6,7 +6,7 @@ use think\Db;
 use think\Loader;
 use think\Validate;
 
-class Admin extends Base
+class Manager extends Base
 {
     public function add()
     {
@@ -20,17 +20,17 @@ class Admin extends Base
             $data['password']=md5($data['password']);
 
             //验证
-            $validate=Loader::Validate('Admin'); //获取表中的数据 Admin是类名 必须首字母大写
+            $validate=Loader::Validate('manager'); //获取表中的数据 manager是类名 必须首字母大写
             if(!$validate->scene('add')->check($data)){//加了验证场景 并验证数据
                 return $this->error($validate->getError());//自动验证提示错误
             }
 
 
             //保存数据到数据库   insert
-           $res= Db::name('admin')->insert($data);
+           $res= Db::name('manager')->insert($data);
             //判断添加是否成功
            if($res){
-               return $this->success('添加成功',url('Admin/index'));//成功返回
+               return $this->success('添加成功',url('manager/index'));//成功返回
            }
            else{
                return $this->error('添加失败');//失败返回
@@ -44,10 +44,10 @@ class Admin extends Base
     public function index()
     {
         //查询数据
-//        $data=Db::name('admin')->select();//返回结果是二维数组
+//        $data=Db::name('manager')->select();//返回结果是二维数组
 
         //分页
-        $data=Db::name('admin')->paginate(3);//返回结果是一个对象
+        $data=Db::name('manager')->paginate(3);//返回结果是一个对象
       //把变量分配到模版
         $this->assign('arr',$data);
 
@@ -61,7 +61,7 @@ class Admin extends Base
         $id= input('id');
 
         //从数据库中根据id值查找
-        $data=Db::name('admin')->find($id);
+        $data=Db::name('manager')->find($id);
 
         //把变量分配到模版
         $this->assign('data',$data);
@@ -80,7 +80,7 @@ class Admin extends Base
         $password=input('password');
 
         //验证
-         $validate=Loader::Validate('admin');
+         $validate=Loader::Validate('manager');
          if(!$validate->scene('edit')->check($data)){
              return $this->error($validate->getError());
          }
@@ -91,8 +91,8 @@ class Admin extends Base
             $data['password']=md5($password);
         }
 
-        //链接数据库的admin表并更新  update
-        $res=Db::name('admin')->update($data);
+        //链接数据库的manager表并更新  update
+        $res=Db::name('manager')->update($data);
 
         // update  成功返回受影响行数 失败返回false  不修改 返回0
         //判断更新是否成功
@@ -117,11 +117,11 @@ class Admin extends Base
         }
 
         //从数据库中删除id值对应的数据  delete
-        $res=Db::name('admin')->delete($id);
+        $res=Db::name('manager')->delete($id);
 
         //判断删除是否成功
         if($res){
-            return $this->success('删除成功',url('Admin/index'));
+            return $this->success('删除成功',url('manager/index'));
         }
         else{
             return $this->error('删除失败');
@@ -130,7 +130,7 @@ class Admin extends Base
 
     //退出登录
     public function logout(){
-        session('admin',null);
+        session('manager',null);
         //
         return $this->redirect('Login/login');
     }
