@@ -1,6 +1,6 @@
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:75:"C:\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\admin\list.html";i:1505993649;}*/ ?>
 <!--挂件头部-->
-<?php echo widget('Common/header'); ?>
+<?php echo widget('Admin/header'); ?>
 </head>
 <!-- /头部 -->
 
@@ -10,7 +10,7 @@
 
         <!-- Page Sidebar -->
         <!--挂件菜单页-->
-        <?php echo widget('Common/left'); ?>
+        <?php echo widget('Admin/left'); ?>
 
 
         <!-- /Page Sidebar -->
@@ -19,11 +19,11 @@
         <!--用户加载模版-->
         <?php if(isset($indexData)): ?>
         <!--挂件列表页-->
-        <?php echo widget('Common/lis'); endif; ?>
+        <?php echo widget('Admin/lis'); endif; ?>
         <!--用户添加模版-->
         <?php if(isset($aeData)): ?>
         <!--挂件增改页-->
-        <?php echo widget('Common/ae'); endif; ?>
+        <?php echo widget('Admin/ae'); endif; ?>
         <!-- /Page Content -->
     </div>
 </div>

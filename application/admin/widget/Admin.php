@@ -10,7 +10,7 @@ namespace app\admin\widget;
 
 use think\Controller;
 
-class Common extends Controller {
+class Admin extends Controller {
 
     public function header(){
 

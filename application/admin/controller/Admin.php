@@ -5,14 +5,14 @@ use think\Controller;
 use think\Db;
 use think\Loader;
 use think\Validate;
-use app\admin\model\Common;
+use app\admin\model\Admin as Kk;
 class Admin extends Base
 {
 //    加载管理员列表
   public function index(){
       $name='manager';
       $id=null;
-      $data=Common::getData($name,$id);
+      $data=Kk::getData($name,$id);
 //      dump($data);exit();
       $this->assign('indexData',$data);
       return $this->fetch('admin/list');
@@ -37,7 +37,7 @@ class Admin extends Base
                 return $this->error($validate->getError());//自动验证提示错误
             }
             $data['ip']= $_SERVER["REMOTE_ADDR"];
-            $rul=Common::addData($data);
+            $rul=Kk::addData($data);
 //            判断状态
             if ($rul['state']=='succeed') {
                 return $this->success($rul['msg'], ('Admin/index'));
@@ -48,11 +48,13 @@ class Admin extends Base
         }
 //      加载用户添加模版
         $data=[
+            'way'=>1,
             'manager_id'=>'',
-            'username'=>'例如：康康',
+            'username'=>'示列：小明',
             'password'=>'',
             'lock'=>''
         ];
+//        dump($data);exit();
         $this->assign('aeData',$data);
         return $this->fetch('admin/list');
     }
@@ -77,7 +79,7 @@ class Admin extends Base
             if(!$validate->scene('edit')->check($data)){
                 return $this->error($validate->getError());
             }
-            $rul=Common::editData($data);
+            $rul=Kk::editData($data);
 //            判断状态
             if ($rul['state']=='succeed') {
                 return $this->success($rul['msg'], ('Admin/index'));
@@ -89,14 +91,17 @@ class Admin extends Base
 //        将要修改的用户数据取出送到模版
         $id=input('id');
         $name='manager';
-        $data=Common::getData($name,$id);
-        $this->assign('aeData', $data[0]);
+        $data=Kk::getData($name,$id);
+        $data['data'][0]['way']=2;
+//        dump($data);exit();
+//        dump($data);exit();
+        $this->assign('aeData', $data['data'][0]);
         return $this->fetch('admin/list');
     }
 //    删除用户
     public function del($id)
     {
-        $rul=Common::delData($id);
+        $rul=Kk::delData($id);
 //            判断状态
         if ($rul['state']=='succeed') {
             return $this->success($rul['msg'], ('Admin/index'));
