@@ -154,10 +154,7 @@ class Cate extends Model {
 
     }
 
-    //添加分类
-    static public function add(){
 
-    }
 
 
 

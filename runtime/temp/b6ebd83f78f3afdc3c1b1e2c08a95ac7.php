@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1505963805;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505962357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1505994904;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505977779;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -164,14 +164,14 @@
         <li>
             <a href="#" class="menu-dropdown">
                 <i class="menu-icon fa fa-file-text"></i>
-                <span class="menu-text">文档</span>
+                <span class="menu-text">商品</span>
                 <i class="menu-expand"></i>
             </a>
             <ul class="submenu">
                 <li>
                     <a href="<?php echo url('Goods/index'); ?>">
                                     <span class="menu-text">
-                                        文章列表                                    </span>
+                                        商品列表                                    </span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>
@@ -236,7 +236,7 @@
                     <li>
                         <a href="<?php echo url('Index/index'); ?>">系统</a>
                     </li>
-                    <li class="active">文章管理</li>
+                    <li class="active">商品管理</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -244,7 +244,7 @@
             <!-- Page Body -->
             <div class="page-body">
 
-                <button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon"
+                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon"
                         onClick="javascript:window.location.href = '<?php echo url('Goods/add'); ?>'"><i class="fa fa-plus"></i>
                     Add
                 </button>
@@ -257,55 +257,64 @@
                                         <thead class="">
                                         <tr>
                                             <th class="text-center">ID</th>
-                                            <th class="text-center">商品名字</th>
+                                            <th class="text-center">商品名称</th>
+                                            <th class="text-center">商品分类</th>
+                                            <th class="text-center">商品封面</th>
                                             <th class="text-center">商品售价</th>
                                             <th class="text-center">市场价</th>
-                                            <th class="text-center">是否上市</th>
+                                            <th class="text-center">是否上架</th>
                                             <th class="text-center">库存</th>
                                             <th class="text-center">是否冻结库存</th>
-                                            <th class="text-center">添加时间</th>
-                                            <th class="text-center">最近更新时间</th>
-                                            <th class="text-center">最近更新管理员ID</th>
                                             <th class="text-center">是否热销</th>
                                             <th class="text-center">是否新品</th>
                                             <th class="text-center">是否删除</th>
+                                            <th class="text-center">添加时间</th>
+                                            <th class="text-center">最近更新时间</th>
+                                            <th class="text-center">最近更新管理员</th>
+                                            <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-
-
-
+                                        <?php foreach($data as $v): ?>
                                         <tr>
-                                            <td align="center"></td>
-                                            <td align="center"></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['goods_id']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['goods_name']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['name']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['name']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['sell_price']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['market_price']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['maketable']==1?'是':'否'; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['store']; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['freez']==1?'是':'否'; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['is_hot']==1?'是':'否'; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['is_new']==1?'是':'否'; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['recycle']==1?'删除':'存在'; ?></td>
+                                            <td align="center" style="padding: 0"><?php echo date("Y-m-d H:i:s",$v['create_time']); ?></td>
+                                            <td align="center" style="padding: 0"><?php echo date("Y-m-d H:i:s",$v['last_modify']); ?></td>
+                                            <td align="center" style="padding: 0"><?php echo $v['last_modify_id']; ?></td>
+
                                             <td align="center">
-
-                                                <img src="" width="80px">
-
-                                            </td>
-                                            <td align="center"></td>
-                                            <td align="center"></td>
-                                            <td align="center"></td>
-                                            <td align="center"></td>
-                                            <td align="center"></td>
-                                            <td align="center"></td>
-
-                                            <td align="center">
-                                                <a href=""
+                                                <a href="<?php echo url('Goods/edit',['id'=>$v['goods_id']]); ?>"
                                                    class="btn btn-primary btn-sm shiny">
                                                     <i class="fa fa-edit"></i> 编辑
                                                 </a>
 
-                                                <a href="#" onClick="warning('确实要删除吗',
-                                                 '')"
-                                                   class="btn btn-danger btn-sm shiny">
-                                                    <i class="fa fa-trash-o"></i> 删除
+                                                <a href="#" onClick="warning('确定要操作吗',
+                                                 ' <?php echo url('Goods/del',['id'=>$v['goods_id']]); ?>'   )"
+                                                   class="btn btn-danger btn-sm shiny"
+                                                >
+                                                    <i class="fa fa-trash-o"></i>
+                                                    <?php if($v['recycle'] == 1): ?>
+                                                    恢复
+                                                    <?php else: ?>
+                                                    删除
+                                                    <?php endif; ?>
                                                 </a>
 
                                             </td>
                                         </tr>
 
-
+                                        <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -315,7 +324,7 @@
                         </div>
                     </div>
                 </div>
-
+           <?php echo $data->render(); ?>
                 <!--分页-->
             </div>
             <!-- /Page Body -->

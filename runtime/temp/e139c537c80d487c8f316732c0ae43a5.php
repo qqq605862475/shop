@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\add.html";i:1505984514;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505977779;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -321,7 +322,144 @@
     <div class="page-container">
         <!-- Page Sidebar -->
 
-        {include file="common/left" /}
+        <div class="page-sidebar" id="sidebar">
+
+
+
+    <!-- Page Sidebar Header-->
+    <div class="sidebar-header-wrapper">
+        <input class="searchinput" type="text">
+        <i class="searchicon fa fa-search"></i>
+        <div class="searchhelper">Search Reports, Charts, Emails or Notifications</div>
+    </div>
+    <!-- /Page Sidebar Header -->
+    <!-- Sidebar Menu -->
+    <ul class="nav sidebar-menu">
+        <!--Dashboard-->
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">管理员</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<?php echo url('Admin/index'); ?>">
+                                    <span class="menu-text">
+                                        管理列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-calendar"></i>
+                <span class="menu-text">分类</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<?php echo url('Cate/index'); ?>">
+                                    <span class="menu-text">
+                                        分类列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('Cate/addTopCate'); ?>">
+                                    <span class="menu-text">
+                                        添加顶级分类                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-tag"></i>
+                <span class="menu-text">标签</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<?php echo url('Tags/index'); ?>">
+                                    <span class="menu-text">
+                                        标签列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-file-text"></i>
+                <span class="menu-text">商品</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<?php echo url('Goods/index'); ?>">
+                                    <span class="menu-text">
+                                        商品列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-link"></i>
+                <span class="menu-text">链接</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<?php echo url('Links/index'); ?>">
+                                    <span class="menu-text">
+                                        链接列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">系统</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="/admin/document/index.html">
+                                    <span class="menu-text">
+                                        配置                                   </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="http://www.chuanke.com/s2260700.html" class="menu-dropdown">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">视频教程</span>
+                <i class="menu-expand"></i>
+            </a>
+        </li>
+
+
+
+    </ul>
+    <!-- /Sidebar Menu -->
+</div>
 
         <!-- /Page Sidebar -->
         <!-- Page Content -->
@@ -330,12 +468,12 @@
             <div class="page-breadcrumbs">
                 <ul class="breadcrumb">
                     <li>
-                        <a href="{:url('Index/index')}">系统</a>
+                        <a href="<?php echo url('Index/index'); ?>">系统</a>
                     </li>
                     <li>
-                        <a href="{:url('Goods/index')}">商品列表</a>
+                        <a href="<?php echo url('Goods/index'); ?>">商品列表</a>
                     </li>
-                    <li class="active">修改商品信息</li>
+                    <li class="active">添加商品</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -347,33 +485,30 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">修改商品信息</span>
+                                <span class="widget-caption">添加商品</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" action="{:url('Goods/upd')}" method="post" enctype="multipart/form-data">
+                                    <form class="form-horizontal" role="form" action="<?php echo url('Goods/add'); ?>" method="post" enctype="multipart/form-data">
 
                                         <div class="form-group">
                                             <label for="goods_name"
                                                    class="col-sm-2 control-label no-padding-right">商品名称</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="name" placeholder="" name="goods_name"
-                                                       required="" type="text" value="{$data.goods_name}">
+                                                       required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="group_id" class="col-sm-2 control-label no-padding-right">商品分类</label>
+                                            <label for="cate_id" class="col-sm-2 control-label no-padding-right">商品分类</label>
                                             <div class="col-sm-6">
                                                 <select name="cate_id" style="width: 100%;">
-                                                    <option value="" >--请选择--</option>
-                                                    {foreach $all.all as $v}
-                                                    <option value="{$v.id}"
-                                                            {if condition="$v.id eq $data.cate_id"}
-                                                            selected="selected"
-                                                            {/if}>{$v.name}</option>
-                                                    {/foreach}
+                                                    <option value="">--请选择--</option>
+                                                    <?php foreach($all['all'] as $v): ?>
+                                                    <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -383,7 +518,7 @@
                                                    class="col-sm-2 control-label no-padding-right">商品售价</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="title" placeholder="" name="sell_price"
-                                                       required="" type="text" value="{$data.sell_price}">
+                                                       required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
@@ -393,7 +528,7 @@
                                                    class="col-sm-2 control-label no-padding-right">市场价</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="market_price" placeholder="" name="market_price"
-                                                       required="" type="text" value="{$data.market_price}">
+                                                       required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
@@ -405,10 +540,7 @@
                                             <div class="col-xs-4">
                                                 <label>
                                                     <input class="checkbox-slider slider-icon yesno" name="maketable"
-                                                           {if condition="$data.maketable eq 1"}
-                                                           checked="checked"
-                                                           {/if}
-                                                    type="checkbox">
+                                                           checked="checked" type="checkbox">
                                                     <span class="text"></span>
                                                 </label>
                                             </div>
@@ -422,7 +554,7 @@
                                                    class="col-sm-2 control-label no-padding-right">库存</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="store" placeholder=""
-                                                       name="store" type="text" value="{$data.store}">
+                                                       name="store" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
@@ -434,9 +566,7 @@
                                             <div class="col-xs-4">
                                                 <label>
                                                     <input class="checkbox-slider slider-icon yesno" name="freez"
-                                                           {if condition="$data.freez eq 1"}
-                                                           checked="checked"
-                                                           {/if} type="checkbox">
+                                                           checked="checked" type="checkbox">
                                                     <span class="text"></span>
                                                 </label>
                                             </div>
@@ -447,7 +577,7 @@
                                                    class="col-sm-2 control-label no-padding-right">关键字</label>
                                             <div class="col-sm-6">
                                                 <input class="form-control" id="keywords" placeholder=""
-                                                       name="keywords" type="text" value="{$data.keywords}">
+                                                       name="keywords" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">多个关键字请用英文逗号隔开</p>
                                         </div>
@@ -456,7 +586,7 @@
                                             <label for="desc"
                                                    class="col-sm-2 control-label no-padding-right">商品描述</label>
                                             <div class="col-sm-6">
-                                                <textarea name="desc" class="form-control">{$data.desc}</textarea>
+                                                <textarea name="desc" class="form-control"></textarea>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
@@ -470,10 +600,7 @@
                                             <div class="col-xs-4">
                                                 <label>
                                                     <input class="checkbox-slider slider-icon yesno" name="is_hot"
-                                                           {if condition="$data.is_hot eq 1"}
-                                                           checked="checked"
-                                                           {/if}
-                                                    type="checkbox">
+                                                           checked="checked" type="checkbox">
                                                     <span class="text"></span>
                                                 </label>
                                             </div>
@@ -486,10 +613,7 @@
                                             <div class="col-xs-4">
                                                 <label>
                                                     <input class="checkbox-slider slider-icon yesno" name="is_new"
-                                                           {if condition="$data.is_new eq 1"}
-                                                           checked="checked"
-                                                           {/if}
-                                                    type="checkbox">
+                                                           checked="checked" type="checkbox">
                                                     <span class="text"></span>
                                                 </label>
                                             </div>
@@ -502,10 +626,7 @@
                                             <div class="col-xs-4">
                                                 <label>
                                                     <input class="checkbox-slider slider-icon yesno" name="recycle"
-                                                           {if condition="$data.is_new eq 1"}
-                                                           checked="recycle"
-                                                           {/if}
-                                                    type="checkbox">
+                                                           checked="checked" type="checkbox">
                                                     <span class="text"></span>
                                                 </label>
                                             </div>
@@ -516,12 +637,10 @@
                                             <label for="content"
                                                    class="col-sm-2 control-label no-padding-right">商品内容</label>
                                             <div class="col-sm-6">
-                                                <textarea name="content" id="content" >{$data.content}</textarea>
+                                                <textarea name="content" id="content"></textarea>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
-
-                                        <input type="hidden" name="goods_id" value="{$data.goods_id}">
 
 
                                         <div class="form-group">

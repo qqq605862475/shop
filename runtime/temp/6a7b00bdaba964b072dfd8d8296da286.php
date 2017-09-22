@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:79:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\cate\add.html";i:1505961836;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505895143;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:79:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\cate\add.html";i:1505961836;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1505725262;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1505962357;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -167,7 +167,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="<?php echo url('Article/index'); ?>">
+                    <a href="<?php echo url('Goods/index'); ?>">
                                     <span class="menu-text">
                                         文章列表                                    </span>
                         <i class="menu-expand"></i>

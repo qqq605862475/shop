@@ -333,9 +333,9 @@
                         <a href="{:url('Index/index')}">系统</a>
                     </li>
                     <li>
-                        <a href="{:url('Article/index')}">文章列表</a>
+                        <a href="{:url('Goods/index')}">商品列表</a>
                     </li>
-                    <li class="active">添加文章</li>
+                    <li class="active">添加商品</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -347,52 +347,91 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">添加文章</span>
+                                <span class="widget-caption">添加商品</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" action="{:url('Article/add')}" method="post" enctype="multipart/form-data">
+                                    <form class="form-horizontal" role="form" action="{:url('Goods/add')}" method="post" enctype="multipart/form-data">
 
                                         <div class="form-group">
-                                            <label for="title"
-                                                   class="col-sm-2 control-label no-padding-right">文章标题</label>
+                                            <label for="goods_name"
+                                                   class="col-sm-2 control-label no-padding-right">商品名称</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="title" placeholder="" name="title"
+                                                <input class="form-control" id="name" placeholder="" name="goods_name"
                                                        required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="cateid"
-                                                   class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                                            <label for="cate_id" class="col-sm-2 control-label no-padding-right">商品分类</label>
                                             <div class="col-sm-6">
-                                                <select name="cateid" style="width: 100%;">
-                                                    <option value="">---请选择---</option>
-                                                    {foreach $cateData as $v}
-                                                    <option value="{$v.id}">{$v.catename}</option>
+                                                <select name="cate_id" style="width: 100%;">
+                                                    <option value="">--请选择--</option>
+                                                    {foreach $all.all as $v}
+                                                    <option value="{$v.id}">{$v.name}</option>
                                                     {/foreach}
                                                 </select>
                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="sell_price"
+                                                   class="col-sm-2 control-label no-padding-right">商品售价</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="title" placeholder="" name="sell_price"
+                                                       required="" type="text">
+                                            </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="desc"
-                                                   class="col-sm-2 control-label no-padding-right">文章图片</label>
+                                            <label for="market_price"
+                                                   class="col-sm-2 control-label no-padding-right">市场价</label>
                                             <div class="col-sm-6">
-
-                                                <input type="file" name="pic" id="pic">
+                                                <input class="form-control" id="market_price" placeholder="" name="market_price"
+                                                       required="" type="text">
                                             </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="desc"
-                                                   class="col-sm-2 control-label no-padding-right">文章描述</label>
+                                            <label for="maketable"
+                                                   class="col-sm-2 control-label no-padding-right">是否上架</label>
+
+                                            <div class="col-xs-4">
+                                                <label>
+                                                    <input class="checkbox-slider slider-icon yesno" name="maketable"
+                                                           checked="checked" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="store"
+                                                   class="col-sm-2 control-label no-padding-right">库存</label>
                                             <div class="col-sm-6">
-                                                <textarea name="desc" class="form-control"></textarea>
+                                                <input class="form-control" id="store" placeholder=""
+                                                       name="store" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="freez"
+                                                   class="col-sm-2 control-label no-padding-right">是否冻结库存</label>
+
+                                            <div class="col-xs-4">
+                                                <label>
+                                                    <input class="checkbox-slider slider-icon yesno" name="freez"
+                                                           checked="checked" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </div>
                                         </div>
 
                                         <div class="form-group">
@@ -406,11 +445,10 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="author"
-                                                   class="col-sm-2 control-label no-padding-right">作者</label>
+                                            <label for="desc"
+                                                   class="col-sm-2 control-label no-padding-right">商品描述</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="author" placeholder=""
-                                                       name="author" type="text">
+                                                <textarea name="desc" class="form-control"></textarea>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
@@ -418,12 +456,12 @@
 
 
                                         <div class="form-group">
-                                            <label for="state"
-                                                   class="col-sm-2 control-label no-padding-right">是否推荐</label>
+                                            <label for="is_hot"
+                                                   class="col-sm-2 control-label no-padding-right">是否热销</label>
 
                                             <div class="col-xs-4">
                                                 <label>
-                                                    <input class="checkbox-slider slider-icon yesno" name="state"
+                                                    <input class="checkbox-slider slider-icon yesno" name="is_hot"
                                                            checked="checked" type="checkbox">
                                                     <span class="text"></span>
                                                 </label>
@@ -431,10 +469,37 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label for="is_new"
+                                                   class="col-sm-2 control-label no-padding-right">是否新品</label>
+
+                                            <div class="col-xs-4">
+                                                <label>
+                                                    <input class="checkbox-slider slider-icon yesno" name="is_new"
+                                                           checked="checked" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="recycle"
+                                                   class="col-sm-2 control-label no-padding-right">是否删除</label>
+
+                                            <div class="col-xs-4">
+                                                <label>
+                                                    <input class="checkbox-slider slider-icon yesno" name="recycle"
+                                                           checked="checked" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
                                             <label for="content"
-                                                   class="col-sm-2 control-label no-padding-right">文章内容</label>
+                                                   class="col-sm-2 control-label no-padding-right">商品内容</label>
                                             <div class="col-sm-6">
-                                                <textarea name="content" id="content"  ></textarea>
+                                                <textarea name="content" id="content"></textarea>
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
