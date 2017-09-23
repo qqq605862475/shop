@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\Common\header.html";i:1506129743;}*/ ?>
 
 <div class="bar"></div>
 
@@ -318,10 +319,10 @@
             <div class="small-signin login_2193">
                 <ul>
                     <li>
-                        <a href="{:url('Login/index')}">登入</a>
+                        <a href="<?php echo url('Login/index'); ?>">登入</a>
                     </li>
                     <li>
-                        <a href="{:url('Register/index')}">注册</a>
+                        <a href="<?php echo url('Register/index'); ?>">注册</a>
                     </li>
                 </ul>
             </div>

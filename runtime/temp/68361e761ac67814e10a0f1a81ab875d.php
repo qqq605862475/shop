@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\login\login.html";i:1506131355;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <link href="__STATIC__/index/style/login.css" type="text/css" rel="stylesheet">
 </head>
 <body style="height: 200px">
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 <div class="login-container">
     <div class="login-left">
         <div class="login-title1">登录</div>
@@ -31,6 +32,6 @@
     </div>
 </div>
 
-{:widget('Common/footer')}
+<?php echo widget('Common/footer'); ?>
 </body>
 </html>

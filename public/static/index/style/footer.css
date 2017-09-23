@@ -1,11 +1,12 @@
 footer {
     width: 100%;
-    height: 930px;
+    height: 850px;
     /*border:1px solid red;*/
     position: relative;
     bottom: 350px;
     background-size: 100%;
     padding-top: 80px;
+
 }
 
 .f1 {
@@ -37,6 +38,7 @@ footer {
     line-height: 26px;
     margin-left: 7%;
     font-weight: bold;
+    font-size: 14px;
 
 }
 
@@ -65,6 +67,7 @@ footer {
 
 .m1 a {
     font-weight: bold;
+    font-size: 14px;
 }
 
 .footer_lr {
@@ -99,7 +102,7 @@ footer {
 
 .footerBottom {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     color: rgba(97, 94, 94, 0.81);
     text-align: center;
     width: 100%;

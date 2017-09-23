@@ -1,3 +1,4 @@
+
 .bar {
     background-color: #15374a;
     height: 10px;
@@ -27,10 +28,12 @@ header{
     border: none;
     position: relative;
     left: 40px;
+
 }
 header a {
     display: block;
     position: relative;
+
 }
 .ym_hd_buttonHead {
     display: block;
@@ -94,6 +97,7 @@ a {
     background-color: transparent;
     color: #143749;
     text-decoration: none;
+
 }
 header a:hover{
     color: rgb(115,135,146);

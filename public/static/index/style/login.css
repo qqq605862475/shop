@@ -5,10 +5,9 @@
 
 .login-container {
     width: 1200px;
-    min-width: 1200px;
     padding-top: 15px;
     margin: 0 auto;
-    height: 920px;
+    height: 900px;
 }
 
 .login-left {
