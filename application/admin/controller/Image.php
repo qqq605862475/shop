@@ -45,10 +45,12 @@ class Image extends Base{
         //获取传来的id
         $id= input('id');
 
+
        //操作数据库
         $res=ImageModel::del($id);
-        dump($res);
-        exit;
+
+
+
 
 
         //判断删除是否成功
@@ -91,6 +93,20 @@ class Image extends Base{
                 if ($arr['status']=='success'){
                     //把图片路径放入数据库
                     $data['image_url']=$arr['url'];
+
+                    $pic = \think\Image::open('.'.$data['image_url']);
+                    $dirName=dirname($data['image_url']);//路径名
+                    $baseName=basename($data['image_url']);//文件名
+
+
+                    $pic->thumb(650, 650)->save('.'.$dirName.'/650_'.$baseName);
+
+                    $data['image_b_url']=$dirName.'/650_'.$baseName;
+
+                    $pic->thumb(250, 250)->save('.'.$dirName.'/250_'.$baseName);
+                    $data['image_m_url']=$dirName.'/250_'.$baseName;
+                    $pic->thumb(100, 100)->save('.'.$dirName.'/100_'.$baseName);
+                    $data['image_s_url']=$dirName.'/100_'.$baseName;
                 }else{
                     //返回错误信息
                     return $this->error($arr['msg']);

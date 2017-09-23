@@ -75,16 +75,19 @@ class Image extends Model{
         $picData=\db('image')->field('image_url')->find($id);
         $pic=$picData['image_url'];
 
+        $goods_id=db('image')->find($id);
 
         //unlink删除文件
         //把绝对路径转为相对路径
         @unlink('.'.$pic);
 
+
         $res=db('image')->delete($id);
+
 
         return [
             'res'=>$res,
-            'id'=>$id
+            'id'=>$goods_id['goods_id']
         ];
     }
 
