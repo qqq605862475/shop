@@ -15,10 +15,10 @@ class Base extends Controller{
     public function _initialize()
     {
         parent::_initialize();
-        $member = session('member');
-        if (empty($member) || !isset($member)) {
-            return $this->error('请先登录', url('Login/login'));
-        }
+//        $member = session('member');
+//        if (empty($member) || !isset($member)) {
+//            return $this->error('请先登录', url('Login/login'));
+//        }
     }
 
 
