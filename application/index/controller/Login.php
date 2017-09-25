@@ -15,4 +15,5 @@ class Login extends Base
        return $this->fetch('login');
     }
 
-}
+
+    }
