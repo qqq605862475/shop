@@ -14,7 +14,6 @@ span {
 .car-container {
   padding-top: 20px;
   width: 1020px;
-  height: 850px;
   margin: 0 auto;
 }
 
@@ -36,14 +35,11 @@ span {
 }
 
 .car-wrap {
-  position: relative;
-  width: 1020px;
-  height: 260px;
+
 
 }
 
-.goods-wrap {
-
+.order-single {
   height: 210px;
 }
 
@@ -59,22 +55,19 @@ span {
   background-color: white;
 }
 
-table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-tr {
+ul {
   border: solid 2px #d7dbdc;
   border-bottom: 0;
+  width: 1020px;
 }
 
-td {
+.car-container ul li {
+  float: left;
+  list-style: none;
   padding-top: 8px;
   padding-bottom: 8px;
   width: 150px;
+
 }
 
 .td-first {
@@ -86,7 +79,7 @@ td {
 }
 
 .trBody {
-  height: 73px;
+  height: 3px;
 }
 
 .quantity {
@@ -119,11 +112,10 @@ td {
   border-right: 1px solid #afc5cd;
 }
 
-ul li {
+.trFoot {
   background-color: rgba(174, 196, 205, 0.25);
   border-radius: 10px;
-padding: 20px;
-  list-style: none;
+  padding: 20px;
   width: 980px;
   height: 100px;
 }
@@ -141,7 +133,7 @@ button{
   margin-left: 68%;
 }
 
-tfoot p {
+.trFoot p {
   width: 42%;
   text-align: left;
   float: right;
@@ -165,7 +157,7 @@ tfoot p {
   border: 0;
   height: 40px;
   min-width: 200px;
-  background: url(icon_cart_white.png) no-repeat #15374a;
+  background: url(../ym_icon_cart.png) no-repeat #15374a;
   background-size: 22px;
   background-position: 15px 9px;
   display: block;

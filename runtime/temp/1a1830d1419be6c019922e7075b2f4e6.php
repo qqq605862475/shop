@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\footer.html";i:1506131283;}*/ ?>
-<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg)">
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\footer.html";i:1506157989;}*/ ?>
+<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg)" >
     <div class="f1">
         <div class="footer_lf">
             <div class="footerlogo">

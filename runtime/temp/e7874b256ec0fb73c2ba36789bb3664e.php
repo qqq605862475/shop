@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506131283;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506157989;}*/ ?>
 
 <div class="bar"></div>
 
@@ -319,20 +319,20 @@
             <div class="small-signin login_2193">
                 <ul>
                     <li>
-                        <a href="/passport-login.html">登入</a>
+                        <a href="<?php echo url('Login/index'); ?>">登入</a>
                     </li>
                     <li>
-                        <a href="/passport-signup.html">注册</a>
+                        <a href="<?php echo url('Register/index'); ?>">注册</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class='ym_hd_cart'>
+    <div class="ym_hd_cart">
         <div class="minicart has-minicart" id="minicart_2193">
 
-            <a href="/cart.html" class="ics minicart-text" style="background-image: url(__STATIC__/index/img/ym_icon_cart.png)"><span style='display:none'>购物篮</span></a>
+            <a href="/cart.html" class="ics minicart-text" style="background-image: url(__STATIC__/index/img/ym_icon_cart.png)"><span style="display:none">购物篮</span></a>
             <b class="ics op-cart-number  minicart-info">0</b>
             <span class="ics arr"></span>
             <div class="minicart-cont" style="height: auto;">
