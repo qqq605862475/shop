@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506151084;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506318770;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,255 +7,11 @@
     <link rel="stylesheet" href="__STATIC__/index/animate.css">
     <link href="__STATIC__/index/style/header.css" type="text/css" rel="stylesheet"/>
     <link href="__STATIC__/index/style/footer.css" type="text/css" rel="stylesheet"/>
-
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        main{
-            width: 100%;
-            /*border: 1px solid red;*/
-        }
-        .top{
-            margin: auto;
-            position: relative;
-            min-height: 500px;
-            width: 1200px;
-
-            /*border: 1px solid red;*/
-        }
-        .top_lf{
-            width: 800px;
-            height: 447px;
-            border: 1px solid red;
-            float: left;
-
-        }
-        .top_lr{
-            width: 360px;
-            height: 447px;
-            /*border: 1px solid red;*/
-            float: right;
-            font-weight: bold;
-        }
-        .keywords{
-            font-size: 12px;
-        }
-        .img_1{
-            font-size: 14px;
-            position: absolute;
-            right: 0;
-            font-family: 'Din-bold';
-            background: url(__STATIC__/index/img/bkg_rating.png) no-repeat;
-            width: 37px;
-            height: 39px;
-            background-size: 37px;
-            text-align: center;
-            line-height: 39px;
-        }
-        .name{
-            float: left;
-            line-height: 1.42857143;
-            font-size: 20px;
-        }
-        .desc{
-            float: left;
-            margin-top: 20px;
-        }
-        .desc span{
-            font-size: 14px;
-            line-height: 24px;
-            font-weight: normal;
-            color: #47515c;
-        }
-        .sell_price{
-            font-size: 32px;
-            font-family: 'Static-Bold';
-            height: 36px;
-            font-style: normal;
-            line-height: 1.42857143;
-
-        }
-        .store{
-            border-top: 1px solid #d6e2e6;
-            border-bottom: 1px solid #d6e2e6;
-            width: 360px;
-            height: 50px;
-            float: left;
-            padding-bottom: 5px;
-            padding-top: 5px;
-            margin-bottom: 10px;
-        }
-        .kucun{
-            padding-right: 10px;
-            padding-left: 10px;
-            height: 46px;
-            /*border: 1px solid red;*/
-            width: 98px;
-            float: left;
-            position: relative;
-        }
-        .stitle{
-            overflow: hidden;
-            text-align: left;
-            color: rgba(21, 55, 74, 0.51);
-            font-size: 11px;
-        }
-        .svalue{
-            font-family: 'Static-Bold';
-            letter-spacing: 1px;
-            position: absolute;
-            right: 18px;
-            bottom: 0px;
-            font-size: 16px;
-            color: rgba(21, 55, 74, 0.67);
-        }
-        .shop{
-            padding-bottom: 5px;
-            padding-top: 5px;
-            width: 360px;
-            height: 70px;
-            /*border: 1px solid red;*/
-            float: left;
-        }
-        .number{
-            width: 180px;
-            height: 40px;
-            float: left;
-            /*border: 1px solid red;*/
-        }
-        .num_lf,.num_lr{
-            background: #fff;
-            width: 40px;
-            height: 40px;
-            color: #AFC5CD;
-            font-size: 21px;
-            font-weight: bold;
-            border: 1px solid #AFC5CD;
-            line-height: 40px;
-            float: left;
-            text-align: center;
-            cursor: pointer;
-
-        }
-        .number input{
-            width: 80px;
-            text-align: center;
-            height: 40px;
-            line-height: 40px;
-            color: #666;
-            background: none;
-            border: 1px solid #AFC5CD;
-            border-left: 0;
-            border-right: 0;
-            font-family: 'Din-Bold';
-            float: left;
-            font-size: 14px;
-        }
-        .car{
-            word-break: break-all;
-            word-wrap: break-word;
-            float: left;
-            width: 180px;
-            height: 40px;
-        }
-        .car button{
-            color: #fff;
-            border: 0;
-            padding-left: 41px;
-            height: 40px;
-            width: 100%;
-            border-radius: 0;
-            background: url(__STATIC__/index/img/icon_cart_white.png) no-repeat #15374a;
-            background-size: 22px;
-            background-position: 15px 9px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .bottom{
-            margin: auto;
-            position: relative;
-            min-height: 500px;
-            width: 1200px;
-            /*border: 1px solid red;*/
-        }
-        .bo_lf{
-            width: 800px;
-
-            float: left;
-            border: 1px solid red;
-        }
-        .bo_lr{
-            width: 360px;
-
-            float:right;
-            border: 1px solid red;
-        }
-        .b_title{
-            border-bottom: 1px solid #d6e2e6;
-            line-height: 40px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        .lis li{
-            list-style: none;
-            width: 100%;
-            height: 30px;
-            /*border: 1px solid red;*/
-            margin-bottom: 10px;
-            line-height: normal;
-        }
-        .pi li{
-            list-style: none;
-            width: 43%;
-            height: 250px;
-            /*border: 1px solid red;*/
-            margin-bottom: 10px;
-            line-height: normal;
-            float: left;
-            margin-right: 20px;
-        }
-        .titl{
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 10px;
-
-        }
-        .key a{
-            font-size: 12px;
-            color: rgba(79, 98, 105, 0.5);
-            font-weight: bold;
-            display: inline-block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 50%;
-            line-height: 24px;
-            margin-left: 20%;
-        }
-        .price{
-            display: block;
-            font-weight: normal;
-            margin-right: 10px;
-            color: #8cb69e;
-            margin-bottom: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            padding-left: 30%;
-            font-size: 14px;
-        }
+    <link href="__STATIC__/index/style/article.css" type="text/css" rel="stylesheet"/>
+    <script src="__STATIC__/index/jquery-1.8.3.min.js"></script>
 
 
 
-
-
-
-    </style>
 </head>
 <body style="height:100px">
 <?php echo widget('Common/header'); ?>
@@ -264,7 +20,29 @@
     <div class="top">
         <div class="top_lf">
             <!--  商品相册  -->
-            <div class="pic"></div>
+            <div class="pic">
+                <a href="#" style="background-image:url(__STATIC__/index/img/i1.jpg);opacity: 1"></a>
+                <a href="#" style="background-image:url(__STATIC__/index/img/i2.jpg)" ></a>
+                <a href="#" style="background-image:url(__STATIC__/index/img/i3.jpg)" ></a>
+                <a href="#" style="background-image:url(__STATIC__/index/img/i4.jpg)"></a>
+            </div>
+            <div class="big">
+                <a href="#" style="background-image:url(__STATIC__/index/img/b1.jpg);display: block" ></a>
+                <a href="#" style="background-image:url(__STATIC__/index/img/b2.jpg)" ></a>
+                <a href="#" style="background-image:url(__STATIC__/index/img/b3.jpg)" ></a>
+                <a href="#" style="background-image:url(__STATIC__/index/img/b4.jpg)"></a>
+            </div>
+            <script>
+                $(".pic a").hover(function () {
+                    var i=$(this).index();
+//                    console.log(i);
+                    $(this).css({"opacity":"1"}).siblings().css({"opacity":"0.3"});
+                    $(".big a").eq(i).css({"display":"block"}).siblings().css({"display":"none"});
+                });
+
+
+            </script>
+
 
         </div>
         <div class="top_lr">
