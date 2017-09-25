@@ -32,5 +32,14 @@ class Common extends Controller {
         return $this->fetch('common/ae');
 
     }
+    public function memberList(){
 
+        return $this->fetch('common/memberList');
+
+    }
+    public function memberAe(){
+
+        return $this->fetch('common/memberAe');
+
+    }
 }

@@ -15,7 +15,7 @@ class Admin extends Controller{
                 ->paginate(3);
         }else{
             $data=db($name)
-                ->where('manager_id',$id)
+                ->where($name.'_id',$id)
                 ->paginate(3);
         }
         if(!isset($data)){
@@ -29,8 +29,8 @@ class Admin extends Controller{
         ];
     }
 //    用户添加
-    static public function addData($data){
-       $rul=db('manager')->insert($data);
+    static public function addData($name,$data){
+       $rul=db($name)->insert($data);
         if ($rul!==false) {
             return [
                 'state'=>'succeed',
@@ -44,8 +44,8 @@ class Admin extends Controller{
         }
     }
 //    用户修改
-    static public function editData($data){
-        $rul=db('manager')->update($data);
+    static public function editData($name,$data){
+        $rul=db($name)->update($data);
         if ($rul!==false) {
             return [
                 'state'=>'succeed',
@@ -59,8 +59,8 @@ class Admin extends Controller{
         }
     }
 //    用户删除
-    static public function delData($id){
-        $rul=db('manager')->delete($id);
+    static public function delData($name,$id){
+        $rul=db($name)->delete($id);
         if ($rul!==false) {
             return [
                 'state'=>'succeed',
@@ -71,6 +71,39 @@ class Admin extends Controller{
                 'state'=>'error',
                 'msg'=>'删除失败',
             ];
+        }
+    }
+
+    static function upload($filename)
+    {
+        // 获取表单上传文件 例如上传了001.jpg
+        $file = request()->file($filename);
+
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        if ($file) {
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if ($info) {
+                // 成功上传后 获取上传信息
+                // 输出 jpg
+//                echo $info->getExtension();
+                // 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
+                $url = '/uploads/' . $info->getSaveName();
+                $url = str_replace('\\', '/', $url);
+                return [
+                    'status' => 'success',
+                    'url' => $url
+                ];
+//                echo $info->getSaveName();
+                // 输出 42a79759f284b767dfcb2a0197904287.jpg
+//                echo $info->getFilename();
+            } else {
+                // 上传失败获取错误信息
+//                echo $file->getError();
+                return [
+                    'status' => 'error',
+                    'msg' => $file->getError()
+                ];
+            }
         }
     }
 }
