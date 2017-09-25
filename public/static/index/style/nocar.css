@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.nocar-container{
+  padding-top: 20px;
+  width: 1020px;
+  height: 750px;
+  margin: 0 auto;
+}
+.nocar-title{
+  height: 50px;
+}
+.nocar-title a{
+  padding-left: 42px;
+  background: url("../image/ym_icon_cart.png") no-repeat;
+  background-size: 29px;
+  background-position: left center;
+  font-weight: bold;
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 21px;
+  letter-spacing: 2px;
+  margin: 20px auto;
+
+}
+.nocar-wrap{
+  position: relative;
+  width: 1020px;
+  height: 260px;
+  text-align: center;
+  background-color:#efefef;
+}
+.nocar-wrap img{
+  width: 44px;
+  position: absolute;
+  top: 85px;
+  left: 490px;
+}
+.nocar-wrap p{
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 300px;
+  color: #15374a;
+}

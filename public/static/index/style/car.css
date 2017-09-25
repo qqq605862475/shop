@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #15374a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+span {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.car-container {
+  padding-top: 20px;
+  width: 1020px;
+  height: 850px;
+  margin: 0 auto;
+}
+
+.car-title {
+  height: 50px;
+}
+
+.car-title a:first-child {
+  padding-left: 42px;
+  background: url("../image/ym_icon_cart.png") no-repeat;
+  background-size: 29px;
+  background-position: left center;
+  font-weight: bold;
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 21px;
+  letter-spacing: 2px;
+  margin: 20px auto;
+
+}
+
+.car-wrap {
+  position: relative;
+  width: 1020px;
+  height: 260px;
+
+}
+
+.goods-wrap {
+
+  height: 210px;
+}
+
+.trHead {
+  height: 50px;
+}
+
+.cb {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: solid 2px #efefef;
+  background-color: white;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+tr {
+  border: solid 2px #d7dbdc;
+  border-bottom: 0;
+}
+
+td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 150px;
+}
+
+.td-first {
+  width: 490px;
+}
+
+.td-last {
+  width: 90px;
+}
+
+.trBody {
+  height: 73px;
+}
+
+.quantity {
+  width: 110px;
+  height: 28px;
+}
+
+.quantity span {
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #afc5cd;
+  border-radius: 4px 0 0 4px;
+  border-right: 0;
+  color: #afc5cd;
+  font-size: 14px;
+}
+
+.quantity .myquantity {
+  width: 40px;
+  font-family: 'Din-Bold';
+  font-size: 18px;
+  color: #15374a;
+}
+
+.quantity span:last-child {
+  border-right: 1px solid #afc5cd;
+}
+
+ul li {
+  background-color: rgba(174, 196, 205, 0.25);
+  border-radius: 10px;
+padding: 20px;
+  list-style: none;
+  width: 980px;
+  height: 100px;
+}
+
+.tf1 {
+  float: left;
+  width: 323px;
+}
+button{
+  padding: 5px;
+}
+.tf2 {
+  float: left;
+  width: 323px;
+  margin-left: 68%;
+}
+
+tfoot p {
+  width: 42%;
+  text-align: left;
+  float: right;
+  margin-left: 50%;
+  margin-bottom: 0px;
+  margin: 0 0 10px;
+}
+
+.tf3 {
+  width: 254px;
+  float: right;
+}
+
+.tf3 .tfootPrice {
+  font-size: 28px;
+}
+
+.ym_button_important {
+  width: 240px;
+  color: #fff;
+  border: 0;
+  height: 40px;
+  min-width: 200px;
+  background: url(icon_cart_white.png) no-repeat #15374a;
+  background-size: 22px;
+  background-position: 15px 9px;
+  display: block;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+
+}
+
+.amount-wrap {
+  width: 250px;
+  height: 210px;
+  float: right;
+  background-color: #efefef;
+}

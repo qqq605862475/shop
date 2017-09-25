@@ -7,9 +7,8 @@
  */
 namespace app\index\controller;
 
-use think\Controller;
 
-class Login extends Controller
+class Login extends Base
 {
     public function index()
     {
