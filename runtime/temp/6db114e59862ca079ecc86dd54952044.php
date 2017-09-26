@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506157989;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506326374;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

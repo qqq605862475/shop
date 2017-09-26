@@ -20,6 +20,14 @@ class Base extends Controller{
 //            return $this->error('请先登录', url('Login/login'));
 //        }
     }
-
+//判断会员是否登录
+    public function isLogin(){
+        $index=session('index');
+        if(!empty($index)){
+            return $index;
+        }else{
+            return false;
+        }
+    }
 
 }
