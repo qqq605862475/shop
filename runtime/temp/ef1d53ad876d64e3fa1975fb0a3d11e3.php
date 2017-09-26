@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/index\view\index\goods.html";i:1506247146;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/index\view\index\goods.html";i:1506409570;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +29,7 @@
                         <div class="goods_pic">
                             <img src="__STATIC__/index/img/hot.png" class="goods_pic_odds">
                             <a href="<?php echo url('index/product',['goods_id'=>$v['goods_id']]); ?>" target="_blank">
-                                <div style="background-image: url('<?php echo $v['image_b_url']; ?>');height: 180px;" class="goods_pic_content"></div>
+                                <div style="background-image: url('<?php echo $v['image_url']; ?>');height: 180px;" class="goods_pic_content"></div>
                             </a>
                             <div class="btn_add_reduce" style="display: none">
                                 <span class="num_show">0</span>
@@ -52,9 +52,9 @@
                 </div>
       <?php endforeach; ?>
    </div>
-<script src="__STATIC__/index/js/jquery-3.2.1.js"></script>
-<script src="__STATIC__/index/js/ym-heard.js"></script>
-<script src="__STATIC__/index/js/yimi-home.js"></script>
-<script src="__STATIC__/index/js/yimi-products.js"></script>
+   <script src="__STATIC__/index/js/jquery-3.2.1.js"></script>
+   <script src="__STATIC__/index/js/ym-heard.js"></script>
+   <script src="__STATIC__/index/js/yimi-home.js"></script>
+   <script src="__STATIC__/index/js/yimi-products.js"></script>
 </body>
 </html>

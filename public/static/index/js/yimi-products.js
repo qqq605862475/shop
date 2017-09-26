@@ -75,38 +75,20 @@ $(function () {
         var cateName=$(this).text();
         var on=$(this).children("span").hasClass("select");
         if(on){
-            cateName=cateName.trim();
-            console.log(cateName);
-            if(queryPart.indexOf(cateName)==-1){
+               cateName=cateName.trim();
                 queryPart+=","+cateName;
                 queryPart=queryPart.split(",");
-            }
-            $.ajax({
-                type: "GET",//数据发送的方式（post 或者 get）
-                url: "{:url('Index/load')}",
-                data:{val1:"我的大中国"},//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
-                dataType: "json",//后台处理后返回的数据格式
-                success: function (data) {//ajax请求成功后触发的方法
-                    // alert('请求成功');
-                },
-                error: function (msg) {//ajax请求失败后触发的方法
-                    alert(msg);//弹出错误信息
-                }
-            });
             window.open('http://ldx.com/index.php/index/Index/load/cateName/'+queryPart,'goods_wrap');
         }
         else {
-            console.log(cateName);
             cateName=cateName.trim();
             queryPart.splice(queryPart.indexOf(cateName),1);
             window.open('http://ldx.com/index.php/index/Index/load/cateName/'+queryPart,'goods_wrap');
-
         }
-        console.log(queryPart);
     });
     $("#cat_list>li>#emptyGoods").click(function () {//清空
+       queryPart=[pidname];
         $(this).parent().siblings().find("span").removeClass("select");//清除class属性值
-        window.open('http://ldx.com/index.php/index/Index/load/cateName/'+[pidname],'goods_wrap');
+        window.open('http://ldx.com/index.php/index/Index/load/cateName/'+queryPart,'goods_wrap');
     });
-
 });

@@ -45,7 +45,7 @@ $(function () {
             coverBg.fadeOut();
         }
         num.animate({top:0,opacity:1}).text(redu);
-    })
+    });
     addBtn.click(function () {
         var num=$(this).siblings(".btn_add_reduce").children().first();
         var coverBg=$(this).siblings(".hover_bg");
