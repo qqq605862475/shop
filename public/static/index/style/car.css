@@ -1,27 +1,23 @@
-* {
+*{
   margin: 0;
   padding: 0;
   color: #15374a;
-  font-size: 14px;
   font-weight: 600;
 }
 
-span {
-  display: inline-block;
-  font-size: 15px;
-}
-
 .car-container {
+  /*border: 1px solid red;*/
   padding-top: 20px;
   width: 1020px;
   margin: 0 auto;
 }
 
 .car-title {
+
   height: 50px;
 }
 
-.car-title a:first-child {
+.car-title h1{
   padding-left: 42px;
   background: url("../image/ym_icon_cart.png") no-repeat;
   background-size: 29px;
@@ -31,63 +27,157 @@ span {
   font-size: 21px;
   letter-spacing: 2px;
   margin: 20px auto;
-
-}
-
-.car-wrap {
-
-
-}
-
-.order-single {
-  height: 210px;
-}
-
-.trHead {
-  height: 50px;
-}
-
-.cb {
+  /*border: 1px solid red;*/
   display: inline-block;
+}
+.step_img{
+  width: 30px;
+  height: 32px;
+  /*border: 1px solid red;*/
+  background-image: url(../img/icon_step_arrow.png);
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+}
+.a1{
+  width: 50px;
+  height:50px;
+  display: block;
+  /*background-image: url(../img/cart-item-bkg.png);*/
+  background-size: 42px;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.img1{
+  width:50px;
+  vertical-align: middle;
+}
+.a2{
+  margin-left: 20px;
+}
+.a3{
+  display: block;
+  position: relative;
+  background-color: #afc5cd;
+  background-image: url(../img/icon_delete.png);
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 28px;
+  border-radius: 19px;
+  float: left;
+  background-position: center;
+  background-size: 14px;
+}
+.a4{
+  color: #fff;
+  border: 0;
+  /* padding-left: 41px; */
+  height: 40px;
+  min-width: 200px;
+  background: url(../img/icon_cart_white.png) no-repeat #15374a;
+  background-size: 22px;
+  background-position: 15px 9px;
+  display: block;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.a4:hover{
+  text-decoration: none;
+}
+.step {
+  width: 265px;
+  height: 32px;
+  /*border: 1px solid red;*/
+  float: right;
+  margin: 20px auto;
+}
+
+.step1 {
+  width: 67px;
+  height: 32px;
+  border-bottom: 3px solid #e98772;
+  float: left;
+}
+
+.step1 a {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.step1 a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.step_number {
+  font-family: 'Sentinel-BoldItalic';
+  margin-right: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.tab {
+  /*border: 1px solid red;*/
+  width: 1020px;
+  margin: 0 auto;
+}
+
+table {
+
+  font-weight: bold;
+  font-size: 14px;
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  line-height: 40px;
+
+}
+
+th {
+  text-align: left;
+  /*border: 1px solid red;*/
+}
+
+input[type=checkbox] {
   width: 20px;
   height: 20px;
-  border: solid 2px #efefef;
-  background-color: white;
+  position: relative;
+  outline: none;
+  vertical-align: -8px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  bottom: 2px;
 }
 
-ul {
-  border: solid 2px #d7dbdc;
-  border-bottom: 0;
-  width: 1020px;
+.t1, .t2 {
+  border-top: 1px solid #d7dbdc;
+  border-left: 1px solid #d7dbdc;
+  border-right: 1px solid #d7dbdc;
 }
 
-.car-container ul li {
-  float: left;
-  list-style: none;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width: 150px;
-
+.t2 td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  vertical-align: inherit;
 }
 
-.td-first {
-  width: 490px;
-}
-
-.td-last {
-  width: 90px;
-}
-
-.trBody {
-  height: 3px;
-}
-
-.quantity {
-  width: 110px;
+.price {
+  width: 100px;
   height: 28px;
+  /*border: 1px solid red;*/
 }
 
-.quantity span {
+.p_lf {
   width: 30px;
   height: 30px;
   display: block;
@@ -101,76 +191,134 @@ ul {
   font-size: 14px;
 }
 
-.quantity .myquantity {
-  width: 40px;
+.p_lf span, .p_lr span {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: bold;
+  line-height: 25px;
+  -webkit-font-smoothing: antialiased;
+  font-size: 25px;
+  color: #afc5cd;
+}
+
+.p_mid {
+  width: 35px;
+  height: 30px;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #afc5cd;
   font-family: 'Din-Bold';
   font-size: 18px;
-  color: #15374a;
+
 }
 
-.quantity span:last-child {
-  border-right: 1px solid #afc5cd;
+.p_lr {
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #afc5cd;
+  border-radius: 0 4px 4px 0;
+  border-left: 0;
+  color: #afc5cd;
+  font-size: 14px;
 }
 
-.trFoot {
+tfoot {
+  width: 1019px;
+  height: 101px;
   background-color: rgba(174, 196, 205, 0.25);
   border-radius: 10px;
-  padding: 20px;
-  width: 980px;
-  height: 100px;
+  /*border: 1px solid red;*/
+  display: table-footer-group;
+  vertical-align: middle;
+
 }
 
-.tf1 {
-  float: left;
-  width: 323px;
-}
-button{
-  padding: 5px;
-}
-.tf2 {
-  float: left;
-  width: 323px;
-  margin-left: 68%;
+tfoot td {
+  padding: 20px 20px 0 20px;
 }
 
-.trFoot p {
+.t3, .t4 {
+  float: left;
+  width: 33%;
+  /*border: 1px solid red;*/
+}
+
+.t3 button {
+  margin-right: 10px;
+  color: #15374a;
+  font-weight: bold;
+  text-shadow: none;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.t4 {
+  margin-left: 7%;
+}
+
+.t4 p {
   width: 42%;
   text-align: left;
   float: right;
   margin-left: 50%;
   margin-bottom: 0px;
-  margin: 0 0 10px;
 }
 
-.tf3 {
-  width: 254px;
+.t5 {
+  width: 26%;
   float: right;
 }
 
-.tf3 .tfootPrice {
-  font-size: 28px;
+.pay {
+  float: right;
+  width: 25%;
+  height: 260px;
+  margin-bottom: 50px;
+  /*border: 1px solid red;*/
 }
 
-.ym_button_important {
-  width: 240px;
-  color: #fff;
+.pay h3 {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.pay ul {
+  border: 1px solid gainsboro;
+  padding: 10px;
+}
+
+.pay li {
+  line-height: 30px;
+  font-weight: bold;
+  overflow: auto;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
   border: 0;
-  height: 40px;
-  min-width: 200px;
-  background: url(../ym_icon_cart.png) no-repeat #15374a;
-  background-size: 22px;
-  background-position: 15px 9px;
-  display: block;
-  line-height: 40px;
-  text-align: center;
-  text-decoration: none;
+  border-top: 1px solid #eee;
+}
+.pay button{
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
   border-radius: 3px;
-
+  text-shadow: 0 1px 0 #fff;
+  border-color: #ccc;
+  background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+  margin-top: 10px;
 }
 
-.amount-wrap {
-  width: 250px;
-  height: 210px;
-  float: right;
-  background-color: #efefef;
-}
+

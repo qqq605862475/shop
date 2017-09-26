@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\index\index.html";i:1506131574;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\index\index.html";i:1506407412;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="__STATIC__/index/animate.css">
     <link href="__STATIC__/index/style/header.css" type="text/css" rel="stylesheet"/>
     <link href="__STATIC__/index/style/footer.css" type="text/css" rel="stylesheet"/>
+
+
 
 
     <style type="text/css">
@@ -19,7 +21,7 @@
 
         body {
             font-family: "Microsoft Yahei", "Hiragino Sans GB", Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
+             -webkit-font-smoothing: antialiased;
             color: #0d3749;
             font-size: 14px;
             line-height: 1.5;
@@ -128,9 +130,17 @@
             font-weight: normal;
         }
 
-        .cc, .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9 {
+        .cc,.c1,.c2{
             width: 1200px;
-            height: 722px;
+            height: 650px;
+            border-top: 2px solid #d6e2e6;
+            clear: both;
+            margin: 380px auto;
+        }
+
+          .c3, .c4, .c5, .c6, .c7, .c8, .c9 {
+            width: 1200px;
+            height: 540px;
             border-top: 2px solid #d6e2e6;
             clear: both;
             margin: 380px auto;
@@ -240,7 +250,7 @@
             text-align: center;
             /*border: 1px solid red;*/
             list-style: none;
-            margin-right: 45px;
+            margin-right: 34px;
             margin-bottom: 20px;
         }
 
@@ -248,56 +258,15 @@
             width: 180px;
             height: 180px;
             /*border: 1px solid red;*/
-            background: url("__STATIC__/index/img/img1.jpg")no-repeat;
-            background-size: 180px 180px;
+            background: url("__STATIC__/index/img/img1.jpg")no-repeat center;
+            background-size: auto 180px;
+            background-position:-40px 0 ;
             text-align: left;
             position: relative;
+            overflow: hidden;
         }
 
-        .c1 .img1 {
-            background: url("__STATIC__/index/img/c12.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
 
-        .c2 .img1 {
-            background: url("__STATIC__/index/img/c21.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c3 .img1 {
-            background: url("__STATIC__/index/img/c31.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c4 .img1 {
-            background: url("__STATIC__/index/img/c41.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c5 .img1 {
-            background: url("__STATIC__/index/img/c51.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c6 .img1 {
-            background: url("__STATIC__/index/img/c61.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c7 .img1 {
-            background: url("__STATIC__/index/img/c71.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c8 .img1 {
-            background: url("__STATIC__/index/img/c81.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
-
-        .c9 .img1 {
-            background: url("__STATIC__/index/img/c91.jpg") no-repeat;
-            background-size: 180px 180px;
-        }
 
         .img1:hover .img2 {
             display: block;
@@ -589,10 +558,10 @@
         </div>
         <div class="lr">
             <ul>
+                <?php foreach($data as $v): ?>
                 <li>
-                    <div class="rank">2</div>
-                    <div class="img1"
-                    >
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)" >
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -608,199 +577,15 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>" target="_blank"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1" >
-                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1" >
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1" >
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-
+                <?php endforeach; ?>
             </ul>
-
         </div>
 
     </div>
@@ -814,217 +599,34 @@
         </div>
         <div class="lr">
             <ul>
+                <?php foreach($data as $v): ?>
                 <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-
+                <?php endforeach; ?>
             </ul>
-
         </div>
 
     </div>
@@ -1038,215 +640,59 @@
         </div>
         <div class="lr">
             <ul>
+                <?php foreach($goods as $v): if($v['goods_id'] == 1): ?>
                 <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
+                <?php endif; endforeach; foreach($goods as $v): if($v['goods_id'] == 3): ?>
                 <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-
+                <?php endif; endforeach; ?>
             </ul>
 
         </div>
@@ -1256,220 +702,39 @@
     <div class="c3" style="margin-top: -320px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c3.jpg">
+                <img src="__STATIC__/index/img/c3.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 4): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -1480,223 +745,41 @@
     <div class="c4" style="margin-top: -320px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c4.jpg">
+                <img src="__STATIC__/index/img/c4.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 2): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
+                <?php endif; endforeach; ?>
 
             </ul>
-
         </div>
 
     </div>
@@ -1704,220 +787,39 @@
     <div class="c5" style="margin-top: -320px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c5.jpg">
+                <img src="__STATIC__/index/img/c5.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 5): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -1928,220 +830,39 @@
     <div class="c6" style="margin-top: -320px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c6.jpg">
+                <img src="__STATIC__/index/img/c6.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 6): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -2152,220 +873,39 @@
     <div class="c7" style="margin-top: -320px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c7.jpg">
+                <img src="__STATIC__/index/img/c7.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 7): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -2376,220 +916,39 @@
     <div class="c8" style="margin-top: -320px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c8.jpg">
+                <img src="__STATIC__/index/img/c8.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 8): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -2597,229 +956,47 @@
 
     </div>
 
-    <div class="c9" style="margin-top: -320px">
+    <div class="c9" style="margin-top: -320px;margin-bottom:400px">
         <div class="lf">
             <div class="img3">
-                <img src="img/c9.jpg">
+                <img src="__STATIC__/index/img/c9.jpg">
             </div>
             <h3>更多新到尖货 >></h3>
         </div>
         <div class="lr">
             <ul>
-                <li>
-                    <div class="rank">2</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
+                <?php foreach($goods as $v): if($v['goods_id'] == 9): ?>
+                <li style="margin-top: 100px">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
+                        <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
                                 <span>0</span>
                             </div>
                             <div class="shu">
                                 <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
+                                    <img src="__STATIC__/index/img/ym_icon_decrease.png">
                                 </a>
                                 <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
+                                    <img src="__STATIC__/index/img/ym_icon_increase.png">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                <li>
-                    <div class="rank">3</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">4</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">5</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">6</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">7</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="rank">8</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-                <li style="margin-right: 0">
-                    <div class="rank">9</div>
-                    <div class="img1">
-                        <img src="img/特惠.png" style="width: 90px">
-                        <div class="img2">
-                            <div class="num">
-                                <span>0</span>
-                            </div>
-                            <div class="shu">
-                                <a href="javascript:void(0)" class="decrease">
-                                    <img src="img/ym_icon_decrease.png">
-                                </a>
-                                <a href="javascript:void(0)" class="increase">
-                                    <img src="img/ym_icon_increase.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3><a href="#">长的慢-食材好 A</a></h3>
-                    <div class="x1">
-                        <a href="#" title="一米市集严选">一米市集严选</a>
-                        <span>
-                             1组/份    </span>
-                        <h4>￥99.00</h4><h5>￥114.00</h5>
-                    </div>
-                </li>
-
+                <?php endif; endforeach; ?>
             </ul>
 
         </div>
 
-    </div>
+    </div >
 </div>
 
 
@@ -2836,7 +1013,7 @@
         $(".c9 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c9 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c9[cishu]++;
@@ -2862,7 +1039,7 @@
         $(".c8 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c8 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c8[cishu]++;
@@ -2888,7 +1065,7 @@
         $(".c7 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c7 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c7[cishu]++;
@@ -2914,7 +1091,7 @@
         $(".c6 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c6 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c6[cishu]++;
@@ -2939,7 +1116,7 @@
         $(".c5 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c5 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c5[cishu]++;
@@ -2964,7 +1141,7 @@
         $(".c4 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c4 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c4[cishu]++;
@@ -2989,7 +1166,7 @@
         $(".c3 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c3 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c3[cishu]++;
@@ -3016,7 +1193,7 @@
         $(".c2 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c2 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c2[cishu]++;
@@ -3038,12 +1215,12 @@
 
 
 //        //c1点击效果
-        var c1 = [0, 0, 0, 0, 0, 0, 0, 0];
+        var c1 = [0, 0, 0, 0, 0, 0, 0, 0,0];
 
         $(".c1 .increase").click(function () {
             var cishu = $(this).parents("li").index();
             $(".c1 .img2").eq(cishu).css({
-                "background": "url(img/black_sbg.png)no-repeat",
+                "background": "url(__STATIC__/index/img/black_sbg.png)no-repeat",
                 "background-size": "180px 180px"
             });
             c1[cishu]++;
@@ -3065,7 +1242,7 @@
 
 
 // 热购商品点击效果
-        var c = [0, 0, 0, 0, 0, 0, 0, 0];
+        var c = [0, 0, 0, 0, 0, 0, 0, 0,0];
 
         $(".cc .increase").click(function () {
             var cishu = $(this).parents("li").index();

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1506078478;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506058953;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1506332355;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506058953;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
