@@ -1,5 +1,6 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\admin\list.html";i:1506336982;}*/ ?>
 <!--挂件头部-->
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 </head>
 <!-- /头部 -->
 
@@ -9,38 +10,30 @@
 
         <!-- Page Sidebar -->
         <!--挂件菜单页-->
-        {:widget('Common/left')}
+        <?php echo widget('Common/left'); ?>
 
 
         <!-- /Page Sidebar -->
         <!-- Page Content -->
         <!--判断数据的状态切换模版-->
         <!--用户加载模版-->
-        {if condition="isset($indexData)"}
+        <?php if(isset($indexData)): ?>
         <!--挂件列表页-->
-        {:widget('Common/lis')}
-        {/if}
+        <?php echo widget('Common/lis'); endif; ?>
         <!--用户添加模版-->
-        {if condition="isset($aeData)"}
+        <?php if(isset($aeData)): ?>
         <!--挂件增改页-->
-        {:widget('Common/ae')}
-        {/if}
+        <?php echo widget('Common/ae'); endif; ?>
         <!-- /Page Content -->
         <!--用户加载-->
-        {if condition="isset($memberList)"}
+        <?php if(isset($memberList)): ?>
 
         <!--挂件列表页-->
-        {:widget('Common/memberList')}
-        {/if}
-
-        {if condition="isset($memberAe)"}
+        <?php echo widget('Common/memberList'); endif; if(isset($memberAe)): ?>
         <!--挂件增改页-->
-        {:widget('Common/memberAe')}
-        {/if}
-        {if condition="isset($memberaE)"}
+        <?php echo widget('Common/memberAe'); endif; if(isset($memberaE)): ?>
         <!--挂件增改页-->
-        {:widget('Common/memberAe')}
-        {/if}
+        <?php echo widget('Common/memberAe'); endif; ?>
     </div>
 </div>
 

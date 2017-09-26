@@ -34,9 +34,10 @@ class Admin extends Controller{
         return $this->fetch('common/ae');
 
     }
+    public function memberList(){
 
+        return $this->fetch('common/ae');
 
-
-
+    }
 
 }

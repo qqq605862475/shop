@@ -19,6 +19,7 @@ class Admin extends Base
   }
 //   添加用户
     public function add(){
+         $name='manager';
         //        判断是否为post模式接收数据
         if (request()->isPost()){
             $data=[
@@ -37,7 +38,7 @@ class Admin extends Base
                 return $this->error($validate->getError());//自动验证提示错误
             }
             $data['ip']= $_SERVER["REMOTE_ADDR"];
-            $rul=Kk::addData($data);
+            $rul=Kk::addData($name,$data);
 //            判断状态
             if ($rul['state']=='succeed') {
                 return $this->success($rul['msg'], ('Admin/index'));
@@ -60,6 +61,7 @@ class Admin extends Base
     }
 //    编辑用户
     public function edit(){
+        $name='manager';
         //        判断是否为post模式接收数据
         if (request()->isPost()){
             $data=[
@@ -79,7 +81,7 @@ class Admin extends Base
             if(!$validate->scene('edit')->check($data)){
                 return $this->error($validate->getError());
             }
-            $rul=Kk::editData($data);
+            $rul=Kk::editData($name,$data);
 //            判断状态
             if ($rul['state']=='succeed') {
                 return $this->success($rul['msg'], ('Admin/index'));
@@ -101,7 +103,8 @@ class Admin extends Base
 //    删除用户
     public function del($id)
     {
-        $rul=Kk::delData($id);
+        $name='manager';
+        $rul=Kk::delData($name,$id);
 //            判断状态
         if ($rul['state']=='succeed') {
             return $this->success($rul['msg'], ('Admin/index'));
