@@ -1,0 +1,235 @@
+.login_wrap{
+    width: 1200px !important;
+    padding: 0 !important;
+}
+.login_content{
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 400px;
+    margin: 30px 0 150px 0;
+    background-color: white;
+}
+.login_title>h2{
+   font-family: "Microsoft Yahei", "Hiragino Sans GB", Arial, sans-serif;
+   font-size: 24px;
+   line-height: 24px;
+   letter-spacing: 15px;
+   font-weight: bold;
+   height: 40px;
+   color: #0d3749;
+}
+.login_content>form>ul{
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    padding-top: 20px;
+    border-top:solid 2px #d6e2e6;
+}
+.login_li{
+    position: relative;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #15374A;
+}
+.li_label{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+}
+.li_input{
+    width: 100%;
+    height: 44px;
+    border: solid 2px #d6e2e6;
+    line-height: 44px;
+    padding: 1px 10px;
+    font-family: Din-Bold;
+    outline: none;
+    color: rgb(21,55,74);
+}
+.check_li{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: solid 2px #d6e2e6;
+    background-color: white;
+    font-weight: 300;
+}
+.che{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: auto;
+    margin: 6px 0 0 6px;
+    height: 24px;
+    line-height: normal;
+}
+.btn_big{
+    width: 100%;
+    height: 38px;
+    padding: 6px 12px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #002e48;
+    border: none;
+}
+.forget_pass{
+    margin-top: 10px;
+    font-weight: lighter;
+}
+.login_right{
+    position: relative;
+    float: right;
+    width: 65.83%;
+}
+.sin_logo{
+    width: 100%;
+    height: 480px;
+    background: url("../img/bkg_tags.jpg") no-repeat;
+    background-size: 100%;
+}
+.sign_right>img{
+    width: 100%;
+    background: url("../img/sign.jpg") no-repeat;
+    background-size: 100%;
+}
+.text_box{
+    margin-top: 20px;
+    color: #535E6A;
+    text-align: center;
+    font-size: 14px;
+}
+.text_box *:first-child{
+    font-weight: 600;
+}
+.text_box *:last-child{
+    text-decoration: underline;
+}
+body .sign_wrap{
+    position: relative;
+    width: 1200px;
+    padding: 0;
+    margin-bottom: 100px;
+}
+.sign_wrap .sign__content{
+    width: 35%;
+    float: left;
+
+}
+.sign_right{
+    width: 62.5%;
+    height: auto;
+    float: right;
+}
+.sign_label{
+    width: 18%;
+    line-height: 46px;
+    font-weight: bold;
+    margin: 0 10px 5px 0;
+}
+.sign_input{
+    width: 78%;
+    height: 44px;
+    line-height: 39px;
+    border: solid 2px #d6e2e6;
+    padding: 1px 10px;
+    font-family: Din-Bold;
+    color: rgb(21, 55, 74);
+}
+.password_strength{
+    width: 110px;
+    height: 39px;
+    margin: 0 0 0 21.5%;
+}
+#strength{
+    float: right;
+}
+.password_strength .progress{
+    width: 100%;
+    height: 8px;
+    border-radius: 0;
+    background-color: #d6e2e6;
+}
+.password_strength .progress>li{
+    width: 33.33%;
+    height: 100%;
+    float: left;
+}
+.code{
+    width: 100px;
+}
+.code_wrap{
+    width: 41.89%;
+}
+.code_wrap>img{
+    padding: 0 5px;
+}
+.code_wrap>a{
+    text-decoration: underline;
+}
+.code_wrap>button{
+    width: 35%;
+    height: 44px;
+    border: none;
+    font-size: 16px;
+    padding: 0 10px;
+    background-color: #15374A;
+    font-weight: bold;
+    color: white;
+}
+.help_phone>span{
+    margin: 0 0 0 21.5%;
+}
+.agree a{
+    text-decoration: underline;
+}
+.login_li .hint{
+    margin-left: 90px;
+}
+.login_li .hint>span{
+    display: inline-block;
+    text-align: center;
+    line-height: 14px;
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    color: white;
+    font-size: 8px;
+    background-color: #b14c49;
+}
+.login_wrap .hint_into{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    background-color: #fff;
+    max-width: 500px;
+    padding: 30px 50px;
+    border: 1px solid #a3afb9;
+    box-shadow: 2px 2px 1px rgba(150,150,150,0.5);
+    color: #333;
+}
+.login_wrap .hint_into>p>span{
+    display: inline-block;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    background-color: #e44d10;
+}
+.login_wrap .hint_into>p{
+    line-height: 20px;
+}
