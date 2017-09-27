@@ -10,43 +10,23 @@ use think\Controller;
 class Goods extends Controller
 {
     static public function load($cateName){
-        if(!isset($cateName[0])) {
-            $data=db('cate')
-                ->field('cate_id')
-                ->select();
-        }else{
-            $data=[];
-            for($i=0;$i<count($cateName);$i++){
-                $rul=db('cate')
-                    ->field('cate_id,cate_pid')
-                    ->where('cate_name',trim($cateName[$i]))
+//        dump($cateName);
+                     $rul=db('cate')
+                    ->field('id')
+                    ->where('name',$cateName[0])
                     ->select();
-                if (!isset($rul[0])){
-                    $rul=db('cate')
-                        ->alias('a')
-                        ->join('goods c','a.cate_id=c.cate_id')
-                        ->field('a.cate_id')
-                        ->where('c.keywords',trim($cateName[$i]))
-                        ->select();
-                    array_push($data,$rul[0]);
-                }elseif($rul[0]['cate_pid']==0){
-                    $data=db('cate')
-                        ->field('cate_id,cate_pid')
-                        ->where('cate_path','neq',$rul[0]['cate_id'])
-                        ->where('cate_path','like',$rul[0]['cate_id'].'%')
-                        ->select();
-                }else{
-                    array_push($data,$rul[0]);
-                }
-            }
-        }
-//     dump($data);
+                       $data=db('cate')
+                            ->where('pid',$rul[0]['id'])
+                            ->field('id')
+                            ->select();
+
         $recur=[];
         for ($i=0;$i<count($data);$i++){
-            array_push($recur,$data[$i]['cate_id']);
+            array_push($recur,$data[$i]['id']);
         }
         array_unique($recur);
-//     dump($recur);
+//     dump($recur);exit();
+//        exit();
         return $recur;
     }
 
@@ -56,24 +36,24 @@ class Goods extends Controller
         $data2=[];
         $data3=[];
         $filed=['sustainable','farmer','natural','local','visit','ancient','negative','agriculture','origin','gluten','material','gmo','produce'];
-//        dump();exit();
         $ci= db('cate')
-            ->where('cate_name',$cateName[0])
-            ->field('cate_level,cate_id')
+            ->where('name',$cateName[0])
+            ->field('level,id')
             ->select();
-        if($ci[0]['cate_level']==0&&count($cateName)==1){
+//        dump($ci);exit();
+        if($ci[0]['level']==0&&count($cateName)==1){
             $data=db('cate')
                 ->alias('a')
-                ->where('a.cate_pid', $ci[0]['cate_id'])
-                ->join('goods c','a.cate_id=c.cate_id')
+                ->where('a.pid', $ci[0]['id'])
+                ->join('goods c','a.id=c.cate_id')
                 ->field('c.goods_id')
                 ->select();
              $data=Goods::Analysis($data);
         }else{
             $data=db('cate')
                 ->alias('a')
-                ->where('a.cate_pid', $ci[0]['cate_id'])
-                ->join('goods c','a.cate_id=c.cate_id')
+                ->where('a.pid', $ci[0]['id'])
+                ->join('goods c','a.id=c.cate_id')
                 ->field('c.goods_id')
                 ->select();
             $data=Goods::Analysis($data);
@@ -81,8 +61,8 @@ class Goods extends Controller
             for ($i=1;$i<count($cateName);$i++){
                 $rul=db('cate')
                     ->alias('a')
-                    ->where('a.cate_name',trim($cateName[$i]))
-                    ->join('goods c','a.cate_id=c.cate_id')
+                    ->where('a.name',trim($cateName[$i]))
+                    ->join('goods c','a.id=c.cate_id')
                     ->field('c.goods_id')
                     ->select();
                 if(isset($rul[0])){
@@ -91,7 +71,7 @@ class Goods extends Controller
 //                    $kk=Goods::insert($kk,$data1);
                 }else{
                     $rul=db('goods')
-                        ->where('brand',trim($cateName[$i]))
+                        ->where('keywords',trim($cateName[$i]))
                         ->where('goods_id', 'in', $data)
                         ->field('goods_id')
                         ->select();
@@ -117,7 +97,7 @@ class Goods extends Controller
 //                    if(isset($data[0])){
 //                        echo '1';
 //                        $rul=db('goods')
-//                        ->where('brand',trim($cateName[$i]))
+//                        ->where('keywords',trim($cateName[$i]))
 //                        ->where('goods_id', 'in', $data)
 //                        ->field('goods_id')
 //                        ->select();
@@ -125,7 +105,7 @@ class Goods extends Controller
 //                    }else{
 //                        echo '2';
 //                        $rul=db('goods')
-//                        ->where('brand',trim($cateName[$i]))
+//                        ->where('keywords',trim($cateName[$i]))
 //                        ->field('goods_id')
 //                        ->select();
 //                    }
@@ -133,7 +113,7 @@ class Goods extends Controller
 //                }
 //                elseif(isset($rul[0])){
 //                    $rul=db('goods')
-//                        ->where('brand',trim($cateName[$i]))
+//                        ->where('keywords',trim($cateName[$i]))
 //                        ->where('goods_id', 'in', $data)
 //                        ->field('goods_id')
 //                        ->select();
@@ -142,7 +122,7 @@ class Goods extends Controller
 //                    }
 //                }else{
 //                    $rul=db('goods')
-//                        ->where('brand',trim($cateName[$i]))
+//                        ->where('keywords',trim($cateName[$i]))
 //                        ->field('goods_id')
 //                        ->select();
 //                }
@@ -172,7 +152,8 @@ class Goods extends Controller
         return $data;
 
 }
-static public function Analysis($data){
+
+    static public function Analysis($data){
         $rul=[];
     for ($i=0;$i<count($data);$i++){
         array_push($rul,$data[$i]['goods_id']);
@@ -182,16 +163,16 @@ static public function Analysis($data){
 
     static public function cate($cateName){
         $recur=Goods::load($cateName);
-//        dump($recur);
+//        dump($recur);exit();
         $a= db('cate')
-            ->where('cate_id', 'in', $recur)
-            ->field('cate_name')
+            ->where('id', 'in', $recur)
+            ->field('name')
             ->select();
         $b= db('cate')
             ->alias('a')
-            ->join('goods c', 'a.cate_id=c.cate_id')
-            ->where('a.cate_id', 'in', $recur)
-            ->field('brand')
+            ->join('goods c', 'a.id=c.cate_id')
+            ->where('a.id', 'in', $recur)
+            ->field('keywords')
             ->select();
         $m=[];
         for ($i=0;$i<count($b);$i++){
@@ -204,8 +185,8 @@ static public function Analysis($data){
 //        dump($m);exit();
         $c= db('cate')
             ->alias('a')
-            ->join('goods c', 'a.cate_id=c.cate_id')
-            ->where('a.cate_id', 'in', $recur)
+            ->join('goods c', 'a.id=c.cate_id')
+            ->where('a.id', 'in', $recur)
             ->join('select b', 'c.goods_id=b.goods_id')
             ->field('b.sustainable,b.farmer,b.natural,b.local,b.visit,b.ancient,b.negative,b.agriculture,b.origin,b.gluten,b.material,b.gmo,b.produce')
             ->select();
@@ -230,12 +211,35 @@ static public function Analysis($data){
         $recur=Goods::load($cateName);
         $data = db('cate')
             ->alias('a')
-            ->join('goods c', 'a.cate_id=c.cate_id')
-            ->where('a.cate_id', 'in', $recur)
+            ->join('goods c', 'a.id=c.cate_id')
+            ->where('a.id', 'in', $recur)
             ->join('image k', 'c.goods_id=k.goods_id')
             ->where('k.is_face', '1')
             ->select();
         return $data;
+    }
+
+    static public function nav(){
+        $hh=[];
+        $data=db('cate')
+            ->where('level',0)
+            ->field('id,name')
+            ->select();
+        for ($i=0;$i<count($data);$i++){
+          $rul=db('cate')
+              ->where('pid',$data[$i]['id'])
+              ->field('name')
+              ->select();
+//            dump($rul);
+            for ($k=0;$k<count($rul);$k++){
+               $yy=array_values($rul[$k]);
+            }
+//            dump($yy);
+            $kk=[$data[$i]['name'],$yy];
+            array_push($hh,$kk);
+        }
+        return $hh;
+
     }
 
 }

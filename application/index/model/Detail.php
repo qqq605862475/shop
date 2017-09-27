@@ -13,8 +13,8 @@ class Detail extends Controller
     {
         $data = db('cate')
             ->alias('a')
-            ->join('goods c', 'a.cate_id=c.cate_id')
-            ->where('a.cate_id', 'in', $recur)
+            ->join('goods c', 'a.id=c.id')
+            ->where('a.id', 'in', $recur)
             ->join('image k', 'c.goods_id=k.goods_id')
             ->where('k.is_face', '0')
             ->select();

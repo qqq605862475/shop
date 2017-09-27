@@ -7,10 +7,13 @@
  */
 namespace app\index\widget;
 use think\Controller;
+use app\index\model\Goods;
 class Common extends Controller{
 
     public function header(){
-
+        $data=Goods::nav();
+//        dump($data);exit();
+        $this->assign('nav',$data);
         return $this->fetch('Common/header');
     }
     public function footer(){

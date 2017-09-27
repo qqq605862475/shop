@@ -22,32 +22,33 @@ class Index extends Base
             ->join('image d','d.goods_id=a.goods_id','left')
             ->select();
         $this->assign('goods',$goods);
-
-
-
         return $this->fetch();
 
     }
     public function lis(){
-        $cateName=['四时蔬菜'];
-//        dump($cateName);
-        $data=Goods::cate($cateName);
+        $cateName=input('id');
+        $cateName=array_filter(array_unique(explode(',',$cateName)));
+
+        $data1=Goods::cate($cateName);
+
+        $data2=$cateName[0];
+        $data=[$data1,$data2];
 //        dump($data);exit();
         $this->assign('data',$data);
         return $this->fetch();
+        //        $this->load($cateName);
     }
     public function load(){
 //        $val1=input('val1');
-//        dump($val1);exit();
-        $cateName=trim(input("cateName"));//取字符串
-        $cateName=array_filter(array_unique(explode(',',$cateName)));
+            $cateName=input("cateName");//取字符串
+            $cateName=array_filter(array_unique(explode(',',$cateName)));
+
 //        dump($cateName);exit();
         $data=Goods::search($cateName);
 //        dump($cateName);exit();
 //        $data=Goods::goods($cateName);
 //        dump( $data);exit();
         $this->assign('data', $data);
-        $cateName=['四时蔬菜'];
         Goods::goods($cateName);
         return $this->fetch('index/goods');
     }

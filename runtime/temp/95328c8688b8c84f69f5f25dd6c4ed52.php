@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:95:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/index\view\index\lis.html";i:1506421900;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
     <link href="__STATIC__/index/style/footer.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
- {:widget('Common/header')}
+ <?php echo widget('Common/header'); ?>
 <div class="inner_wrap" style="height: 2000px;">
     <div class="bread_wrap">
         <div class="cate_products_them">
@@ -80,14 +81,14 @@
                 <div class="ctl_header">分类</div>
                 <div class="cats_con">
                     <ul id="cat_list">
-                        {foreach $data[0][0] as $v}
+                        <?php foreach($data[0][0] as $v): ?>
                         <li>
                             <a class="goods" name="">
-                                {$v.name}
+                                <?php echo $v['name']; ?>
                                 <span></span>
                             </a>
                         </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                         <li>
                             <a id="emptyGoods">
                                 清空
@@ -101,14 +102,14 @@
                 <div class="ctl_header">分类</div>
                 <div class="cats_con">
                     <ul id="cat_list">
-                        {foreach $data[0][1] as $k}
+                        <?php foreach($data[0][1] as $k): ?>
                         <li>
                             <a class="goods" name="">
-                                {$k}
+                                <?php echo $k; ?>
                                 <span></span>
                             </a>
                         </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                         <li>
                             <a id="emptyGoods">
                                 清空
@@ -122,14 +123,14 @@
                 <div class="ctl_header">分类</div>
                 <div class="cats_con">
                     <ul id="cat_list">
-                        {foreach $data[0][2] as $n}
+                        <?php foreach($data[0][2] as $n): ?>
                         <li>
                             <a class="goods" name="">
-                                {$n}
+                                <?php echo $n; ?>
                                 <span></span>
                             </a>
                         </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                         <li>
                             <a id="emptyGoods">
                                 清空
@@ -138,11 +139,11 @@
                     </ul>
                 </div>
             </div>
-            <input type="hidden" class="parent" value={$data[1]}>
+            <input type="hidden" class="parent" value=<?php echo $data[1]; ?>>
         </div>
         <!--右边-->
         <div class="search_results col-md-10"style="height: 1200px;">
-            <iframe name="goods_wrap" src="{:url('Index/load',['cateName'=>$data[1]])}" frameborder="0" style="width: 100%;height: 100%;">
+            <iframe name="goods_wrap" src="<?php echo url('Index/load',['cateName'=>$data[1]]); ?>" frameborder="0" style="width: 100%;height: 100%;">
 
             </iframe>
         </div>
