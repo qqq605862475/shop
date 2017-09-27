@@ -15,11 +15,9 @@ return [
     // 服务器地址
     'hostname'        => '127.0.0.1',
     // 数据库名
-<<<<<<< HEAD
+
     'database'        => 'shop',
-=======
-    'database'        => '22',
->>>>>>> f36e783d5669db79a145625de889ff8befad4936
+
     // 用户名
     'username'        => 'root',
     // 密码
