@@ -22,7 +22,7 @@ class Base extends Controller{
     }
 //判断会员是否登录
     public function isLogin(){
-        $index=session('index');
+        $index=session('member');
         if(!empty($index)){
             return $index;
         }else{

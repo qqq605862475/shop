@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\Car.html";i:1506338337;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\car\car.html";i:1506499531;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,39 +63,45 @@
             </tr>
             </thead>
             <tbody>
+                <?php foreach($data['data'] as $v): ?>
             <tr class="t2">
                 <td style="width: 45px;">
                     <input type="checkbox">
                 </td>
                 <td style="width: 75px;">
                     <a href="#" class="a1">
-                        <img src="__STATIC__/index/img/b1.jpg" alt="" class="img1">
+                        <img src="<?php echo $v['image_s_url']; ?>" alt="" class="img1">
                     </a>
                 </td>
-                <td style="width: 374px;"><a href="" class="a2">海拔3300米小金青苹果 8个</a></td>
+                <td style="width: 374px;"><a href="" class="a2"><?php echo $v['goods_name']; ?></a></td>
                 <!--单价-->
-                <td style="width: 150px;"><span>16.00</span></td>
+                <td style="width: 150px;"><span><?php echo $v['sell_price']; ?></span></td>
                 <!--数量-->
                 <td style="width: 135px;">
                     <div class="price">
-                        <a href="#" class="p_lf">
+                        <a id="reduce" href="" class="p_lf">
                             <span>-</span>
                         </a>
-                        <input type="text" class="p_mid" value="5">
-                        <a href="#" class="p_lr">
+
+
+                        <input id="goods_num" type="text" class="p_mid" value="<?php echo $v['goods_num']; ?>">
+
+
+                        <a id="add" href="" class="p_lr">
                             <span>+</span>
                         </a>
                     </div>
 
                 </td>
                 <!--小计-->
-                <td style="width: 150px;"><span>32</span></td>
+                <td style="width: 150px;"><span><?php echo $v['sell_price']*$v['goods_num']; ?></span></td>
                 <td style="width: 90px;">
                     <div class="dele">
                         <a href="javascript:void(0);" class="a3"></a>
                     </div>
                 </td>
             </tr>
+                <?php endforeach; ?>
             </tbody>
             <tfoot>
             <tr>
@@ -106,7 +112,7 @@
                     </div>
                     <div class="t4">
                         <p>订单金额</p>
-                        <p style="font-size: 28px;" id="pp">￥32.00</p>
+                        <p style="font-size: 28px;" id="pp">￥<?php echo $data['total']; ?></p>
                         <p style="display: block; font-weight: normal; color: rgb(20, 55, 72);
                         font-size: 12px;">不含运费</p>
                     </div>
@@ -125,14 +131,14 @@
                 <ul>
                     <li>
                         <span>商品小计</span>
-                        <span style="float: right;">￥32.00</span>
+                        <span style="float: right;">￥<?php echo $data['total']; ?></span>
                     </li>
                     <hr/>
                     <li>
                         <span>购买金额</span>
                         <span style="float: right;">
                             ￥<span style="padding-right: 5px;
-                        padding-left: 5px;font-size: 24px;">32.00</span>
+                        padding-left: 5px;font-size: 24px;"><?php echo $data['total']; ?></span>
                         </span>
                     </li>
                     <li>

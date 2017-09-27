@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\nocar\car.html";i:1506135340;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\nocar\nocar.html";i:1506135340;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

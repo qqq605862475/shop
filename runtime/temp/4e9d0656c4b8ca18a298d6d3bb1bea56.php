@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\article\article.html";i:1506320068;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\article\article.html";i:1506494301;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,18 +21,20 @@
         <div class="top_lf">
             <!--  商品相册  -->
             <div class="pic">
-                <a href="#" style="background-image:url(__STATIC__/index/img/i1.jpg);opacity: 1"></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/i2.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/i3.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/i4.jpg)"></a>
+                <?php foreach($pic as $v): ?>
+                <a href="#" style="background-image:url(<?php echo $v['image_s_url']; ?>);opacity: 0.3"></a>
+                <?php endforeach; ?>
             </div>
             <div class="big">
-                <a href="#" style="background-image:url(__STATIC__/index/img/b1.jpg);display: block" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/b2.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/b3.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/b4.jpg)"></a>
+                <?php foreach($pic as $v): ?>
+                <a href="#" style="background-image:url(<?php echo $v['image_b_url']; ?>);display: none"></a>
+                <?php endforeach; ?>
             </div>
             <script>
+                $(function () {
+                    $(".pic a").eq(0).css({"opacity":"1"});
+                    $(".big a").eq(0).css({"display":"block"});
+                })
                 $(".pic a").hover(function () {
                     var i=$(this).index();
 //                    console.log(i);
@@ -45,15 +47,16 @@
 
 
         </div>
+
         <div class="top_lr">
             <div class="titie">
                 <!--关键字-->
                 <div class="keywords">
-                    <span>山中鲜</span>
+                    <span><?php echo $data['keywords']; ?></span>
                 </div>
                 <!--商品名称-->
                 <div class="name">
-                    <span>山中鲜有机鸡蛋</span>
+                    <span><?php echo $data['goods_name']; ?></span>
                 </div>
                 <!--评分-->
                 <div class="img_1">
@@ -61,11 +64,11 @@
                 </div>
                 <!--商品描述-->
                 <div class="desc">
-                    <span>有机土鸡蛋中的蛋黄较大，非常适合做煮鸡蛋和煎蛋，简单的烹调方法能将它优良的口感完全发挥出来。</span>
+                    <span><?php echo $data['desc']; ?></span>
                 </div>
                 <!--售价-->
                 <div class="sell_price">
-                    <span>￥27.00</span>
+                    <span>￥<?php echo $data['sell_price']; ?>.00</span>
                 </div>
                 <div style="width: 360px;height: 200px;float: left">
                 </div>
@@ -77,7 +80,7 @@
                             <span>库存</span>
                         </div>
                         <div class="svalue">
-                            <span>100</span>
+                            <span><?php echo $data['store']; ?></span>
                         </div>
                     </div>
 
@@ -86,7 +89,7 @@
                             <span>热销程度</span>
                         </div>
                         <div class="svalue">
-                            <span>热销</span>
+                            <span><?php echo $data['is_hot']==1?"热销":"一般"; ?></span>
                         </div>
                     </div>
 
@@ -95,33 +98,52 @@
                             <span>新品程度</span>
                         </div>
                         <div class="svalue">
-                            <span>新品</span>
+                            <span><?php echo $data['is_new']==1?"新品":"一般"; ?></span>
                         </div>
                     </div>
                 </div>
 
                 <!--购物-->
                 <div class="shop">
-                    <form action="" method="post">
-                        <div class="number">
-                            <div class="num_lf">-</div>
-                            <input type="text" name="goods[num]" value="1">
-                            <div class="num_lr">+</div>
 
-                        </div>
-                        <div class="car">
-                            <button type="submit" label="加入购物车" rel="_request">
-                                加入购物车
-                            </button>
+                    <div class="number">
+                        <div class="num_lf">-</div>
+                        <input id="num" type="text" name="goods_num" value="1">
+                        <div class="num_lr">+</div>
+                    </div>
 
-                        </div>
+                    <div class="car">
+                        <button id="toCar" type="button" label="加入购物车" rel="_request" goods_id="<?php echo $data['goods_id']; ?>">
+                            加入购物车
+                        </button>
+                    </div>
 
-
-
-
-                    </form>
 
                 </div>
+                <script>
+                    $(function () {
+                        $('#toCar').click(function () {
+                            var goods_id = $('#toCar').attr('goods_id');
+                            var goods_num = $('#num').val();
+                            $.ajax({
+                                type:'POST',
+                                dataType:'json',
+                                data:{goods_id:goods_id,goods_num:goods_num},
+                                //点击加入购物车跳转到下面方法（执行car方法）
+                                url:"<?php echo url('Car/car'); ?>",
+                                //加入购物车成功后跳转到购物车详情页（执行index方法）
+                                success:function (d) {
+                                    if(d.status == 'success'){
+                                        alert(d.msg);
+                                        location.href= "<?php echo url('Car/index'); ?>";
+                                    }
+                                }
+                            })
+
+
+                        })
+                    })
+                </script>
 
 
 
@@ -132,13 +154,14 @@
 
     <!--商品详情-->
     <div class="bottom">
-        <div class="bo_lf">
+        <div class="bo_lf" >
+            <?php echo $data['content']; ?>
 
         </div>
 
         <div class="bo_lr">
             <div class="b_title">
-                农友伙伴
+                相关分类---<?php echo $data['name']; ?>
             </div>
             <div class="lis">
                 <ul>
@@ -149,7 +172,7 @@
                 </ul>
             </div>
             <div class="b_title">
-                山中鲜的相关产品
+                <?php echo $data['keywords']; ?>的相关产品
             </div>
             <div class="pi">
                 <ul>
@@ -221,7 +244,8 @@
 
 
 
-<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);position: relative;clear: both;bottom: 0" >
+<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);
+position: relative;clear: both;bottom: 0" >
     <div class="f1">
         <div class="footer_lf">
             <div class="footerlogo">
@@ -276,4 +300,5 @@
 </footer>
 
 </body>
+
 </html>
