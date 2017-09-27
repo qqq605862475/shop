@@ -65,7 +65,8 @@ $(function () {
     });
 //------------------商品检索选择-------------------->>>>>>>>>>
     var pidname=$('.parent').val();
-    var queryPart=[pidname];
+     var pi= pidname.split(",");
+     var queryPart=[pi[0]];
     $(".cats>.taggle_open").click(function () {
         $(this).toggleClass("open");
         $(this).siblings(".cats_con").slideToggle();
@@ -78,17 +79,19 @@ $(function () {
                cateName=cateName.trim();
                 queryPart+=","+cateName;
                 queryPart=queryPart.split(",");
-            window.open('http://ldx.com/index.php/index/Index/load/cateName/'+queryPart,'goods_wrap');
+                // console.log(queryPart);
+            window.open('http://set.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
         }
         else {
             cateName=cateName.trim();
             queryPart.splice(queryPart.indexOf(cateName),1);
-            window.open('http://ldx.com/index.php/index/Index/load/cateName/'+queryPart,'goods_wrap');
+            window.open('http://set.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
         }
+        // console .log(queryPart)
     });
     $("#cat_list>li>#emptyGoods").click(function () {//清空
-       queryPart=[pidname];
+         queryPart=[[pi][0]];
         $(this).parent().siblings().find("span").removeClass("select");//清除class属性值
-        window.open('http://ldx.com/index.php/index/Index/load/cateName/'+queryPart,'goods_wrap');
+        window.open('http://set.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
     });
 });

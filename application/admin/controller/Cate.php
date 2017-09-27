@@ -70,7 +70,7 @@ class Cate extends Base
             //
             //返回结果
             if($res){
-                return $this->success('添加成功',url('Cate/index'));//成功返回
+                return $this->success('添加成功',url('Cate/addCate'));//成功返回
             }
             else{
                 return $this->error('添加失败');//失败返回

@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:85:"C:\Users\Administrator\Desktop\shop\public/../application/index\view\index\index.html";i:1506483183;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,7 +393,7 @@
 <body>
 
 
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 
 
 <div class="lunbo">
@@ -423,7 +424,7 @@
 
                 <div>
 
-                    <a href=""
+                    <a href="https://www.yimishiji.com/products-0-%E6%B2%99%E6%8B%89%E7%93%B6%E5%AD%90.html"
                        class="js_count" attr="可以喝的沙拉">
                         <img class="img-responsive"
                              src="https://img.yimishiji.com/v1/img/8d79c5063d9e0711488b77fdf0ca7b3c.jpg" alt="可以喝的沙拉">
@@ -434,7 +435,7 @@
                 <div>
 
                     <p>
-                        <a href=""
+                        <a href="https://www.yimishiji.com/products-0-%E6%B2%99%E6%8B%89%E7%93%B6%E5%AD%90.html"
                            class="js_count" attr="可以喝的沙拉">
                             可以喝的沙拉
                         </a>
@@ -480,7 +481,7 @@
 
                 <div>
 
-                    <a href=""
+                    <a href="https://www.yimishiji.com/products-0-%E6%B5%B7%E6%8B%943300%E7%B1%B3%E5%B0%8F%E9%87%91%E9%9D%92%E8%8B%B9%E6%9E%9C.html"
                        class="js_count" attr="海拔3300米小金青苹果 ">
                         <img class="img-responsive"
                              src="https://img.yimishiji.com/v1/img/14d99fd39aea631ddfecc35e9d58a9a4.jpg"
@@ -492,7 +493,7 @@
                 <div>
 
                     <p>
-                        <a href=""
+                        <a href="https://www.yimishiji.com/products-0-%E6%B5%B7%E6%8B%943300%E7%B1%B3%E5%B0%8F%E9%87%91%E9%9D%92%E8%8B%B9%E6%9E%9C.html"
                            class="js_count" attr="海拔3300米小金青苹果 ">
                             海拔3300米小金青苹果
                         </a>
@@ -557,10 +558,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $data as $v}
+                <?php foreach($data as $v): ?>
                 <li>
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})" >
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)" >
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -576,14 +577,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}" target="_blank">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>" target="_blank"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/foreach}
+                <?php endforeach; ?>
             </ul>
         </div>
 
@@ -598,10 +599,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $data as $v}
+                <?php foreach($data as $v): ?>
                 <li>
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -617,14 +618,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/foreach}
+                <?php endforeach; ?>
             </ul>
         </div>
 
@@ -639,11 +640,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 1"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 1): ?>
                 <li>
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -659,21 +659,17 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
-
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 3"}
+                <?php endif; endforeach; foreach($goods as $v): if($v['goods_id'] == 3): ?>
                 <li>
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -689,15 +685,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="{:url('Article/index',['id'=>$v.goods_id])}" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
             </ul>
 
         </div>
@@ -713,11 +708,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 4"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 4): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -733,15 +727,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -758,11 +751,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 2"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 2): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -778,15 +770,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
 
             </ul>
         </div>
@@ -802,11 +793,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 5"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 5): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -822,15 +812,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -847,11 +836,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 6"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 6): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -867,15 +855,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -892,11 +879,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 7"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 7): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -912,15 +898,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -937,11 +922,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 8"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 8): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -957,15 +941,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
 
             </ul>
 
@@ -982,11 +965,10 @@
         </div>
         <div class="lr">
             <ul>
-                {foreach $goods as $v}
-                {if condition="$v.goods_id eq 9"}
+                <?php foreach($goods as $v): if($v['goods_id'] == 9): ?>
                 <li style="margin-top: 100px">
-                    <div class="rank">{$v.goods_id+1}</div>
-                    <div class="img1" style="background-image: url({$v.image_m_url})">
+                    <div class="rank"><?php echo $v['goods_id']+1; ?></div>
+                    <div class="img1" style="background-image: url(<?php echo $v['image_m_url']; ?>)">
                         <img src="__STATIC__/index/img/特惠.png" style="width: 90px">
                         <div class="img2">
                             <div class="num">
@@ -1002,15 +984,14 @@
                             </div>
                         </div>
                     </div>
-                    <h3><a href="{:url('Article/index',['id'=>$v.goods_id])}">{$v.goods_name}</a></h3>
+                    <h3><a href="<?php echo url('Article/index',['id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></h3>
                     <div class="x1">
-                        <a href="#" title="">{$v.keywords}</a>
-                        <span>&nbsp;&nbsp;&nbsp;{$v.store}件</span>
-                        <h4>￥{$v.sell_price}.00</h4><h5>￥{$v.market_price}.00</h5>
+                        <a href="#" title=""><?php echo $v['keywords']; ?></a>
+                        <span>&nbsp;&nbsp;&nbsp;<?php echo $v['store']; ?>件</span>
+                        <h4>￥<?php echo $v['sell_price']; ?>.00</h4><h5>￥<?php echo $v['market_price']; ?>.00</h5>
                     </div>
                 </li>
-                {/if}
-                {/foreach}
+                <?php endif; endforeach; ?>
             </ul>
 
         </div>
@@ -1019,7 +1000,7 @@
 </div>
 
 
-{:widget('Common/footer')}
+<?php echo widget('Common/footer'); ?>
 
 
 <script type="text/javascript" src="__STATIC__/index/jquery-1.8.3.min.js"></script>

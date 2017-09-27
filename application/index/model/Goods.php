@@ -221,6 +221,7 @@ class Goods extends Controller
 
     static public function nav(){
         $hh=[];
+        $cc=[];
         $data=db('cate')
             ->where('level',0)
             ->field('id,name')
@@ -230,14 +231,15 @@ class Goods extends Controller
               ->where('pid',$data[$i]['id'])
               ->field('name')
               ->select();
-//            dump($rul);
             for ($k=0;$k<count($rul);$k++){
                $yy=array_values($rul[$k]);
+                array_push($cc,$yy[0]);
             }
-//            dump($yy);
-            $kk=[$data[$i]['name'],$yy];
+            $kk=[$data[$i]['name'],$cc];
+            $cc=[];
             array_push($hh,$kk);
         }
+//        dump($hh);
         return $hh;
 
     }

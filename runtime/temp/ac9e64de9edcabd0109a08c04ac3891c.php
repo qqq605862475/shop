@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:87:"C:\Users\Administrator\Desktop\shop\public/../application/index\view\Common\header.html";i:1506491063;}*/ ?>
 
 <div class="bar"></div>
 
@@ -8,19 +9,19 @@
     <div class='ym_hd_products'>
         <a class='ym_hd_buttonHead' href="/products.html">所有商品</a>
         <ul>
-     {foreach $nav as $v}
+     <?php foreach($nav as $v): ?>
             <li style="background-image: url('https://img.yimishiji.com/v1/img/d816053f3e405749cfbaf338f9bb1e1e.jpg');">
                 <a href="/products-22.html" style="display: inline-block;width:100%;height:56px; "></a>
-                <a class='tier1_cate' href="{:url('Lis/lis',['id'=>$v[0]])}">{$v[0]}</a>
+                <a class='tier1_cate' href="<?php echo url('Lis/lis',['id'=>$v[0]]); ?>"><?php echo $v[0]; ?></a>
                 <ul>
-                    {foreach $v[1] as $k}
+                    <?php foreach($v[1] as $k): ?>
                     <li>
-                        <a class='tier2_cate' href="{:url('Lis/lis',['id'=>$v[0].','.$k])}">{$k}</a>
+                        <a class='tier2_cate' href="<?php echo url('Lis/lis',['id'=>$v[0].','.$k]); ?>"><?php echo $k; ?></a>
                     </li>
-                    {/foreach}
+                    <?php endforeach; ?>
                 </ul>
             </li>
-            {/foreach}
+            <?php endforeach; ?>
         </ul>
     </div>
 
@@ -77,21 +78,21 @@
         <div class='ym_hd_profilePanel'>
             <div class="small-signin login_2193">
                 <ul>
-                    {if condition="$Request.session.member.member_id eq ''"}
+                    <?php if(\think\Request::instance()->session('member.member_id') == ''): ?>
                     <li>
-                        <a href="{:url('Login/index')}">登入</a>
+                        <a href="<?php echo url('Login/index'); ?>">登入</a>
                     </li>
                     <li>
-                        <a href="{:url('Register/index')}">注册</a>
+                        <a href="<?php echo url('Register/index'); ?>">注册</a>
                     </li>
-                   {else /}
+                   <?php else: ?>
                     <li>
-                        <a href="">{$Request.session.member.username}</a>
+                        <a href=""><?php echo \think\Request::instance()->session('member.username'); ?></a>
                     </li>
                     <li>
-                        <a href="{:url('Login/logout')}">退出登录</a>
+                        <a href="<?php echo url('Login/logout'); ?>">退出登录</a>
                     </li>
-                    {/if}
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

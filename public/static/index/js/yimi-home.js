@@ -63,7 +63,9 @@ $(function () {
             $(this).children(".goods_redu").fadeIn().siblings(".btn_add_reduce").fadeIn();
             $(this).children(".goods_add").fadeIn();
         },function () {
+        if($(this).children(".goods_redu").fadeOut().siblings(".btn_add_reduce").children().first().text()==0){
             $(this).children(".goods_redu").fadeOut().siblings(".btn_add_reduce").fadeOut();
+        }
             $(this).children(".goods_add").fadeOut();
         })
 });
