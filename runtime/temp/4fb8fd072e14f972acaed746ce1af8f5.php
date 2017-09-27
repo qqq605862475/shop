@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\Car.html";i:1506338337;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\Car.html";i:1506409048;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +9,7 @@
     <link href="__STATIC__/index/style/car.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="__STATIC__/index/jquery-1.8.3.min.js"></script>
 
-    <style>
 
-
-    </style>
 </head>
 <body style="height: 200px">
 <?php echo widget('Common/header'); ?>

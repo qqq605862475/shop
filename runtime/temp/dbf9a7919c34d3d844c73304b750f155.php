@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506406550;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506408578;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,8 +109,8 @@
                             <div class="num_lf">-</div>
                             <input type="text" name="goods[num]" value="1">
                             <div class="num_lr">+</div>
-
                         </div>
+
                         <div class="car">
                             <button type="submit" label="加入购物车" rel="_request">
                                 加入购物车
