@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506157989;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506326374;s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506409202;}*/ ?>
 
 <div class="bar"></div>
 
@@ -318,12 +318,21 @@
         <div class='ym_hd_profilePanel'>
             <div class="small-signin login_2193">
                 <ul>
+                    <?php if(\think\Request::instance()->session('member.member_id') == ''): ?>
                     <li>
                         <a href="<?php echo url('Login/index'); ?>">登入</a>
                     </li>
                     <li>
                         <a href="<?php echo url('Register/index'); ?>">注册</a>
                     </li>
+                   <?php else: ?>
+                    <li>
+                        <a href=""><?php echo \think\Request::instance()->session('member.username'); ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo url('Login/logout'); ?>">退出登录</a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

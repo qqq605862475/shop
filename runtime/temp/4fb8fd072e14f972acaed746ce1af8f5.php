@@ -1,91 +1,205 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\Car.html";i:1506319801;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\Car.html";i:1506338337;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>nocar</title>
+    <title>car</title>
     <link href="__STATIC__/index/style/header.css" type="text/css" rel="stylesheet"/>
     <link href="__STATIC__/index/style/footer.css" type="text/css" rel="stylesheet"/>
     <link href="__STATIC__/index/style/car.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="__STATIC__/index/jquery-1.8.3.min.js"></script>
+
+    <style>
+
+
+    </style>
 </head>
 <body style="height: 200px">
 <?php echo widget('Common/header'); ?>
 <div class="car-container">
-<div class="car-title">
-    <a>购物车</a>
+    <div class="car-title">
+        <h1>购物车</h1>
+        <div class="step">
+            <div class="step1">
+                <a href="#">
+                    <span class="step_number">1</span>
+                    购物篮
+                </a>
+            </div>
+            <div class="step_img">
+            </div>
+            <div class="step1" style="  border:none">
+                <a href="#" style="text-decoration: none;color: #88a7b3;">
+                    <span class="step_number" style="color: #88a7b3;">2</span>
+                    结账
+                </a>
+            </div>
+            <div class="step_img">
+            </div>
+            <div class="step1" style="  border:none">
+                <a href="#" style="text-decoration: none;color: #88a7b3;">
+                    <span class="step_number" style="color: #88a7b3;">3</span>
+                    收银台
+                </a>
+            </div>
+
+        </div>
+    </div>
 </div>
-<div class="car-wrap">
-    <form>
-        <table class="goods-wrap" >
+<div class="tab">
+    <form action="" method="post">
+        <table>
             <thead>
-            <tr class="trHead">
-                <td class="td-first">
-                    <input type="checkbox" class="cb">
-                    <span>商品</span>
-                </td>
-                <td>
-                    <span>售价</span>
-                </td>
-                <td>
-                    <span>数量</span>
-                </td>
-                <td>
-                    <span>小计</span>
-                </td>
-                <td class="td-last">
-                    <span>操作</span>
-                </td>
+            <tr class="t1">
+                <th style="width: 45px;">
+                    <input type="checkbox">
+                </th>
+                <th style="width: 75px;">商品</th>
+                <th style="width: 374px;"></th>
+                <th style="width: 150px;">售价</th>
+                <th style="width: 135px;">数量</th>
+                <th style="width: 150px;">小计</th>
+                <th style="width: 90px;">操作</th>
             </tr>
             </thead>
             <tbody>
-        <tr class="trBody">
-            <td class="td-first">
-                <input type="checkbox" class="cb">
-                <img>
-                <a>零农残佳沛金果 4个（约480g）</a>
-            </td>
-            <td>
-                <span>￥44.00</span>
-            </td>
-            <td>
-                <div class="quantity">
-                    <span> - </span>
-                    <span class="myquantity"> 1 </span>
-                    <span> + </span>
-                </div>
-            </td>
-            <td>
-                <span>￥44.00</span>
-            </td>
-            <td class="td-last">
-                <img src="">
-            </td>
-        </tr>
+            <tr class="t2">
+                <td style="width: 45px;">
+                    <input type="checkbox">
+                </td>
+                <td style="width: 75px;">
+                    <a href="#" class="a1">
+                        <img src="__STATIC__/index/img/b1.jpg" alt="" class="img1">
+                    </a>
+                </td>
+                <td style="width: 374px;"><a href="" class="a2">海拔3300米小金青苹果 8个</a></td>
+                <!--单价-->
+                <td style="width: 150px;"><span>16.00</span></td>
+                <!--数量-->
+                <td style="width: 135px;">
+                    <div class="price">
+                        <a href="#" class="p_lf">
+                            <span>-</span>
+                        </a>
+                        <input type="text" class="p_mid" value="5">
+                        <a href="#" class="p_lr">
+                            <span>+</span>
+                        </a>
+                    </div>
+
+                </td>
+                <!--小计-->
+                <td style="width: 150px;"><span>32</span></td>
+                <td style="width: 90px;">
+                    <div class="dele">
+                        <a href="javascript:void(0);" class="a3"></a>
+                    </div>
+                </td>
+            </tr>
             </tbody>
-        </table>
-
-
-            <ul>
-                <li>
-                    <div class="tf1">
-                        <button>清空购物车</button>
-                        <button>删除勾选</button>
+            <tfoot>
+            <tr>
+                <td colspan="7">
+                    <div class="t3">
+                        <button onclick="">清空购物车</button>
+                        <button onclick="">删除勾选</button>
                     </div>
-                    <div class="tf2">
+                    <div class="t4">
                         <p>订单金额</p>
-                        <p class="tfootPrice" style="position: relative;"><span class="tfootPriceTag">￥</span><span class="tfootPriceNumber">45.00</span><span style="display: block; font-weight: normal; color: rgb(20, 55, 72); font-size: 12px; position: absolute; top: 40px; left: 0px;">不含运费</span></p>
+                        <p style="font-size: 28px;" id="pp">￥32.00</p>
+                        <p style="display: block; font-weight: normal; color: rgb(20, 55, 72);
+                        font-size: 12px;">不含运费</p>
                     </div>
-                    <div class="tf3">
-                    <a class="ym_button_important action-settle" name="Submit">订单结算</a>
+                    <div class="t5">
+                        <a href="javascript:void(0);" class="a4">订单结算</a>
                     </div>
-                </li>
-            </ul>
 
+                </td>
+            </tr>
 
+            </tfoot>
+        </table>
+        <div class="pay">
+            <h3>金额明细</h3>
+            <div>
+                <ul>
+                    <li>
+                        <span>商品小计</span>
+                        <span style="float: right;">￥32.00</span>
+                    </li>
+                    <hr/>
+                    <li>
+                        <span>购买金额</span>
+                        <span style="float: right;">
+                            ￥<span style="padding-right: 5px;
+                        padding-left: 5px;font-size: 24px;">32.00</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span>可得积分</span>
+                        <span style="float: right;">32点</span>
+                    </li>
+                </ul>
+                <button>查看优惠详情</button>
+            </div>
+        </div>
     </form>
-
-
 </div>
 
+<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);
+position: relative;clear: both;bottom: 0;"
+>
+    <div class="f1">
+        <div class="footer_lf">
+            <div class="footerlogo">
+            </div>
+            <p>我们希望从每个家庭餐桌上的最小单位一粒米开始，以线上市集的方法，
+                让更多人结识友善耕耘的农夫，一步一步、一米一米地改善全中国的饮食生态。</p>
+        </div>
+        <div class="footer_mid">
+            <div class="m1">
+                <ul>
+                    <li><a href="#">相识一米市集</a></li>
+                    <li><a href="#">邀约农友</a></li>
+                    <li><a href="#">退换货办法</a></li>
+                    <li><a href="#">常遇问题</a></li>
+                    <li><a href="#">会员积分及感谢制度</a></li>
+                </ul>
+            </div>
+            <div class="m1">
+                <ul>
+                    <li><a href="#">全程冷链</a></li>
+                    <li><a href="#">送达范围及时段</a></li>
+                    <li><a href="#">运费提示</a></li>
+                </ul>
+            </div>
+            <div class="m1">
+                <ul>
+                    <li><a href="#">发票提示</a></li>
+                    <li><a href="#">优惠券用法</a></li>
+                    <li><a href="#">支付方式</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer_lr">
+            <p>服务热线</p>
+            <p class="number">
+                400-655-1212
+            </p>
+            <p>周一至周日</p>
+            <p class="number">
+                8:00-21:00
+            </p>
+            <p>微信公众号</p>
+            <p class="number qr"></p>
+
+        </div>
+
+    </div>
+    <div class='footerBottom'>
+        沪ICP备15037721号 | 食品流通许可证SP3101051510004275 | 上海市长宁区天山西路789号中山国际广场B座2层 | © Copyright 2015 保留所有权利
+    </div>
+</footer>
 </body>
 </html>

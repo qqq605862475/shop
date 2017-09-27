@@ -17,7 +17,7 @@ main{
 .top_lf{
     width: 800px;
     height: 447px;
-    border: 1px solid red;
+    // border: 1px solid red;
     float: left;
 
 }
@@ -205,13 +205,13 @@ main{
     width: 800px;
 
     float: left;
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 .bo_lr{
     width: 360px;
 
     float:right;
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 .b_title{
     border-bottom: 1px solid #d6e2e6;

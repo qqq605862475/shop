@@ -77,12 +77,21 @@
         <div class='ym_hd_profilePanel'>
             <div class="small-signin login_2193">
                 <ul>
+                    {if condition="$Request.session.member.member_id eq ''"}
                     <li>
                         <a href="{:url('Login/index')}">登入</a>
                     </li>
                     <li>
                         <a href="{:url('Register/index')}">注册</a>
                     </li>
+                   {else /}
+                    <li>
+                        <a href="">{$Request.session.member.username}</a>
+                    </li>
+                    <li>
+                        <a href="{:url('Login/logout')}">退出登录</a>
+                    </li>
+                    {/if}
                 </ul>
             </div>
         </div>

@@ -44,7 +44,9 @@ header a {
     margin-bottom: 5px;
     text-align: center;
     border-left: 2px solid #d6e2e6;
+
 }
+
 .ym_hd_products > ul {
     display: none;
     border: 1px solid #D6E2E6;
@@ -52,6 +54,7 @@ header a {
     background-color: #fff;
     position: relative;
     left: 40px;
+    z-index: 222;
 }
 .ym_hd_products:hover ul{
     display: block;
@@ -124,6 +127,9 @@ a:hover{
     padding-right: 15px;
     border: 1px solid #eee;
     display: none;
+    position: relative;
+    z-index: 222;
+    font-size: 12px
 }
 .ym_hd_theme:hover ul{
     display: block;
@@ -147,6 +153,9 @@ a:hover{
     padding-right: 15px;
     border: 1px solid #eee;
     display: none;
+    position: relative;
+    z-index: 222;
+    font-size: 12px
 }
 .ym_hd_lifestyle:hover ul{
     display: block;

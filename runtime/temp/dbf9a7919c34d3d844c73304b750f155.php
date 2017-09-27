@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506318770;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506406550;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,18 +21,20 @@
         <div class="top_lf">
             <!--  商品相册  -->
             <div class="pic">
-                <a href="#" style="background-image:url(__STATIC__/index/img/i1.jpg);opacity: 1"></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/i2.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/i3.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/i4.jpg)"></a>
+                <?php foreach($pic as $v): ?>
+                <a href="#" style="background-image:url(<?php echo $v['image_s_url']; ?>);opacity: 0.3"></a>
+                <?php endforeach; ?>
             </div>
             <div class="big">
-                <a href="#" style="background-image:url(__STATIC__/index/img/b1.jpg);display: block" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/b2.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/b3.jpg)" ></a>
-                <a href="#" style="background-image:url(__STATIC__/index/img/b4.jpg)"></a>
+                <?php foreach($pic as $v): ?>
+                <a href="#" style="background-image:url(<?php echo $v['image_b_url']; ?>);display: none"></a>
+                <?php endforeach; ?>
             </div>
             <script>
+                $(function () {
+                    $(".pic a").eq(0).css({"opacity":"1"});
+                    $(".big a").eq(0).css({"display":"block"});
+                })
                 $(".pic a").hover(function () {
                     var i=$(this).index();
 //                    console.log(i);
@@ -49,11 +51,11 @@
             <div class="titie">
                 <!--关键字-->
                 <div class="keywords">
-                    <span>山中鲜</span>
+                    <span><?php echo $data['keywords']; ?></span>
                 </div>
                 <!--商品名称-->
                 <div class="name">
-                    <span>山中鲜有机鸡蛋</span>
+                    <span><?php echo $data['goods_name']; ?></span>
                 </div>
                 <!--评分-->
                 <div class="img_1">
@@ -61,11 +63,11 @@
                 </div>
                 <!--商品描述-->
                 <div class="desc">
-                    <span>有机土鸡蛋中的蛋黄较大，非常适合做煮鸡蛋和煎蛋，简单的烹调方法能将它优良的口感完全发挥出来。</span>
+                    <span><?php echo $data['desc']; ?></span>
                 </div>
                 <!--售价-->
                 <div class="sell_price">
-                    <span>￥27.00</span>
+                    <span>￥<?php echo $data['sell_price']; ?>.00</span>
                 </div>
                 <div style="width: 360px;height: 200px;float: left">
                 </div>
@@ -77,7 +79,7 @@
                             <span>库存</span>
                         </div>
                         <div class="svalue">
-                            <span>100</span>
+                            <span><?php echo $data['store']; ?></span>
                         </div>
                     </div>
 
@@ -86,7 +88,7 @@
                             <span>热销程度</span>
                         </div>
                         <div class="svalue">
-                            <span>热销</span>
+                            <span><?php echo $data['is_hot']==1?"热销":"一般"; ?></span>
                         </div>
                     </div>
 
@@ -95,7 +97,7 @@
                             <span>新品程度</span>
                         </div>
                         <div class="svalue">
-                            <span>新品</span>
+                            <span><?php echo $data['is_new']==1?"新品":"一般"; ?></span>
                         </div>
                     </div>
                 </div>
@@ -132,13 +134,14 @@
 
     <!--商品详情-->
     <div class="bottom">
-        <div class="bo_lf">
+        <div class="bo_lf" >
+            <?php echo $data['content']; ?>
 
         </div>
 
         <div class="bo_lr">
             <div class="b_title">
-                农友伙伴
+                相关分类---<?php echo $data['name']; ?>
             </div>
             <div class="lis">
                 <ul>
@@ -149,7 +152,7 @@
                 </ul>
             </div>
             <div class="b_title">
-                山中鲜的相关产品
+                <?php echo $data['keywords']; ?>的相关产品
             </div>
             <div class="pi">
                 <ul>
@@ -221,7 +224,8 @@
 
 
 
-<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);position: relative;clear: both;bottom: 0" >
+<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);
+position: relative;clear: both;bottom: 0" >
     <div class="f1">
         <div class="footer_lf">
             <div class="footerlogo">
