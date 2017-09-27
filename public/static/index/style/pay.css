@@ -1,0 +1,379 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #15374a;
+    font-weight: 600;
+
+}
+
+.car-container {
+    /*border: 1px solid red;*/
+    padding-top: 20px;
+    width: 1020px;
+    margin: 0 auto;
+}
+
+.car-title {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.car-title h1{
+    padding-left: 42px;
+    background: url("../image/ym_icon_cart.png") no-repeat;
+    background-size: 29px;
+    background-position: left center;
+    font-weight: bold;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 21px;
+    letter-spacing: 2px;
+    margin: 20px auto;
+    /*border: 1px solid red;*/
+    display: inline-block;
+}
+.step_img{
+    width: 30px;
+    height: 32px;
+    /*border: 1px solid red;*/
+    background-image: url(../img/icon_step_arrow.png);
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+}
+.step {
+    width: 265px;
+    height: 32px;
+    /*border: 1px solid red;*/
+    float: right;
+    margin: 20px auto;
+}
+
+.step1 {
+    width: 67px;
+    height: 32px;
+    border-bottom: 3px solid #e98772;
+    float: left;
+}
+
+.step1 a {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.step1 a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.step_number {
+    font-family: 'Sentinel-BoldItalic';
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30px;
+}
+.d2 a{
+    border: 2px solid #d6e2e6;
+    background-color: white;
+    line-height: 32px;
+    margin: 10px auto;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: bold;
+    /* background-image: url(icon_listOpen.png); */
+    background-image: url(../img/checkout_dropdown_closed.png);
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    width: 995px;
+    margin-top: 0;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.d2 a:hover{
+    text-decoration: none;
+}
+.t1 a{
+    border: 2px solid #d6e2e6;
+    background-color: white;
+    line-height: 32px;
+    margin: 10px auto;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: bold;
+    /* background-image: url(icon_listOpen.png); */
+    background-image: url(../img/checkout_dropdown_closed.png);
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    width: 90%;
+    margin-top: 0;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.t1 a:hover{
+    text-decoration: none;
+}
+.d4{
+    border: 2px solid #d6e2e6;
+    padding: 10px;
+    border-radius: 4px;
+    width: 20%;
+    float: left;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 37px center;
+    background-size: 145px;
+    color: transparent;
+    background-image: url(../img/pic_onlinePayment.png);
+}
+.d5{
+    border: 2px solid #d6e2e6;
+    padding: 10px;
+    border-radius: 4px;
+    width: 20%;
+
+    float: left;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 37px center;
+    background-size: 145px;
+    color: transparent;
+    background-image: url(../img/pic_cashOnDelivery.png);
+}
+.ff1 a{
+    border: 2px solid #d6e2e6;
+    background-color: white;
+    line-height: 32px;
+    margin: 10px auto;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: bold;
+    /* background-image: url(icon_listOpen.png); */
+    background-image: url(../img/checkout_dropdown_closed.png);
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    width: 490px;
+    margin-top: 0;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.ff1 a:hover{
+    text-decoration: none;
+}
+.a1{
+    color: #fff;
+    border: 0;
+    /* padding-left: 41px; */
+    height: 40px;
+    min-width: 200px;
+    background: url(../img/icon_cart_white.png) no-repeat #15374a;
+    background-size: 22px;
+    background-position: 15px 9px;
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+.a1:hover{
+    text-decoration: none;
+}
+
+.address{
+    /*border: 1px solid red;*/
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.d1{
+    margin-bottom: 10px;
+}
+.d2,.ff1{
+    position: relative;
+}
+.t1{
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.d3{
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid #d6e2e6;
+    padding: 15px;
+    border-radius: 4px;
+}
+.address input[type=radio] {
+    border: 2px solid #AEC4CD;
+    margin-right: 10px;
+    width: 22px !important;
+    height: 22px;
+    -webkit-appearance: none;
+    outline: none;
+    vertical-align: -8px;
+    border-radius: 14px;
+}
+.d3 span{
+    margin-left: 30px;
+    color: #7294a2;
+}
+.address input[type=text]{
+    margin: 0 10px;
+    border: 2px solid #d6e2e6;
+    line-height: 30px;
+    height: 20px;
+    width: 100px;
+    padding: 5px;
+    outline: none;
+}
+.fa{
+    /*border: 1px solid red;*/
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    width: 510px;
+    height: 200px;
+    float: left;
+}
+.ff1 textarea{
+    border: 2px solid #d6e2e6;
+    width: 490px;
+    border-radius: 3px;
+    padding: 10px;
+}
+.all{
+    width: 40%;
+    float: right;
+    /*border: 1px solid red;*/
+    margin-bottom: 50px;
+}
+.all ul{
+    border: 2px solid #d6e2e6;
+    padding: 20px 32px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.all ul li{
+    line-height: 30px;
+    font-weight: bold;
+    overflow: auto;
+}
+.all span{
+    font-size:14px;
+}
+hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+.address input[type=checkbox]{
+    box-sizing: border-box;
+    position: relative;
+    outline: none;
+    vertical-align: -8px;
+    -webkit-appearance: none;
+    line-height: normal;
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    top: -3px;
+    border: 2px solid #D6E2E6;
+    background-color: #fff;
+}
+.edit{
+    padding: 20px 20px;
+    background-color: rgba(175, 197, 205, 0.37);
+    margin-top: 7px;
+    border-radius: 3px;
+    display: none;
+}
+.row{
+    position: relative;
+    margin: 0;
+    height: 50px;
+}
+.row select{
+
+    box-shadow: none;
+    width: 132px;
+    float: left;
+    border-radius: 2px;
+    line-height: 30px;
+    height: 32px;
+    margin-right: 10px;
+    border: 1px solid #d6e2e6;
+    margin-left: 10px;
+}
+.edit button{
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #15374a;
+    font-weight: bold;
+    margin-right: 5px;
+    background-repeat: repeat-x;
+    border-color: #ccc;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    background-color: #fff;
+    text-shadow: 0 1px 0 #fff;
+    margin-left: 10px;
+}
+.d2 ul,.t1 ul,.ff1 ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+
+.d2 ul a,.t1 ul a,.ff1 ul a{
+    clear: none;
+    width: 100%;
+    /* float: right; */
+    line-height: 40px;
+    border-top: 1px solid #eee;
+}
+.check{
+    content: '';
+    display: block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 4px;
+    left: 4px;
+    background-color: rgba(21, 55, 74, 0.84);
+}
+

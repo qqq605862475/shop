@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\login\login.html";i:1506131355;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\login\login.html";i:1506319233;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +13,7 @@
 <div class="login-container">
     <div class="login-left">
         <div class="login-title1">登录</div>
+        <form action="<?php echo url('Login/doLogin'); ?>" method="post">
         <div class="login-title2">登录账号</div>
         <input name="username" class="username" type="text" placeholder="用户名/邮箱地址/手机号">
         <div class="login-title2">密码</div>
@@ -25,7 +26,9 @@
         <div class="login-title2">
             <a>忘记密码？</a>
         </div>
+        </form>
     </div>
+
     <div class="login-right">
         <img src="__STATIC__/index/image/ymsj_login.png">
         <span>我不是会员， <a>要加入。</a></span>

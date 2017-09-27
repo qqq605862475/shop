@@ -1,4 +1,8 @@
+<<<<<<< HEAD:runtime/temp/b6ebd83f78f3afdc3c1b1e2c08a95ac7.php
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1506332355;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506408253;}*/ ?>
+=======
 <?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\goods\list.html";i:1506389883;s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\header.html";i:1506389883;s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\left.html";i:1506389883;}*/ ?>
+>>>>>>> a45aa0baf3b451c46ed19ea1d86513db8eb527e1:runtime/temp/b543830b8cee0d8b5be7e0e9b11057c7.php
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">

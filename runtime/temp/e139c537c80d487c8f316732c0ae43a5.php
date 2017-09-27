@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\add.html";i:1506066254;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506058953;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\add.html";i:1506066254;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506408253;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -339,14 +339,21 @@
         <li>
             <a href="#" class="menu-dropdown">
                 <i class="menu-icon fa fa-user"></i>
-                <span class="menu-text">管理员</span>
+                <span class="menu-text">账户管理</span>
                 <i class="menu-expand"></i>
             </a>
             <ul class="submenu">
                 <li>
                     <a href="<?php echo url('Admin/index'); ?>">
                                     <span class="menu-text">
-                                        管理列表                                    </span>
+                                        管理员列表                                    </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo url('Member/index'); ?>">
+                                    <span class="menu-text">
+                                        用户列表                                    </span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>
@@ -377,9 +384,6 @@
                 </li>
             </ul>
         </li>
-
-
-
         <li>
             <a href="#" class="menu-dropdown">
                 <i class="menu-icon fa fa-file-text"></i>
