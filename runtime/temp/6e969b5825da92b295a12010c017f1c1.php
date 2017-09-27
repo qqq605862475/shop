@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\admin\list.html";i:1506336982;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:96:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\admin\list.html";i:1506389883;}*/ ?>
 <!--挂件头部-->
 <?php echo widget('Common/header'); ?>
 </head>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506157989;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506412451;}*/ ?>
 
 <div class="bar"></div>
 
@@ -318,12 +318,21 @@
         <div class='ym_hd_profilePanel'>
             <div class="small-signin login_2193">
                 <ul>
+                    <?php if(\think\Request::instance()->session('member.member_id') == ''): ?>
                     <li>
                         <a href="<?php echo url('Login/index'); ?>">登入</a>
                     </li>
                     <li>
                         <a href="<?php echo url('Register/index'); ?>">注册</a>
                     </li>
+                   <?php else: ?>
+                    <li>
+                        <a href=""><?php echo \think\Request::instance()->session('member.username'); ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo url('Login/logout'); ?>">退出登录</a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -332,7 +341,8 @@
     <div class="ym_hd_cart">
         <div class="minicart has-minicart" id="minicart_2193">
 
-            <a href="/cart.html" class="ics minicart-text" style="background-image: url(__STATIC__/index/img/ym_icon_cart.png)"><span style="display:none">购物篮</span></a>
+            <a href="<?php echo url('Car/car'); ?>" class="ics minicart-text" style="background-image: url(__STATIC__/index/img/ym_icon_cart.png)"><span style="display:none">购物篮</span></a>
+
             <b class="ics op-cart-number  minicart-info">0</b>
             <span class="ics arr"></span>
             <div class="minicart-cont" style="height: auto;">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\header.html";i:1506316236;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\header.html";i:1506389883;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">

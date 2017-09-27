@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\list.html";i:1506324645;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\header.html";i:1506389883;s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\left.html";i:1506389883;s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\list.html";i:1506389883;}*/ ?>
 <div class="page-content">
     <!-- Page Breadcrumb -->
     <div class="page-breadcrumbs">

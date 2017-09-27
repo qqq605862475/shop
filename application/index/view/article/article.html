@@ -46,6 +46,7 @@
 
 
         </div>
+
         <div class="top_lr">
             <div class="titie">
                 <!--关键字-->
@@ -103,6 +104,7 @@
 
                 <!--购物-->
                 <div class="shop">
+<<<<<<< HEAD
                     <form action="" method="post">
                         <div class="number">
                             <div class="num_lf">-</div>
@@ -117,12 +119,47 @@
 
                         </div>
 
+=======
+>>>>>>> a45aa0baf3b451c46ed19ea1d86513db8eb527e1
 
+                    <div class="number">
+                        <div class="num_lf">-</div>
+                        <input id="num" type="text" name="goods_num" value="1">
+                        <div class="num_lr">+</div>
+                    </div>
 
+                    <div class="car">
+                        <button id="toCar" type="button" label="加入购物车" rel="_request" goods_id="{$data.goods_id}">
+                            加入购物车
+                        </button>
+                    </div>
 
-                    </form>
 
                 </div>
+                <script>
+                    $(function () {
+                        $('#toCar').click(function () {
+                            var goods_id = $('#toCar').attr('goods_id');
+                            var goods_num = $('#num').val();
+                            $.ajax({
+                                type:'POST',
+                                dataType:'json',
+                                data:{goods_id:goods_id,goods_num:goods_num},
+                                //点击加入购物车跳转到下面方法（执行car方法）
+                                url:"{:url('Car/car')}",
+                                //加入购物车成功后跳转到购物车详情页（执行index方法）
+                                success:function (d) {
+                                    if(d.status == 'success'){
+                                        alert(d.msg);
+                                        location.href= "{:url('Car/index')}";
+                                    }
+                                }
+                            })
+
+
+                        })
+                    })
+                </script>
 
 
 
@@ -279,4 +316,5 @@ position: relative;clear: both;bottom: 0" >
 </footer>
 
 </body>
+
 </html>

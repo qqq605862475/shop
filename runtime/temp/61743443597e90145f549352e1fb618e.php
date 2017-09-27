@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/index\view\Common\footer.html";i:1506316236;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/index\view\Common\footer.html";i:1506389883;}*/ ?>
 <footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg)" >
     <div class="f1">
         <div class="footer_lf">
