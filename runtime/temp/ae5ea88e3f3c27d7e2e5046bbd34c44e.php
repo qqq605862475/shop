@@ -1,8 +1,4 @@
-<<<<<<< HEAD:runtime/temp/b6ebd83f78f3afdc3c1b1e2c08a95ac7.php
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\goods\list.html";i:1506332355;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506408253;}*/ ?>
-=======
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:96:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\goods\list.html";i:1506389883;s:99:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\header.html";i:1506389883;s:97:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\shop\public/../application/admin\view\common\left.html";i:1506389883;}*/ ?>
->>>>>>> a45aa0baf3b451c46ed19ea1d86513db8eb527e1:runtime/temp/b543830b8cee0d8b5be7e0e9b11057c7.php
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\image\list.html";i:1506080413;s:84:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506040717;s:82:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506408253;}*/ ?>
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8">
@@ -212,7 +208,9 @@
                     <li>
                         <a href="<?php echo url('Index/index'); ?>">系统</a>
                     </li>
-                    <li class="active">商品管理</li>
+                    <li class="active">
+                        <a href="<?php echo url('Goods/index'); ?>">商品管理</a></li>
+                    <li class="active">图片管理</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -220,9 +218,8 @@
             <!-- Page Body -->
             <div class="page-body">
 
-
                 <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon"
-                        onClick="javascript:window.location.href = '<?php echo url('Goods/add'); ?>'"><i class="fa fa-plus"></i>
+                        onClick="javascript:window.location.href = '<?php echo url('Image/add',['id'=>$data['image']['goods_id']]); ?>'"><i class="fa fa-plus"></i>
                     Add
                 </button>
 
@@ -236,73 +233,44 @@
                                         <tr>
                                             <th class="text-center">ID</th>
                                             <th class="text-center">商品名称</th>
-                                            <th class="text-center">商品分类</th>
-                                            <th class="text-center">商品封面</th>
-                                            <th class="text-center">商品售价</th>
-                                            <th class="text-center">市场价</th>
-                                            <th class="text-center">是否上架</th>
-                                            <th class="text-center">库存</th>
-                                            <th class="text-center">库存状态</th>
-                                            <th class="text-center">商品状态</th>
-                                            <th class="text-center">最近更新时间</th>
-                                            <th class="text-center">更新管理员</th>
+                                            <th class="text-center">商品图片</th>
+                                            <th class="text-center">商品ID</th>
+                                            <th class="text-center">是否封面</th>
                                             <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach($data as $v): ?>
-
+                                     <?php foreach($data['data'] as $v): ?>
                                         <tr>
-                                            <td align="center" >
-                                                <?php echo $v['goods_id']; ?>
-                                            </td>
+                                            <td align="center" ><?php echo $v['image_id']; ?></td>
                                             <td align="center" ><?php echo $v['goods_name']; ?></td>
-                                            <td align="center" ><?php echo $v['name']; ?></td>
-                                            <td align="center">
-                                                <?php if($v['image_url'] != ''): if($v['is_face'] == 1): ?>
+                                            <td align="center" >
+
                                                 <img src="<?php echo $v['image_url']; ?>" width="80px">
-                                                      <?php endif; else: ?>
-                                                暂无封面
-                                                <?php endif; ?>
-                                            </td>
-                                            <td align="center"><?php echo $v['sell_price']; ?></td>
-                                            <td align="center" ><?php echo $v['market_price']; ?></td>
-                                            <td align="center"><?php echo $v['maketable']==1?'已上架':'未上架'; ?></td>
-                                            <td align="center" ><?php echo $v['store']; ?></td>
-                                            <td align="center"><?php echo $v['freez']==1?'已冻结':'正常'; ?></td>
-                                            <td align="center" ><?php echo $v['recycle']==1?'已删除':'正常'; ?></td>
-                                            <td align="center" ><?php echo date("Y-m-d H:i:s",$v['last_modify']); ?></td>
-                                            <td align="center" ><?php echo $v['last_modify_id']; ?></td>
 
+                                            </td>
+                                            <td align="center"><?php echo $v['goods_id']; ?></td>
+                                            <td align="center"   >
+                                                <?php if($v['is_face'] == 1): ?>
+                                                <a href="#">✔</a>
+                                                <?php else: ?>
+                                                 <a href="<?php echo url('Image/upd',['i_id'=>$v['image_id'],'g_id'=>$v['goods_id']]); ?>">✖</a>
+                                                <?php endif; ?></td>
 
                                             <td align="center">
 
-                                                <a href="<?php echo url('Image/index',['id'=>$v['goods_id']]); ?>"
-                                                   class="btn btn-primary btn-sm shiny">
-                                                    <i class="fa fa-picture-o"></i> 图片管理
-                                                </a>
-
-                                                <a href="<?php echo url('Goods/edit',['id'=>$v['goods_id']]); ?>"
-                                                   class="btn btn-primary btn-sm shiny">
-                                                    <i class="fa fa-edit"></i> 编辑
-                                                </a>
 
                                                 <a href="#" onClick="warning('确定要操作吗',
-                                                 ' <?php echo url('Goods/del',['id'=>$v['goods_id']]); ?>'   )"
+                                                 ' <?php echo url('Image/del',['id'=>$v['image_id']]); ?>'   )"
                                                    class="btn btn-danger btn-sm shiny"
                                                 >
                                                     <i class="fa fa-trash-o"></i>
-                                                    <?php if($v['recycle'] == 1): ?>
-                                                    恢复
-                                                    <?php else: ?>
                                                     删除
-                                                    <?php endif; ?>
+
                                                 </a>
 
                                             </td>
                                         </tr>
-
-
                                         <?php endforeach; ?>
                                         </tbody>
                                     </table>
@@ -313,7 +281,7 @@
                         </div>
                     </div>
                 </div>
-           <?php echo $data->render(); ?>
+                <?php echo $data['data']->render(); ?>
                 <!--分页-->
             </div>
             <!-- /Page Body -->
