@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:104:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\index\index.html";i:1506673706;s:106:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\header.html";i:1506673706;s:104:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\htdocs\shop\public/../application/admin\view\common\left.html";i:1506674966;}*/ ?>
 <div class="page-sidebar" id="sidebar">
 
 
@@ -20,14 +21,14 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Admin/index')}">
+                    <a href="<?php echo url('Admin/index'); ?>">
                                     <span class="menu-text">
                                         管理员列表                                    </span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="{:url('Member/index')}">
+                    <a href="<?php echo url('Member/index'); ?>">
                                     <span class="menu-text">
                                         用户列表                                    </span>
                         <i class="menu-expand"></i>
@@ -45,14 +46,14 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Cate/index')}">
+                    <a href="<?php echo url('Cate/index'); ?>">
                                     <span class="menu-text">
                                         分类列表                                    </span>
                         <i class="menu-expand"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="{:url('Cate/addTopCate')}">
+                    <a href="<?php echo url('Cate/addTopCate'); ?>">
                                     <span class="menu-text">
                                         添加顶级分类                                    </span>
                         <i class="menu-expand"></i>
@@ -68,7 +69,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Goods/index')}">
+                    <a href="<?php echo url('Goods/index'); ?>">
                                     <span class="menu-text">
                                         商品列表                                    </span>
                         <i class="menu-expand"></i>
@@ -85,7 +86,7 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="{:url('Order/index')}">
+                    <a href="<?php echo url('Order/index'); ?>">
                                     <span class="menu-text">
                                         订单列表                                </span>
                         <i class="menu-expand"></i>
