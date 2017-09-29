@@ -13,8 +13,11 @@ class Pay extends Base{
     public function index(){
         $data=db('jm_area')->select();
         $goodsData = $this->goods();
+        $id=session('member')['member_id'];
+        $addr=db('address')->where(['member_id'=>$id,'def_addr'=>1])->find();
 
 
+        $this->assign('addr',$addr);
         $this->assign('data',$data);
         $this->assign('goodsData',$goodsData['goods']);
         $this->assign('total',$goodsData['total']);
@@ -61,5 +64,40 @@ class Pay extends Base{
             return [
                 'goods'=>$data,
                   'total'=>  $total];
+    }
+
+    //点击保存地址
+    public function save(){
+        //获取登录用户的id
+        $id=session('member')['member_id'];
+        $provinceId=input('province');
+        $province= db("jm_area")->find($provinceId);
+        $cityId=input('city');
+        $city= db("jm_area")->find($cityId);
+        $townId=input('town');
+        $town= db("jm_area")->find($townId);
+        $area=$province['area_name'].'省'.$city['area_name'].'市'. $town['area_name'];
+        $addr=input('addr');
+
+        $data=[
+            'member_id'=>$id,
+            'area'=>$area,
+            'address'=>$addr,
+        ];
+        $data['create_time']=time();
+
+        $data['def_addr']=1;
+
+
+        $res=db('address')->insert($data);
+
+        if($res!==false){
+            return $this->success('保存成功',url('Pay/index'));//成功返回
+        }
+        else{
+            return $this->error('保存失败');//失败返回
+        }
+
+
     }
 }
