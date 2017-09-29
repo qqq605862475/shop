@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506501347;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506561774;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,6 +113,7 @@
                                 url: "<?php echo url('Pay/city'); ?>",
                                 success:function (d) {
                                     $('#city').empty();
+                                    $('#town').empty();
                                     for(var i=0;i<d.length;i++){
                                         $('#city').append("<option value="+d[i].area_id+">"+d[i].area_name+"</option>")
                                     }

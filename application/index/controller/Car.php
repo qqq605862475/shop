@@ -33,6 +33,8 @@ class Car extends Base {
             //多个id之间用逗号隔开  rtrim（）函数将最后一个多出来的逗号去掉
             $goods_ids = rtrim($goods_ids,',');
             $arr = GoodsCL::goodsItems($goods_ids);
+
+
             foreach ($arr as $key=>$val){
                 foreach ($data as $k=>$v){
                     if($val['goods_id'] == $v['goods_id']){
@@ -41,6 +43,8 @@ class Car extends Base {
                     }
                 }
             }
+
+
 
             //总计
             $total = '';
