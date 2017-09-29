@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506665089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506684787;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -267,12 +267,12 @@
             <div class="d1">
                 付款
             </div>
-           <div style="height: 47px">
+           <div id="pay_method" style="height: 47px">
                <div class="d4">
-                   <input type="radio" name="" id="">
+                   <input type="radio" name="" value="0">
                </div>
                <div class="d5">
-                   <input type="radio" name="" id="">
+                   <input type="radio" name="" value="1">
                </div>
            </div>
         </div>
@@ -300,10 +300,10 @@
                 <a href="#" style="padding: 15px 10px">
                     <?php foreach($goodsData as $v): ?>
                     <img src="<?php echo $v['image_s_url']; ?>" style="width: 60px">
-
-                    <span style="float: right;margin-right: 40px">共<?php echo $v['goods_num']; ?>件商品</span>
-                    <br>
                     <?php endforeach; ?>
+                    <span style="float: right;margin-right: 40px">共<?php echo $goods_ids; ?>件商品</span>
+                    <br>
+
                 </a>
             </div>
         </div>
@@ -339,7 +339,7 @@
                 留言
             </div>
             <div class="ff1">
-                <textarea placeholder="可在此留言给客服"></textarea>
+                <textarea placeholder="可在此留言给客服" id="memo"></textarea>
             </div>
         </div>
 
@@ -364,12 +364,36 @@
                     <span style="float: right">￥<?php echo $total; ?>.00</span>
                 </li>
                 <div>
-                    <a href="#" class="a1">提交订单</a>
+                    <a href="javascript:;" id="checkstand" class="a1">提交订单</a>
                 </div>
                 <div style="margin: 14px 5px 0px; font-size: 10px; color: rgb(21, 55, 74);">
                     <input type="checkbox" name="" id="" value="none" style="height: 20px;">不在商品清单上打印价格。
                 </div>
-
+            <script>
+                $(function () {
+                    $('#checkstand').click(function () {
+                         var memo = $('#memo').val();//订单留言
+                         var pay_method = $('#pay_method .check').val();//支付方式
+                        $.ajax({
+                            type:'POST',
+                            dataType:'json',
+                            data:{memo:memo,pay_method:pay_method},
+                            //点击提交订单跳转到下面方法（执行order方法）
+                            url:"<?php echo url('Pay/order'); ?>",
+                            //加入购物车成功后跳转到收银台页（执行方法）
+                            success:function (d) {
+                                if(d.status == 'success'){
+                                   var order_id = d.order_id;
+                                    location.href= "/index.php/index/Cashier/index?order_id="+order_id;
+                                }
+                                else{
+                                    alert("请将信息填充完整！")
+                                }
+                            }
+                        })
+                    })
+                })
+            </script>
             </ul>
 
         </div>
