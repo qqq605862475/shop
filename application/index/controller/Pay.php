@@ -21,6 +21,7 @@ class Pay extends Base{
         $this->assign('data',$data);
         $this->assign('goodsData',$goodsData['goods']);
         $this->assign('total',$goodsData['total']);
+        $this->assign('goods_ids',$goodsData['goods_ids']);
 
 
         return $this->fetch('pay');
@@ -50,21 +51,22 @@ class Pay extends Base{
             ->alias('c')//别名
             ->join('goods g','g.goods_id=c.goods_id','left')
             ->join('image i','i.goods_id=c.goods_id','left')
-            ->field('c.goods_num,g.sell_price,i.image_s_url')
+            ->field('c.goods_num,c.goods_id,g.sell_price,i.image_s_url')
             ->where(['c.member_id'=>$id,'i.is_face'=>1])
             ->select();
+
         //计算总价
         $total = '';
+        $goods_ids = count($data);
         foreach ($data as $k=>$v){
             $total += $v['sell_price']*$v['goods_num'];
         }
 
-
-
-
             return [
                 'goods'=>$data,
-                  'total'=>  $total];
+                  'total'=>  $total,
+                'goods_ids'=>$goods_ids
+            ];
     }
 
 
@@ -98,6 +100,8 @@ class Pay extends Base{
             'create_time'  => $create_time,
             'status'       => 1,
             'pay_status'   => 0,
+            'pay_method'   => input('pay_method'),
+            'memo'   => input('memo'),
         ];
         db('order')->insert($arr);
 
@@ -119,6 +123,7 @@ class Pay extends Base{
         $town= db("jm_area")->find($townId);
         $area=$province['area_name'].'省'.$city['area_name'].'市'. $town['area_name'];
         $addr=input('addr');
+
 
         $data=[
             'member_id'=>$id,

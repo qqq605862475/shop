@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\article\article.html";i:1506511096;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\article\article.html";i:1506667249;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +105,6 @@
 
                 <!--购物-->
                 <div class="shop">
-
                     <div class="number">
                         <div class="num_lf">-</div>
                         <input id="num" type="text" name="goods_num" value="1">
