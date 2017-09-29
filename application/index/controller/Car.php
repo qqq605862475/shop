@@ -148,6 +148,7 @@ class Car extends Base {
 
     }
 
+
     /*
  *
  * 结算页面
@@ -170,55 +171,7 @@ class Car extends Base {
         return $this->redirect('Pay/index');
     }
 
-    //点击+按钮的方法
-    public function add(){
-        //接收参数
-        $goods_id=input('goods_id');
-        $goods_num=input('goods_num');
-        //判断是否登录
-        $isLogin=$this->isLogin();
-        if(!$isLogin){
-            //未登录
-            $car=unserialize(cookie('car'));
-            $this->assign('car',$car);
-            $car[$goods_id]['goods_num']+=1;
-            cookie('car',serialize($car));
-        }else{
-            //已登录
-            $carData=db('car')->where(['member_id'=>$isLogin['member_id']])->select();
-            $this->assign('carData',$carData);
 
-                foreach ($carData as $key=>$val){
-                    $carData[$val['goods_id']]=$val;
-                }
 
-                var_dump($carData[$goods_id]['goods_num']);exit();
-                    $carData[$goods_id]['goods_num']+=1;
-                    db('car')->update($carData[$goods_id]);
-        }
-        return $this->fetch('car');
-    }
-    //点击-按钮的方法
-    public function reduce(){
-        //接收参数
-        $goods_id=input('goods_id');
-        $goods_num=input('goods_num');
-        //判断是否登录
-        $isLogin=$this->isLogin();
-        if(!$isLogin){
-            //未登录
-            $car=unserialize(cookie('car'));
-            $car[$goods_id]['goods_num']-=1;
-            cookie('car',serialize($car));
-        }else{
-            //已登录
-            $carData=db('car')->where(['member_id'=>$isLogin['member_id']])->select();
-            foreach ($carData as $key=>$val){
-                $carData[$val['goods_id']]=$val;
-            }
-            $carData[$goods_id]['goods_num']-=1;
-            db('car')->update($carData[$goods_id]);
-        }
-        return $this->fetch('car');
-    }
+
 }
