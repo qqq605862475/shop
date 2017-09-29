@@ -100,9 +100,18 @@ class Pay extends Base{
             'create_time'  => $create_time,
             'status'       => 1,
             'pay_status'   => 0,
-            'pay_method'   => input('pay_method'),
             'memo'   => input('memo'),
         ];
+
+        if (empty(input('pay_method'))){
+            return json([
+                'status'   => 'error',
+            ]);
+        }
+        else{
+            $arr['pay_method']=input('pay_method');
+        }
+
         db('order')->insert($arr);
 
         return json([
