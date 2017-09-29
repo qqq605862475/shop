@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-09-27 19:54:00
+Date: 2017-09-29 14:29:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,15 +23,16 @@ CREATE TABLE `address` (
   `addr_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `member_id` int(11) DEFAULT NULL,
   `area` varchar(255) DEFAULT NULL COMMENT '区域  福建/厦门/湖里',
-  `adderss` varchar(255) DEFAULT NULL COMMENT '。。。路。。号',
-  `create_time` datetime DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL COMMENT '。。。路。。号',
+  `create_time` int(11) DEFAULT NULL,
   `def_addr` varchar(255) DEFAULT NULL COMMENT '是否默认地址',
   PRIMARY KEY (`addr_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of address
 -- ----------------------------
+INSERT INTO `address` VALUES ('3', '1', '河南省南阳市宛城区', '38#308', '0', '1');
 
 -- ----------------------------
 -- Table structure for car
@@ -44,11 +45,12 @@ CREATE TABLE `car` (
   `goods_num` int(11) DEFAULT NULL,
   `selected` int(11) DEFAULT NULL COMMENT '是否选中 0,1',
   PRIMARY KEY (`car_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of car
 -- ----------------------------
+INSERT INTO `car` VALUES ('1', '2', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for cate
@@ -3704,7 +3706,7 @@ CREATE TABLE `member` (
 -- ----------------------------
 -- Records of member
 -- ----------------------------
-INSERT INTO `member` VALUES ('1', 'admin', '123456', null, null, null, null, null, null, null, null);
+INSERT INTO `member` VALUES ('1', 'admin', '123456', '11111111111', null, null, null, null, null, null, null);
 INSERT INTO `member` VALUES ('2', '小明', '81dc9bdb52d04dc20036dbd8313ed055', '小明', '12345@qq.com', '1506407284', '127.0.0.1', null, null, '/uploads/20170926/4196b880773bcebc1f08ff430683a6b3.jpg', '1');
 
 -- ----------------------------
@@ -3718,7 +3720,7 @@ CREATE TABLE `order` (
   `status` varchar(255) DEFAULT NULL COMMENT '订单状态   noraml--正常  dead -- 已取消  finish 已完成',
   `pay_status` varchar(255) DEFAULT NULL COMMENT '支付状态  0-未支付  1-已支付',
   `pay_method` varchar(255) DEFAULT NULL COMMENT '支付方式  -1 --货到付款  online -- 在线支付  weixin -- 微信支付  alipay--支付宝',
-  `create_time` datetime DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
   `last_modify` varchar(255) DEFAULT NULL,
   `ship_name` varchar(255) DEFAULT NULL,
   `ship_mobile` varchar(255) DEFAULT NULL,

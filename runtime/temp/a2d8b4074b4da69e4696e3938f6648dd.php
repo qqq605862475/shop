@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506665089;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 </head>
 
 <body>
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 <main>
     <div class="car-container">
         <!--结账-->
@@ -56,11 +57,10 @@
             <div class="d2">
 
                 <a href="javascript:void(0);">
-                    {if condition="$addr eq '' "}
+                    <?php if($addr == ''): ?>
                     请选择收货地址
-                    {else}
-                    {$addr.area}{$addr.address}
-                    {/if}
+                    <?php else: ?>
+                    <?php echo $addr['area']; ?><?php echo $addr['address']; endif; ?>
                 </a>
 
                 <ul style="width: 97.5%;">
@@ -92,7 +92,7 @@
 
             </script>
             <div class="edit">
-                <form action="{:url('Pay/save')}" method="post">
+                <form action="<?php echo url('Pay/save'); ?>" method="post">
                 <div class="row">
                     <input type="text" name="" id="" placeholder="收货人">
                     <input type="text" name="" id="" placeholder="手机/电话" style="width: 300px">
@@ -103,11 +103,9 @@
                     </select>
                     <select name="province" id="province">
                         <option value="">省份/直辖市</option>
-                        {foreach $data as $v}
-                        {if condition="$v.parent_id eq 1"}
-                        <option value="{$v.area_id}" name="pp">{$v.area_name}</option>
-                        {/if}
-                        {/foreach}
+                        <?php foreach($data as $v): if($v['parent_id'] == 1): ?>
+                        <option value="<?php echo $v['area_id']; ?>" name="pp"><?php echo $v['area_name']; ?></option>
+                        <?php endif; endforeach; ?>
                     </select>
                     <select name="city" id="city">
                         <option value="" >市/县</option>
@@ -120,7 +118,7 @@
 //                            console.log(area_id);
                             $.ajax({
                                 data: {area_id: area_id},
-                                url: "{:url('Pay/city')}",
+                                url: "<?php echo url('Pay/city'); ?>",
                                 success:function (d) {
                                     $('#city').empty();
                                     $('#town').empty();
@@ -142,7 +140,7 @@
 //                            console.log(area_id);
                             $.ajax({
                                 data: {area_id: area_id},
-                                url: "{:url('Pay/town')}",
+                                url: "<?php echo url('Pay/town'); ?>",
                                 success:function (d) {
                                     $('#town').empty();
                                     for(var i=0;i<d.length;i++){
@@ -300,12 +298,12 @@
             <div class="d2">
 
                 <a href="#" style="padding: 15px 10px">
-                    {foreach $goodsData as $v}
-                    <img src="{$v.image_s_url}" style="width: 60px">
+                    <?php foreach($goodsData as $v): ?>
+                    <img src="<?php echo $v['image_s_url']; ?>" style="width: 60px">
 
-                    <span style="float: right;margin-right: 40px">共{$v.goods_num}件商品</span>
+                    <span style="float: right;margin-right: 40px">共<?php echo $v['goods_num']; ?>件商品</span>
                     <br>
-                    {/foreach}
+                    <?php endforeach; ?>
                 </a>
             </div>
         </div>
@@ -350,7 +348,7 @@
             <ul>
                 <li>
                     <span>商品小计</span>
-                    <span style="float: right">￥{$total}.00</span>
+                    <span style="float: right">￥<?php echo $total; ?>.00</span>
                 </li>
                 <li>
                     <span>优惠</span>
@@ -363,36 +361,15 @@
                 <hr>
                 <li>
                     <span>应付金额</span>
-                    <span style="float: right">￥{$total}.00</span>
+                    <span style="float: right">￥<?php echo $total; ?>.00</span>
                 </li>
                 <div>
-                    <a href="javascript:;" id="checkstand" class="a1">提交订单</a>
+                    <a href="#" class="a1">提交订单</a>
                 </div>
                 <div style="margin: 14px 5px 0px; font-size: 10px; color: rgb(21, 55, 74);">
                     <input type="checkbox" name="" id="" value="none" style="height: 20px;">不在商品清单上打印价格。
                 </div>
-            <script>
-                $(function () {
-                    $('#checkstand').click(function () {
-                         var goods_id = 1;
-                         var goods_num = 1;
-                        $.ajax({
-                            type:'POST',
-                            dataType:'json',
-                            data:{goods_id:goods_id,goods_num:goods_num},
-                            //点击提交订单跳转到下面方法（执行order方法）
-                            url:"{:url('Pay/order')}",
-                            //加入购物车成功后跳转到收银台页（执行方法）
-                            success:function (d) {
-                                if(d.status == 'success'){
-                                   var order_id = d.order_id;
-                                    location.href= "/index.php/index/Cashier/index?order_id="+order_id;
-                                }
-                            }
-                        })
-                    })
-                })
-            </script>
+
             </ul>
 
         </div>
