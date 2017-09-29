@@ -173,7 +173,21 @@ class Car extends Base {
         return $this->redirect('Pay/index');
     }
 
+/*
+ * 清空购物车
+ *
+ * */
+public function emptying(){
+    $isLogin=$this->isLogin();
+    if(!$isLogin){
+        cookie('car',null);
+    }else{
+        db('car')->where(['member_id'=>$isLogin['member_id']])->delete();
+    }
+    return json([
+       'status'=>'success'
+    ]);
 
-
+}
 
 }

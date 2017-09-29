@@ -46,7 +46,10 @@ class Login extends Base
 
 
         //成功返回
-        return $this->success('登录成功 正在跳转...','Index/index');
+
+        return $this->success('登录成功 正在跳转...',session('next_url'));
+
+
 
     }
 

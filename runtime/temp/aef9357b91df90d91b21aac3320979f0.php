@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\car\car.html";i:1506513933;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\car\car.html";i:1506683753;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
         <h1>购物车</h1>
         <div class="step">
             <div class="step1">
-                <a href="#">
+                <a href="<?php echo url('Car/index'); ?>">
                     <span class="step_number">1</span>
                     购物篮
                 </a>
@@ -104,9 +104,30 @@
             <tr>
                 <td colspan="7">
                     <div class="t3">
-                        <button onclick="">清空购物车</button>
+                        <button onclick="" id="emptying">清空购物车</button>
                         <button onclick="">删除勾选</button>
                     </div>
+
+                    <script>
+                        $(function () {
+                            $('#emptying').click(function () {
+                               $.ajax({
+                                   type:'POST',
+                                   dataType:'json',
+                                   data:{},
+                                   url:"<?php echo url('Car/emptying'); ?>",
+                                   success:function (d) {
+                                       if(d.status=='success'){
+                                           location.href= "<?php echo url('Car/index'); ?>";
+                                       }
+                                   }
+                               })
+                            })
+                        })
+
+                    </script>
+
+
                     <div class="t4">
                         <p>订单金额</p>
                         <p style="font-size: 28px;" id="pp">￥<?php echo $data['total']; ?>.00</p>
