@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\cashier\cashier.html";i:1506667155;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +54,7 @@
 </head>
 
 <body>
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 <main>
     <div class="car-container">
         <!--结账-->
@@ -91,9 +92,9 @@
             订单生成成功，请选择付款方式
             <span class="order_num">
                 订单号
-                <span>{$order_id}</span>
+                <span><?php echo $order_id; ?></span>
                 &nbsp;&nbsp;&nbsp;订单金额
-                <span>￥{$total_amount}.00</span>
+                <span>￥<?php echo $total_amount; ?>.00</span>
             </span>
         </div>
 

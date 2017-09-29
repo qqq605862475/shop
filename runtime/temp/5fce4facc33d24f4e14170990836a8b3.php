@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506656786;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506666627;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,6 +113,7 @@
                                 url: "<?php echo url('Pay/city'); ?>",
                                 success:function (d) {
                                     $('#city').empty();
+                                    $('#town').empty();
                                     for(var i=0;i<d.length;i++){
                                         $('#city').append("<option value="+d[i].area_id+">"+d[i].area_name+"</option>")
                                     }
@@ -135,7 +136,7 @@
                                 success:function (d) {
                                     $('#town').empty();
                                     for(var i=0;i<d.length;i++){
-                                        $('#town').append("<option value="+d[i].area_id+">"+d[i].area_name+"</option>")
+                                        $('#town').append("<option class='haha' value="+d[i].area_id+">"+d[i].area_name+"</option>")
                                     }
                                 }
                             })
@@ -355,7 +356,7 @@
                     <span style="float: right">￥<?php echo $total; ?>.00</span>
                 </li>
                 <div>
-                    <a href="checkstand" class="a1">提交订单</a>
+                    <a href="javascript:;" id="checkstand" class="a1">提交订单</a>
                 </div>
                 <div style="margin: 14px 5px 0px; font-size: 10px; color: rgb(21, 55, 74);">
                     <input type="checkbox" name="" id="" value="none" style="height: 20px;">不在商品清单上打印价格。
@@ -363,20 +364,21 @@
             <script>
                 $(function () {
                     $('#checkstand').click(function () {
-
+                         var goods_id = 1;
+                         var goods_num = 1;
                         $.ajax({
                             type:'POST',
                             dataType:'json',
                             data:{goods_id:goods_id,goods_num:goods_num},
                             //点击提交订单跳转到下面方法（执行order方法）
-                            url:"<?php echo url('Car/car'); ?>",
+                            url:"<?php echo url('Pay/order'); ?>",
                             //加入购物车成功后跳转到收银台页（执行方法）
                             success:function (d) {
                                 if(d.status == 'success'){
-                                    location.href= "<?php echo url('Car/index'); ?>";
+                                   var order_id = d.order_id;
+                                    location.href= "/index.php/index/Cashier/index?order_id="+order_id;
                                 }
                             }
-
                         })
                     })
                 })

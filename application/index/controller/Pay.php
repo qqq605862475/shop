@@ -67,7 +67,7 @@ class Pay extends Base{
     public function order(){
         //获取登录用户的id
         $id=session('member')['member_id'];
-        //查询购物车表、商品表和图片管理表
+        //查询购物车表、商品表
         $data=db('car')
             ->alias('c')//别名
             ->join('goods g','g.goods_id=c.goods_id','left')
@@ -81,11 +81,24 @@ class Pay extends Base{
         }
         //获取下单时间
         $create_time=time();
+
+        //dump($create_time);exit();
+        //生成订单号 order_id
+        $order_id= date('ymdHis',time()).rand(10000,99999);
+        //echo $order_id;exit;
         //把需要存到order表的数据放到arr数组
         $arr=[
+            'order_id'=>$order_id,
             'member_id'=>$id,
-            'total'=>$total,
+            'total_amount'=>$total,
             'create_time'=>$create_time,
+            'status'=>1,
+            'pay_status'=>0,
         ];
+        db('order')->insert($arr);
+        return json([
+            'status'=>'success',
+            'order_id'=>$order_id
+        ]);
     }
 }
