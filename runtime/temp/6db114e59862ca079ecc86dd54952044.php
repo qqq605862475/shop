@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506410228;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506509249;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -424,7 +424,7 @@
 
                 <div>
 
-                    <a href="https://www.yimishiji.com/products-0-%E6%B2%99%E6%8B%89%E7%93%B6%E5%AD%90.html"
+                    <a href=""
                        class="js_count" attr="可以喝的沙拉">
                         <img class="img-responsive"
                              src="https://img.yimishiji.com/v1/img/8d79c5063d9e0711488b77fdf0ca7b3c.jpg" alt="可以喝的沙拉">
@@ -435,7 +435,7 @@
                 <div>
 
                     <p>
-                        <a href="https://www.yimishiji.com/products-0-%E6%B2%99%E6%8B%89%E7%93%B6%E5%AD%90.html"
+                        <a href=""
                            class="js_count" attr="可以喝的沙拉">
                             可以喝的沙拉
                         </a>
@@ -481,7 +481,7 @@
 
                 <div>
 
-                    <a href="https://www.yimishiji.com/products-0-%E6%B5%B7%E6%8B%943300%E7%B1%B3%E5%B0%8F%E9%87%91%E9%9D%92%E8%8B%B9%E6%9E%9C.html"
+                    <a href=""
                        class="js_count" attr="海拔3300米小金青苹果 ">
                         <img class="img-responsive"
                              src="https://img.yimishiji.com/v1/img/14d99fd39aea631ddfecc35e9d58a9a4.jpg"
@@ -493,7 +493,7 @@
                 <div>
 
                     <p>
-                        <a href="https://www.yimishiji.com/products-0-%E6%B5%B7%E6%8B%943300%E7%B1%B3%E5%B0%8F%E9%87%91%E9%9D%92%E8%8B%B9%E6%9E%9C.html"
+                        <a href=""
                            class="js_count" attr="海拔3300米小金青苹果 ">
                             海拔3300米小金青苹果
                         </a>

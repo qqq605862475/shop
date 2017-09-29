@@ -1,8 +1,4 @@
-<<<<<<< HEAD:runtime/temp/4fb8fd072e14f972acaed746ce1af8f5.php
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\Car.html";i:1506409048;}*/ ?>
-=======
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\car\car.html";i:1506499531;}*/ ?>
->>>>>>> a45aa0baf3b451c46ed19ea1d86513db8eb527e1:runtime/temp/aef9357b91df90d91b21aac3320979f0.php
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\car\car.html";i:1506513933;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +72,7 @@
                 </td>
                 <td style="width: 374px;"><a href="" class="a2"><?php echo $v['goods_name']; ?></a></td>
                 <!--单价-->
-                <td style="width: 150px;"><span><?php echo $v['sell_price']; ?></span></td>
+                <td style="width: 150px;"><span>￥<?php echo $v['sell_price']; ?>.00</span></td>
                 <!--数量-->
                 <td style="width: 135px;">
                     <div class="price">
@@ -95,7 +91,7 @@
 
                 </td>
                 <!--小计-->
-                <td style="width: 150px;"><span><?php echo $v['sell_price']*$v['goods_num']; ?></span></td>
+                <td style="width: 150px;"><span>￥<?php echo $v['sell_price']*$v['goods_num']; ?>.00</span></td>
                 <td style="width: 90px;">
                     <div class="dele">
                         <a href="javascript:void(0);" class="a3"></a>
@@ -113,14 +109,25 @@
                     </div>
                     <div class="t4">
                         <p>订单金额</p>
-                        <p style="font-size: 28px;" id="pp">￥<?php echo $data['total']; ?></p>
+                        <p style="font-size: 28px;" id="pp">￥<?php echo $data['total']; ?>.00</p>
                         <p style="display: block; font-weight: normal; color: rgb(20, 55, 72);
                         font-size: 12px;">不含运费</p>
                     </div>
                     <div class="t5">
-                        <a href="javascript:void(0);" class="a4">订单结算</a>
+                        <a id="topay" href="javascript:void(0);" class="a4">订单结算</a>
                     </div>
+                    <!--//跳转到提交订单 结算页面-->
+                    <script>
+                        $(function () {
+                            $("#topay").click(function () {
+                                //判断是否有提交
 
+
+                                location.href = "<?php echo url('Car/pay'); ?>";
+                                return;
+                            })
+                        })
+                    </script>
                 </td>
             </tr>
 
@@ -132,19 +139,19 @@
                 <ul>
                     <li>
                         <span>商品小计</span>
-                        <span style="float: right;">￥<?php echo $data['total']; ?></span>
+                        <span style="float: right;">￥<?php echo $data['total']; ?>.00</span>
                     </li>
                     <hr/>
                     <li>
                         <span>购买金额</span>
                         <span style="float: right;">
-                            ￥<span style="padding-right: 5px;
-                        padding-left: 5px;font-size: 24px;"><?php echo $data['total']; ?></span>
+                            <span style="padding-right: 5px;
+                        padding-left: 5px;font-size: 24px;">￥<?php echo $data['total']; ?>.00</span>
                         </span>
                     </li>
                     <li>
                         <span>可得积分</span>
-                        <span style="float: right;">32点</span>
+                        <span style="float: right;"><?php echo $data['total']; ?>.00点</span>
                     </li>
                 </ul>
                 <button>查看优惠详情</button>
@@ -153,9 +160,7 @@
     </form>
 </div>
 
-<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);
-position: relative;clear: both;bottom: 0;"
->
+<footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);position: relative;clear: both;bottom: 0;">
     <div class="f1">
         <div class="footer_lf">
             <div class="footerlogo">

@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\login\login.html";i:1506501261;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,11 @@
     <link href="__STATIC__/index/style/login.css" type="text/css" rel="stylesheet">
 </head>
 <body style="height: 200px">
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 <div class="login-container">
     <div class="login-left">
         <div class="login-title1">登录</div>
-        <form action="{:url('Login/doLogin')}" method="post">
+        <form action="<?php echo url('Login/doLogin'); ?>" method="post">
         <div class="login-title2">登录账号</div>
         <input name="username" class="username" type="text" placeholder="用户名/邮箱地址/手机号" style="width: 360px">
         <div class="login-title2">密码</div>
@@ -34,6 +35,6 @@
     </div>
 </div>
 
-{:widget('Common/footer')}
+<?php echo widget('Common/footer'); ?>
 </body>
 </html>

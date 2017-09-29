@@ -1,8 +1,4 @@
-<<<<<<< HEAD:runtime/temp/dbf9a7919c34d3d844c73304b750f155.php
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506408578;}*/ ?>
-=======
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\article\article.html";i:1506494301;}*/ ?>
->>>>>>> a45aa0baf3b451c46ed19ea1d86513db8eb527e1:runtime/temp/4e9d0656c4b8ca18a298d6d3bb1bea56.php
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\UPUPW\htdocs\shop\public/../application/index\view\article\article.html";i:1506511096;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,23 +105,6 @@
 
                 <!--购物-->
                 <div class="shop">
-<<<<<<< HEAD:runtime/temp/dbf9a7919c34d3d844c73304b750f155.php
-                    <form action="" method="post">
-                        <div class="number">
-                            <div class="num_lf">-</div>
-                            <input type="text" name="goods[num]" value="1">
-                            <div class="num_lr">+</div>
-                        </div>
-
-                        <div class="car">
-                            <button type="submit" label="加入购物车" rel="_request">
-                                加入购物车
-                            </button>
-
-                        </div>
-
-=======
->>>>>>> a45aa0baf3b451c46ed19ea1d86513db8eb527e1:runtime/temp/4e9d0656c4b8ca18a298d6d3bb1bea56.php
 
                     <div class="number">
                         <div class="num_lf">-</div>
