@@ -289,7 +289,15 @@
                 商品清单
             </div>
             <div class="d2">
-                <a href="#" style="padding: 15px 10px"><span style="float: right;margin-right: 40px">共0件商品</span></a>
+
+                <a href="#" style="padding: 15px 10px">
+                    {foreach $goodsData as $v}
+                    <img src="{$v.image_s_url}" style="width: 60px">
+
+                    <span style="float: right;margin-right: 40px">共{$v.goods_num}件商品</span>
+                    <br>
+                    {/foreach}
+                </a>
             </div>
         </div>
 
@@ -333,7 +341,7 @@
             <ul>
                 <li>
                     <span>商品小计</span>
-                    <span style="float: right">￥128.00</span>
+                    <span style="float: right">￥{$total}.00</span>
                 </li>
                 <li>
                     <span>优惠</span>
@@ -346,7 +354,7 @@
                 <hr>
                 <li>
                     <span>应付金额</span>
-                    <span style="float: right">￥128.00</span>
+                    <span style="float: right">￥{$total}.00</span>
                 </li>
                 <div>
                     <a href="#" class="a1">提交订单</a>

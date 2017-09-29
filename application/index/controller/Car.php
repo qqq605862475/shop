@@ -9,7 +9,9 @@ namespace app\index\controller;
 use app\index\model\GoodsCL;
 class Car extends Base {
 
-    //跳转到购物车详情页后做的一些事情
+    /*
+     * 跳转到购物车详情页后做的一些事情
+     */
     public function index(){
         //cookie('car',null);
         //判断是否登录
@@ -27,13 +29,14 @@ class Car extends Base {
         if(!empty($data)){
             //通过二维数据把goods_id拿出来    1,2
             $goods_ids = '';
+
             foreach($data as $key=>$val){
                 $goods_ids .= $val['goods_id'].',';
             }
             //多个id之间用逗号隔开  rtrim（）函数将最后一个多出来的逗号去掉
             $goods_ids = rtrim($goods_ids,',');
-            $arr = GoodsCL::goodsItems($goods_ids);
 
+            $arr = GoodsCL::goodsItems($goods_ids);
 
             foreach ($arr as $key=>$val){
                 foreach ($data as $k=>$v){
@@ -67,8 +70,10 @@ class Car extends Base {
 
     }
 
-    //点击加入购物车时候做的一些事情
-    //页面通过ajax跳转过来 结尾处返回success
+    /*
+     * 点击加入购物车时候做的一些事情
+    *页面通过ajax跳转过来 结尾处返回success
+    */
     public function car(){
         //接收参数
         $goods_id=input('goods_id');
@@ -146,58 +151,29 @@ class Car extends Base {
     }
 
 
-
-
-
-    //点击+按钮的方法
-    public function add(){
-        //接收参数
-        $goods_id=input('goods_id');
-        $goods_num=input('goods_num');
+    /*
+ *
+ * 结算页面
+ */
+    public function pay(){
         //判断是否登录
-        $isLogin=$this->isLogin();
-        if(!$isLogin){
-            //未登录
-            $car=unserialize(cookie('car'));
-            $this->assign('car',$car);
-            $car[$goods_id]['goods_num']+=1;
-            cookie('car',serialize($car));
-        }else{
-            //已登录
-            $carData=db('car')->where(['member_id'=>$isLogin['member_id']])->select();
-            $this->assign('carData',$carData);
-
-                foreach ($carData as $key=>$val){
-                    $carData[$val['goods_id']]=$val;
-                }
-
-                var_dump($carData[$goods_id]['goods_num']);exit();
-                    $carData[$goods_id]['goods_num']+=1;
-                    db('car')->update($carData[$goods_id]);
+        $login = $this->isLogin();
+        //未登录用户，不能来这里
+        if(!$login){
+            //下次要跳转的页面
+            $next_url = 'Pay/index';
+            session('next_url',$next_url);
+            return $this->redirect('Login/index');
         }
-        return $this->fetch('car');
-    }
-    //点击-按钮的方法
-    public function reduce(){
-        //接收参数
-        $goods_id=input('goods_id');
-        $goods_num=input('goods_num');
-        //判断是否登录
-        $isLogin=$this->isLogin();
-        if(!$isLogin){
-            //未登录
-            $car=unserialize(cookie('car'));
-            $car[$goods_id]['goods_num']-=1;
-            cookie('car',serialize($car));
-        }else{
-            //已登录
-            $carData=db('car')->where(['member_id'=>$isLogin['member_id']])->select();
-            foreach ($carData as $key=>$val){
-                $carData[$val['goods_id']]=$val;
-            }
-            $carData[$goods_id]['goods_num']-=1;
-            db('car')->update($carData[$goods_id]);
+        //没有选中的商品的也不能来这里,直接跳到购物车
+        $data = GoodsCL::seletedGoods($login['member_id']);
+        if(empty($data) || !$data){
+            return $this->redirect('Car/index');
         }
-        return $this->fetch('car');
+        return $this->redirect('Pay/index');
     }
+
+
+
+
 }

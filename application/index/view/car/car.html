@@ -113,9 +113,20 @@
                         font-size: 12px;">不含运费</p>
                     </div>
                     <div class="t5">
-                        <a href="javascript:void(0);" class="a4">订单结算</a>
+                        <a id="topay" href="javascript:void(0);" class="a4">订单结算</a>
                     </div>
+                    <!--//跳转到提交订单 结算页面-->
+                    <script>
+                        $(function () {
+                            $("#topay").click(function () {
+                                //判断是否有提交
 
+
+                                location.href = "{:url('Car/pay')}";
+                                return;
+                            })
+                        })
+                    </script>
                 </td>
             </tr>
 

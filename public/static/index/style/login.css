@@ -17,7 +17,7 @@
     margin-top: 10px;
 }
 
-.login-left > div, .login-left > input {
+.login-left > div,.login-left > input{
     width: 360px;
 }
 
@@ -48,6 +48,7 @@ div{
 .username, .password {
     height: 40px;
     border: 2px solid rgb(214,226,230);
+    padding-left: 10px;
 }
 
 .login-remember > input, .login-remember > div {
