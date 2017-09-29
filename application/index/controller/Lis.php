@@ -4,6 +4,7 @@ use app\index\model\Goods;
 class Lis extends Base
 {
     public function lis(){
+
         $cate=input('id');
         $cate=array_filter(array_unique(explode(',',$cate)));
         $data1=Goods::cate($cate);

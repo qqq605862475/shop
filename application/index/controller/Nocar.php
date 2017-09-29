@@ -9,6 +9,7 @@ namespace app\index\controller;
 
 class Nocar extends Base {
     public function index(){
+
         return $this->fetch('nocar');
     }
 }

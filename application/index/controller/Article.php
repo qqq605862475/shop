@@ -10,9 +10,9 @@ namespace app\index\controller;
 class Article extends Base{
 
    public function index(){
+
+
        $id=input("id");
-
-
        $data=db('goods')
            ->alias('a')//别名
            ->join('cate c','c.id=a.goods_id','left')
@@ -26,6 +26,8 @@ class Article extends Base{
 
        return $this->fetch('article');
    }
+
+
 
 
 

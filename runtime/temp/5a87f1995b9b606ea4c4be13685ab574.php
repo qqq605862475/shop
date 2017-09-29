@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:100:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\car.html";i:1506673706;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +12,13 @@
 
 </head>
 <body style="height: 200px">
-{:widget('Common/header')}
+<?php echo widget('Common/header'); ?>
 <div class="car-container">
     <div class="car-title">
         <h1>购物车</h1>
         <div class="step">
             <div class="step1">
-                <a href="{:url('Car/index')}">
+                <a href="#">
                     <span class="step_number">1</span>
                     购物篮
                 </a>
@@ -59,19 +60,19 @@
             </tr>
             </thead>
             <tbody>
-                {foreach $data.data as $v}
+                <?php foreach($data['data'] as $v): ?>
             <tr class="t2">
                 <td style="width: 45px;">
                     <input type="checkbox">
                 </td>
                 <td style="width: 75px;">
                     <a href="#" class="a1">
-                        <img src="{$v.image_s_url}" alt="" class="img1">
+                        <img src="<?php echo $v['image_s_url']; ?>" alt="" class="img1">
                     </a>
                 </td>
-                <td style="width: 374px;"><a href="" class="a2">{$v.goods_name}</a></td>
+                <td style="width: 374px;"><a href="" class="a2"><?php echo $v['goods_name']; ?></a></td>
                 <!--单价-->
-                <td style="width: 150px;"><span>￥{$v.sell_price}.00</span></td>
+                <td style="width: 150px;"><span>￥<?php echo $v['sell_price']; ?>.00</span></td>
                 <!--数量-->
                 <td style="width: 135px;">
                     <div class="price">
@@ -80,7 +81,7 @@
                         </a>
 
 
-                        <input id="goods_num" type="text" class="p_mid" value="{$v.goods_num}">
+                        <input id="goods_num" type="text" class="p_mid" value="<?php echo $v['goods_num']; ?>">
 
 
                         <a id="add" href="" class="p_lr">
@@ -90,46 +91,25 @@
 
                 </td>
                 <!--小计-->
-                <td style="width: 150px;"><span>￥{$v.sell_price*$v.goods_num}.00</span></td>
+                <td style="width: 150px;"><span>￥<?php echo $v['sell_price']*$v['goods_num']; ?>.00</span></td>
                 <td style="width: 90px;">
                     <div class="dele">
                         <a href="javascript:void(0);" class="a3"></a>
                     </div>
                 </td>
             </tr>
-                {/foreach}
+                <?php endforeach; ?>
             </tbody>
             <tfoot>
             <tr>
                 <td colspan="7">
                     <div class="t3">
-                        <button onclick="" id="emptying">清空购物车</button>
+                        <button onclick="">清空购物车</button>
                         <button onclick="">删除勾选</button>
                     </div>
-
-                    <script>
-                        $(function () {
-                            $('#emptying').click(function () {
-                               $.ajax({
-                                   type:'POST',
-                                   dataType:'json',
-                                   data:{},
-                                   url:"{:url('Car/emptying')}",
-                                   success:function (d) {
-                                       if(d.status=='success'){
-                                           location.href= "{:url('Car/index')}";
-                                       }
-                                   }
-                               })
-                            })
-                        })
-
-                    </script>
-
-
                     <div class="t4">
                         <p>订单金额</p>
-                        <p style="font-size: 28px;" id="pp">￥{$data.total}.00</p>
+                        <p style="font-size: 28px;" id="pp">￥<?php echo $data['total']; ?>.00</p>
                         <p style="display: block; font-weight: normal; color: rgb(20, 55, 72);
                         font-size: 12px;">不含运费</p>
                     </div>
@@ -143,7 +123,7 @@
                                 //判断是否有提交
 
 
-                                location.href = "{:url('Car/pay')}";
+                                location.href = "<?php echo url('Car/pay'); ?>";
                                 return;
                             })
                         })
@@ -159,19 +139,19 @@
                 <ul>
                     <li>
                         <span>商品小计</span>
-                        <span style="float: right;">￥{$data.total}.00</span>
+                        <span style="float: right;">￥<?php echo $data['total']; ?>.00</span>
                     </li>
                     <hr/>
                     <li>
                         <span>购买金额</span>
                         <span style="float: right;">
                             <span style="padding-right: 5px;
-                        padding-left: 5px;font-size: 24px;">￥{$data.total}.00</span>
+                        padding-left: 5px;font-size: 24px;">￥<?php echo $data['total']; ?>.00</span>
                         </span>
                     </li>
                     <li>
                         <span>可得积分</span>
-                        <span style="float: right;">{$data.total}.00点</span>
+                        <span style="float: right;"><?php echo $data['total']; ?>.00点</span>
                     </li>
                 </ul>
                 <button>查看优惠详情</button>

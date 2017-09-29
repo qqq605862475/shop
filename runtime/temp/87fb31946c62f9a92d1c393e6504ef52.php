@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506509249;s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506679625;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:106:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\Common\header.html";i:1506673706;}*/ ?>
 
 <div class="bar"></div>
 
@@ -101,7 +101,7 @@
     <div class="ym_hd_cart">
         <div class="minicart has-minicart" id="minicart_2193">
 
-            <a id="car" href="<?php echo url('Car/index'); ?>" class="ics minicart-text" style="background-image: url(__STATIC__/index/img/ym_icon_cart.png)"><span style="display:none">购物篮</span></a>
+            <a href="<?php echo url('Car/car'); ?>" class="ics minicart-text" style="background-image: url(__STATIC__/index/img/ym_icon_cart.png)"><span style="display:none">购物篮</span></a>
 
             <b class="ics op-cart-number  minicart-info">0</b>
             <span class="ics arr"></span>

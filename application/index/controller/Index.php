@@ -5,6 +5,8 @@ class Index extends Base
 {
     public function index()
     {
+        $next_url='Index/index';
+        session('next_url',$next_url);
         $data=db('goods')
             ->alias('a')//别名
             ->field('a.goods_id,a.goods_name,a.keywords,a.sell_price,a.market_price,a.store,

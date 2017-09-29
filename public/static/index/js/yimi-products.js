@@ -80,18 +80,26 @@ $(function () {
                 queryPart+=","+cateName;
                 queryPart=queryPart.split(",");
                 // console.log(queryPart);
-            window.open('http://shop.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
+
+
+
+            window.open('http://ldx.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
+
         }
         else {
             cateName=cateName.trim();
             queryPart.splice(queryPart.indexOf(cateName),1);
-            window.open('http://shop.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
+
+            window.open('http://ldx.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
+
         }
         // console .log(queryPart)
     });
     $("#cat_list>li>#emptyGoods").click(function () {//清空
          queryPart=[[pi][0]];
         $(this).parent().siblings().find("span").removeClass("select");//清除class属性值
-        window.open('http://shop.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
+
+        window.open('http://ldx.com/index.php/index/Lis/load/cateName/'+queryPart,'goods_wrap');
+
     });
 });
