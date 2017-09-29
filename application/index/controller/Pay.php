@@ -68,42 +68,44 @@ class Pay extends Base{
     }
 
 
-    public function order(){
+    public function order() {
         //获取登录用户的id
-        $id=session('member')['member_id'];
+        $id = session('member')['member_id'];
         //查询购物车表、商品表
-        $data=db('car')
+        $data = db('car')
             ->alias('c')//别名
-            ->join('goods g','g.goods_id=c.goods_id','left')
+            ->join('goods g', 'g.goods_id=c.goods_id', 'left')
             ->field('c.goods_num,g.sell_price')
-            ->where(['c.member_id'=>$id])
+            ->where(['c.member_id' => $id])
             ->select();
         //计算总价
         $total = '';
-        foreach ($data as $k=>$v){
-            $total += $v['sell_price']*$v['goods_num'];
+        foreach ($data as $k => $v) {
+            $total += $v['sell_price'] * $v['goods_num'];
         }
         //获取下单时间
-        $create_time=time();
+        $create_time = time();
 
         //dump($create_time);exit();
         //生成订单号 order_id
-        $order_id= date('ymdHis',time()).rand(10000,99999);
+        $order_id = date('ymdHis', time()) . rand(10000, 99999);
         //echo $order_id;exit;
         //把需要存到order表的数据放到arr数组
-        $arr=[
-            'order_id'=>$order_id,
-            'member_id'=>$id,
-            'total_amount'=>$total,
-            'create_time'=>$create_time,
-            'status'=>1,
-            'pay_status'=>0,
+        $arr = [
+            'order_id'     => $order_id,
+            'member_id'    => $id,
+            'total_amount' => $total,
+            'create_time'  => $create_time,
+            'status'       => 1,
+            'pay_status'   => 0,
         ];
         db('order')->insert($arr);
+
         return json([
-            'status'=>'success',
-            'order_id'=>$order_id
+            'status'   => 'success',
+            'order_id' => $order_id
         ]);
+            }
 
     //点击保存地址
     public function save(){
