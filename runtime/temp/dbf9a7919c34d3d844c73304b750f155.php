@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506507793;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\article\article.html";i:1506670648;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +30,9 @@
                 <a href="#" style="background-image:url(<?php echo $v['image_b_url']; ?>);display: none"></a>
                 <?php endforeach; ?>
             </div>
+
+
+            <!--鼠标经过切换不同的大图-->
             <script>
                 $(function () {
                     $(".pic a").eq(0).css({"opacity":"1"});
@@ -105,7 +108,6 @@
 
                 <!--购物-->
                 <div class="shop">
-
                     <div class="number">
                         <div class="num_lf">-</div>
                         <input id="num" type="text" name="goods_num" value="1">

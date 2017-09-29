@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506666627;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"D:\UPUPW\htdocs\shop\public/../application/index\view\pay\pay.html";i:1506671940;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +55,14 @@
                 收货信息
             </div>
             <div class="d2">
-                <a href="javascript:void(0);">请选择收货地址</a>
+
+                <a href="javascript:void(0);">
+                    <?php if($addr == ''): ?>
+                    请选择收货地址
+                    <?php else: ?>
+                    <?php echo $addr['area']; ?><?php echo $addr['address']; endif; ?>
+                </a>
+
                 <ul style="width: 97.5%;">
                     <li><a href="javascript:void(0);">+ 添加新地址</a></li>
 
@@ -85,6 +92,7 @@
 
             </script>
             <div class="edit">
+                <form action="<?php echo url('Pay/save'); ?>" method="post">
                 <div class="row">
                     <input type="text" name="" id="" placeholder="收货人">
                     <input type="text" name="" id="" placeholder="手机/电话" style="width: 300px">
@@ -96,7 +104,7 @@
                     <select name="province" id="province">
                         <option value="">省份/直辖市</option>
                         <?php foreach($data as $v): if($v['parent_id'] == 1): ?>
-                        <option value="<?php echo $v['area_id']; ?>"><?php echo $v['area_name']; ?></option>
+                        <option value="<?php echo $v['area_id']; ?>" name="pp"><?php echo $v['area_name']; ?></option>
                         <?php endif; endforeach; ?>
                     </select>
                     <select name="city" id="city">
@@ -144,13 +152,13 @@
 
 
                     </script>
-                    <input type="text" name="" id="" placeholder="收货地址" style="width: 30%;">
+                    <input type="text" name="addr" id="addr" placeholder="收货地址" style="width: 30%;">
 
                 </div>
-                <button>
+                <button type="submit">
                     保存地址
                 </button>
-
+                </form>
             </div>
 
         </div>
@@ -259,12 +267,12 @@
             <div class="d1">
                 付款
             </div>
-           <div style="height: 47px">
+           <div id="pay_method" style="height: 47px">
                <div class="d4">
-                   <input type="radio" name="" id="">
+                   <input type="radio" name="" value="0">
                </div>
                <div class="d5">
-                   <input type="radio" name="" id="">
+                   <input type="radio" name="" value="1">
                </div>
            </div>
         </div>
@@ -292,10 +300,10 @@
                 <a href="#" style="padding: 15px 10px">
                     <?php foreach($goodsData as $v): ?>
                     <img src="<?php echo $v['image_s_url']; ?>" style="width: 60px">
-
-                    <span style="float: right;margin-right: 40px">共<?php echo $v['goods_num']; ?>件商品</span>
-                    <br>
                     <?php endforeach; ?>
+                    <span style="float: right;margin-right: 40px">共<?php echo $goods_ids; ?>件商品</span>
+                    <br>
+
                 </a>
             </div>
         </div>
@@ -331,7 +339,7 @@
                 留言
             </div>
             <div class="ff1">
-                <textarea placeholder="可在此留言给客服"></textarea>
+                <textarea placeholder="可在此留言给客服" id="memo"></textarea>
             </div>
         </div>
 
@@ -364,12 +372,12 @@
             <script>
                 $(function () {
                     $('#checkstand').click(function () {
-                         var goods_id = 1;
-                         var goods_num = 1;
+                         var memo = $('#memo').val();//订单留言
+                         var pay_method = $('#pay_method .check').val();//支付方式
                         $.ajax({
                             type:'POST',
                             dataType:'json',
-                            data:{goods_id:goods_id,goods_num:goods_num},
+                            data:{memo:memo,pay_method:pay_method},
                             //点击提交订单跳转到下面方法（执行order方法）
                             url:"<?php echo url('Pay/order'); ?>",
                             //加入购物车成功后跳转到收银台页（执行方法）
