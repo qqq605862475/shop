@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #15374a;
+    font-weight: 600;
+}
+
+.car-container {
+    /*border: 1px solid red;*/
+    padding-top: 20px;
+    width: 1020px;
+    margin: 0 auto;
+}
+
+.car-title {
+
+    height: 50px;
+}
+
+.car-title h1{
+    padding-left: 42px;
+    background: url("../image/ym_icon_cart.png") no-repeat;
+    background-size: 29px;
+    background-position: left center;
+    font-weight: bold;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 21px;
+    letter-spacing: 2px;
+    margin: 20px auto;
+    /*border: 1px solid red;*/
+    display: inline-block;
+}
+.step_img{
+    width: 30px;
+    height: 32px;
+    /*border: 1px solid red;*/
+    background-image: url(../img/icon_step_arrow.png);
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+}
+.step {
+    width: 265px;
+    height: 32px;
+    /*border: 1px solid red;*/
+    float: right;
+    margin: 20px auto;
+}
+
+.step1 {
+    width: 67px;
+    height: 32px;
+    border-bottom: 3px solid #e98772;
+    float: left;
+}
+
+.step1 a {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.step1 a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.step_number {
+    font-family: 'Sentinel-BoldItalic';
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30px;
+}
+.wx{
+    background-image: url(../img/pic_wechat_pay.png);
+    cursor: pointer;
+}
+.zfb{
+    background-image: url(../img/pic_alipay.png);
+    cursor: pointer;
+}

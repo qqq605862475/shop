@@ -114,6 +114,7 @@
                                 url: "{:url('Pay/city')}",
                                 success:function (d) {
                                     $('#city').empty();
+                                    $('#town').empty();
                                     for(var i=0;i<d.length;i++){
                                         $('#city').append("<option value="+d[i].area_id+">"+d[i].area_name+"</option>")
                                     }
@@ -136,7 +137,7 @@
                                 success:function (d) {
                                     $('#town').empty();
                                     for(var i=0;i<d.length;i++){
-                                        $('#town').append("<option value="+d[i].area_id+">"+d[i].area_name+"</option>")
+                                        $('#town').append("<option class="haha" value="+d[i].area_id+">"+d[i].area_name+"</option>")
                                     }
                                 }
                             })

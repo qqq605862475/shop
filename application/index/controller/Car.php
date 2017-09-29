@@ -47,6 +47,8 @@ class Car extends Base {
                 }
             }
 
+
+
             //总计
             $total = '';
 
