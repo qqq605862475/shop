@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:110:"C:\Users\Administrator\Desktop\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\register\register.html";i:1506673706;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\UPUPW\htdocs\shop\public/../application/index\view\register\register.html";i:1506758700;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +63,9 @@
                     <input name="verificationCode" id="verificationCode" class="" type="text" placeholder="填写验证码">
                 </div>
                 <div class="vc-right2">
-                    <input type="submit" class="submit-btn1" value="获取短信验证码">
+
+                    <input id="sms" type="submit" class="submit-btn1" value="获取短信验证码">
+
                 </div>
             </div>
         </div>
@@ -92,11 +94,31 @@
 </body>
     <script src="__STATIC__/index/jquery-1.8.3.min.js"></script>
     <script>
-        //刷新验证码
         $(function () {
+            $('#sms').click(function () {
+                var username=$('#username').val();
+
+                $.ajax({
+                    type:'post',
+                    datatype:'json',
+                    url:"<?php echo url('Register/sms'); ?>",
+                    data:{username:username},
+                    success:function (d) {
+                        if(d.status=='success'){
+//                            alert(d.user);
+                            alert('短信发送成功。')
+                        }else {
+                            alert('请输入正确的手机号。')
+                        }
+                    }
+                })
+
+            });
+
+            //刷新验证码
            $('#code').click(function () {
                $('#captcha').attr('src',"<?php echo captcha_src(); ?>")
-           })
+           });
 
             //提交表单
             $('#reg').click(function () {

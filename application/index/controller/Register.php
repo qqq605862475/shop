@@ -6,7 +6,7 @@
  * Time: 15:26
  */
 namespace app\index\controller;
-
+use php\api_demo\SmsDemo;
 
 class Register extends Base
 {
@@ -14,6 +14,33 @@ class Register extends Base
     {
         return $this->fetch('register');
     }
+
+    public static $smscode='';
+    //短信
+    public function sms(){
+        $demo = new SmsDemo(
+            "LTAIxDv4GdF36531",
+            "bLJLAoYFqTPUDvPb9QVWoahwhBGnY3"
+        );
+        self::$smscode=rand(10000,99999);
+        $username=input('username');
+//
+
+
+        $response = $demo->sendSms(
+            "船长宝宝", // 短信签名
+            "SMS_100845078", // 短信模板编号
+            $username, // 短信接收者
+            Array(  // 短信模板中字段的值
+                    "code"=>self::$smscode,
+            )
+
+        );
+        return json(['status'=>'success']);
+
+    }
+
+
 public function register(){
         if(request()->isPost()) {
             $response = [
@@ -28,15 +55,19 @@ public function register(){
                 'checkCode'        => input('checkCode'),
                 'verificationCode' => input('verificationCode')
             ];
-            //验证
-
-            //验证验证码是否正确
-            if(!captcha_check($data['checkCode'])){
-                //return $this->error('验证码错误','Register/register');
-                $response['msg'] = '验证码错误';
+            //验证短信验证码
+            if(self::$smscode!=$data['verificationCode']){
+                $response['msg'] = '短信验证码错误';
                 return json($response);
             }
 
+            //验证校验码是否正确
+            if(!captcha_check($data['checkCode'])){
+                //return $this->error('校验码错误','Register/register');
+                $response['msg'] = '校验码错误';
+                return json($response);
+            }
+            //验证其他输入信息
             $validate = validate('Member');
             if (!$validate->scene('register')->check($data)) {
                 //return $this->error($validate->getError());
@@ -69,4 +100,10 @@ public function register(){
         }
     return $this->fetch('register');
 }
+
+
+
+
+
+
 }

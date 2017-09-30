@@ -189,16 +189,5 @@ public function emptying(){
     ]);
 
 }
-/*
- *删除勾选
- */
-public function del(){
-    $isLogin=$this->isLogin();
-    if(!$isLogin){
 
-    }else{
-        
-    }
-
-}
 }

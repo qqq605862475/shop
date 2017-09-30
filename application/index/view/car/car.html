@@ -91,9 +91,11 @@
                 </td>
                 <!--小计-->
                 <td style="width: 150px;"><span>￥{$v.sell_price*$v.goods_num}.00</span></td>
+
+                <!--删除-->
                 <td style="width: 90px;">
                     <div class="dele">
-                        <a href="javascript:void(0);" class="a3"></a>
+                        <a href="{:url('Car/del',['id'=>$v.goods_id])}" class="a3"></a>
                     </div>
                 </td>
             </tr>

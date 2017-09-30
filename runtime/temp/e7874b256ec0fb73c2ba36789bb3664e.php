@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\UPUPW\htdocs\shop\public/../application/index\view\index\index.html";i:1506509249;s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506679625;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\UPUPW\htdocs\shop\public/../application/index\view\Common\header.html";i:1506679625;}*/ ?>
 
 <div class="bar"></div>
 
