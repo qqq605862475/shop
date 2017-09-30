@@ -23,6 +23,8 @@ class Register extends Base
             "bLJLAoYFqTPUDvPb9QVWoahwhBGnY3"
         );
         self::$smscode=rand(10000,99999);
+        session('code',self::$smscode);
+        //$_SESSION['code'] = self::$smscode;
         $username=input('username');
 //
 
@@ -56,7 +58,7 @@ public function register(){
                 'verificationCode' => input('verificationCode')
             ];
             //验证短信验证码
-            if(self::$smscode!=$data['verificationCode']){
+            if(session('code')!=$data['verificationCode']){
                 $response['msg'] = '短信验证码错误';
                 return json($response);
             }
@@ -90,7 +92,7 @@ public function register(){
                 $info = db('member')->find($res);
                 //将用户信息保存在session 即注册成功后默认为已登录状态
                 session('member',$info);
-
+                session('code',null);
                 return json($response);
             } else {
                 $response['msg'] = '注册失败';

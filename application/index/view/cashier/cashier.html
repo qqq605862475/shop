@@ -8,44 +8,7 @@
     <link href="__STATIC__/index/style/cashier.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="__STATIC__/index/jquery-1.8.3.min.js"></script>
     <style>
-        .order{
-            background-image: none;
-            background-color: #d6e2e6;
-            font-weight: bold;
-            border: 0;
-            min-height: 20px;
-            padding: 19px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .order_num{
-            float: right;
-        }
-        .pay{
-            margin-bottom:150px;
-            font-weight: bold;
-            font-size: 14px;
-            height: 16px;
-        }
-        .pay_title{
 
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .pay_way{
-            border: 2px solid #d6e2e6;
-            padding:20px 10px;
-            border-radius: 4px;
-            width: 20%;
-            float: left;
-            margin-right: 20px;
-            background-repeat: no-repeat;
-            background-position: 37px center;
-            background-size: 145px;
-            color: transparent;
-        }
 
 
 
@@ -113,6 +76,23 @@
 
 
 </main>
+<button class="finish">支付完成
+</button>
+<script>
+     $(".finish").click(function () {
+         $.ajax({
+             type:'POST',
+             dataType:'json',
+             url:"{:url('Cashier/finish')}",
+             success:function (d) {
+                 if(d.status=="success"){
+                     alert('支付成功QAQ')
+                 }
+             }
+         })
+     })
+</script>
+
 <footer style="background-image: url(__STATIC__/index/img/footer_pic-small.jpg);position: relative;clear: both;bottom: 0;">
     <div class="f1">
         <div class="footer_lf">

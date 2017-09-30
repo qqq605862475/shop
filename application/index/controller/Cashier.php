@@ -19,4 +19,14 @@ class Cashier extends Base
         $this->assign('total_amount',$orderData['total_amount']);
         return $this->fetch('cashier');
     }
+    public function finish(){
+
+       $isLogin=$this->isLogin();
+       db('car')->where(['member_id'=>$isLogin['member_id']])->delete();
+
+       return json([
+          'status'=>"success"
+       ]);
+
+    }
 }

@@ -78,9 +78,33 @@
                         <a id="reduce" href="" class="p_lf">
                             <span>-</span>
                         </a>
+                        <!--点击减少-->
+                        <!--<script>-->
+                            <!--$("#reduce").click(function () {-->
+                                <!--var goods_num=$("#goods_num").val();-->
+                                <!--var goods_id=$('#goods_num').attr('goods_id');-->
+                                <!--$.ajax({-->
+                                    <!--type:'POST',-->
+                                    <!--dataType:'json',-->
+                                    <!--data:{goods_num:goods_num,goods_id:goods_id},-->
+                                    <!--url:"{:url('Car/reduce')}",-->
+                                    <!--success:function (d) {-->
+                                        <!--if(d.status=='success'){-->
+                                            <!--$("#goods_num").val(d.goods_num);-->
+                                            <!--$("#t1").text("￥"+d.sell_price*d.goods_num+".00");-->
+                                            <!--$("#t2").text("￥"+d.sell_price*d.goods_num+".00");-->
+                                            <!--$("#t3").text("￥"+d.sell_price*d.goods_num+".00");-->
+                                            <!--$("#t4").text(d.sell_price*d.goods_num+".00点");-->
+                                            <!--$("#pp").text("￥"+d.sell_price*d.goods_num+".00")-->
+                                        <!--}-->
+                                    <!--}-->
+                                <!--})-->
+                            <!--})-->
+
+                        <!--</script>-->
 
 
-                        <input id="goods_num" type="text" class="p_mid" value="{$v.goods_num}">
+                        <input id="goods_num" type="text" class="p_mid" value="{$v.goods_num}" goods_id="{$v.goods_id}">
 
 
                         <a id="add" href="" class="p_lr">
@@ -90,9 +114,13 @@
 
                 </td>
                 <!--小计-->
+<<<<<<< HEAD
                 <td style="width: 150px;"><span>￥{$v.sell_price*$v.goods_num}.00</span></td>
 
                 <!--删除-->
+=======
+                <td style="width: 150px;"><span id="t1">￥{$v.sell_price*$v.goods_num}.00</span></td>
+>>>>>>> bbb0e1653a28be1bf1fd3f0abeb72a297b6c4920
                 <td style="width: 90px;">
                     <div class="dele">
                         <a href="{:url('Car/del',['id'=>$v.goods_id])}" class="a3"></a>
@@ -109,20 +137,27 @@
                         <button onclick="">删除勾选</button>
                     </div>
 
+                    <!--清空购物车-->
                     <script>
                         $(function () {
                             $('#emptying').click(function () {
-                               $.ajax({
-                                   type:'POST',
-                                   dataType:'json',
-                                   data:{},
-                                   url:"{:url('Car/emptying')}",
-                                   success:function (d) {
-                                       if(d.status=='success'){
-                                           location.href= "{:url('Car/index')}";
-                                       }
-                                   }
-                               })
+                                var r=confirm("确认清空购物车吗？");
+                                if (r==true)
+                                {
+                                    $.ajax({
+                                        type:'POST',
+                                        dataType:'json',
+                                        data:{},
+                                        url:"{:url('Car/emptying')}",
+                                        success:function (d) {
+                                            if(d.status=='success'){
+                                                location.href= "{:url('Car/index')}";
+                                            }
+                                        }
+                                    })
+                                }
+
+
                             })
                         })
 
@@ -161,19 +196,19 @@
                 <ul>
                     <li>
                         <span>商品小计</span>
-                        <span style="float: right;">￥{$data.total}.00</span>
+                        <span style="float: right;" id="t2">￥{$data.total}.00</span>
                     </li>
                     <hr/>
                     <li>
                         <span>购买金额</span>
                         <span style="float: right;">
                             <span style="padding-right: 5px;
-                        padding-left: 5px;font-size: 24px;">￥{$data.total}.00</span>
+                        padding-left: 5px;font-size: 24px;" id="t3">￥{$data.total}.00</span>
                         </span>
                     </li>
                     <li>
                         <span>可得积分</span>
-                        <span style="float: right;">{$data.total}.00点</span>
+                        <span style="float: right;" id="t4">{$data.total}.00点</span>
                     </li>
                 </ul>
                 <button>查看优惠详情</button>

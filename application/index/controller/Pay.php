@@ -11,7 +11,9 @@ namespace app\index\controller;
 class Pay extends Base{
 
     public function index(){
-        session('next_url',null);
+
+
+
         $data=db('jm_area')->select();
         $goodsData = $this->goods();
         $id=session('member')['member_id'];
@@ -104,7 +106,7 @@ class Pay extends Base{
             'memo'   => input('memo'),
         ];
 
-        if (empty(input('pay_method'))){
+        if (is_null(input('pay_method'))){
             return json([
                 'status'   => 'error',
             ]);

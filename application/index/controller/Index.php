@@ -5,6 +5,7 @@ class Index extends Base
 {
     public function index()
     {
+
         $next_url='Index/index';
         session('next_url',$next_url);
         $data=db('goods')
