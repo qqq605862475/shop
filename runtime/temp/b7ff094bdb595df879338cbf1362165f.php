@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\car.html";i:1506654419;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:78:"E:\upupw\UPUPW_NP7.0\htdocs\shop\public/../application/index\view\car\car.html";i:1506753313;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
         <h1>购物车</h1>
         <div class="step">
             <div class="step1">
-                <a href="#">
+                <a href="<?php echo url('Car/index'); ?>">
                     <span class="step_number">1</span>
                     购物篮
                 </a>
@@ -79,9 +79,33 @@
                         <a id="reduce" href="" class="p_lf">
                             <span>-</span>
                         </a>
+                        <!--点击减少-->
+                        <!--<script>-->
+                            <!--$("#reduce").click(function () {-->
+                                <!--var goods_num=$("#goods_num").val();-->
+                                <!--var goods_id=$('#goods_num').attr('goods_id');-->
+                                <!--$.ajax({-->
+                                    <!--type:'POST',-->
+                                    <!--dataType:'json',-->
+                                    <!--data:{goods_num:goods_num,goods_id:goods_id},-->
+                                    <!--url:"<?php echo url('Car/reduce'); ?>",-->
+                                    <!--success:function (d) {-->
+                                        <!--if(d.status=='success'){-->
+                                            <!--$("#goods_num").val(d.goods_num);-->
+                                            <!--$("#t1").text("￥"+d.sell_price*d.goods_num+".00");-->
+                                            <!--$("#t2").text("￥"+d.sell_price*d.goods_num+".00");-->
+                                            <!--$("#t3").text("￥"+d.sell_price*d.goods_num+".00");-->
+                                            <!--$("#t4").text(d.sell_price*d.goods_num+".00点");-->
+                                            <!--$("#pp").text("￥"+d.sell_price*d.goods_num+".00")-->
+                                        <!--}-->
+                                    <!--}-->
+                                <!--})-->
+                            <!--})-->
+
+                        <!--</script>-->
 
 
-                        <input id="goods_num" type="text" class="p_mid" value="<?php echo $v['goods_num']; ?>">
+                        <input id="goods_num" type="text" class="p_mid" value="<?php echo $v['goods_num']; ?>" goods_id="<?php echo $v['goods_id']; ?>">
 
 
                         <a id="add" href="" class="p_lr">
@@ -91,10 +115,10 @@
 
                 </td>
                 <!--小计-->
-                <td style="width: 150px;"><span>￥<?php echo $v['sell_price']*$v['goods_num']; ?>.00</span></td>
+                <td style="width: 150px;"><span id="t1">￥<?php echo $v['sell_price']*$v['goods_num']; ?>.00</span></td>
                 <td style="width: 90px;">
                     <div class="dele">
-                        <a href="javascript:void(0);" class="a3"></a>
+                        <a href="<?php echo url('Car/del',['id'=>$v['goods_id']]); ?>" class="a3"></a>
                     </div>
                 </td>
             </tr>
@@ -104,9 +128,37 @@
             <tr>
                 <td colspan="7">
                     <div class="t3">
-                        <button onclick="">清空购物车</button>
+                        <button onclick="" id="emptying">清空购物车</button>
                         <button onclick="">删除勾选</button>
                     </div>
+
+                    <!--清空购物车-->
+                    <script>
+                        $(function () {
+                            $('#emptying').click(function () {
+                                var r=confirm("确认清空购物车吗？");
+                                if (r==true)
+                                {
+                                    $.ajax({
+                                        type:'POST',
+                                        dataType:'json',
+                                        data:{},
+                                        url:"<?php echo url('Car/emptying'); ?>",
+                                        success:function (d) {
+                                            if(d.status=='success'){
+                                                location.href= "<?php echo url('Car/index'); ?>";
+                                            }
+                                        }
+                                    })
+                                }
+
+
+                            })
+                        })
+
+                    </script>
+
+
                     <div class="t4">
                         <p>订单金额</p>
                         <p style="font-size: 28px;" id="pp">￥<?php echo $data['total']; ?>.00</p>
@@ -139,19 +191,19 @@
                 <ul>
                     <li>
                         <span>商品小计</span>
-                        <span style="float: right;">￥<?php echo $data['total']; ?>.00</span>
+                        <span style="float: right;" id="t2">￥<?php echo $data['total']; ?>.00</span>
                     </li>
                     <hr/>
                     <li>
                         <span>购买金额</span>
                         <span style="float: right;">
                             <span style="padding-right: 5px;
-                        padding-left: 5px;font-size: 24px;">￥<?php echo $data['total']; ?>.00</span>
+                        padding-left: 5px;font-size: 24px;" id="t3">￥<?php echo $data['total']; ?>.00</span>
                         </span>
                     </li>
                     <li>
                         <span>可得积分</span>
-                        <span style="float: right;"><?php echo $data['total']; ?>.00点</span>
+                        <span style="float: right;" id="t4"><?php echo $data['total']; ?>.00点</span>
                     </li>
                 </ul>
                 <button>查看优惠详情</button>

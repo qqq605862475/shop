@@ -190,4 +190,91 @@ public function emptying(){
 
 }
 
+
+//点击删除物品
+public function del(){
+    //传过来的goods_id
+    $id=input('id');
+    //判断登录状态
+    $isLogin = $this->isLogin();
+    if($isLogin){
+        //已登录
+        db('car')->where(['member_id'=>$isLogin['member_id'],'goods_id'=>$id])->delete();
+    }else{
+        //未登录
+        $data = cookie('car');
+        $data = unserialize($data);
+        unset($data[$id]);
+        cookie('car',serialize($data));
+    }
+    return $this->index();
+}
+
+//点击减少物品
+  public function reduce(){
+    //传过来的goods_id
+    $id=input('goods_id');
+    $goods_num=input('goods_num');
+    $goods_num=$goods_num-1;
+
+    $goodsData=db('goods')->find($id);
+    $sell_price=$goodsData['sell_price'];
+    if ($goods_num<1){
+        $goods_num=1;
+    }
+    //判断登录状态
+    $isLogin = $this->isLogin();
+    if($isLogin){
+        //已登录
+        $data['$goods_num']=$goods_num;
+        db('car')->where(['member_id'=>$isLogin['member_id'],'goods_id'=>$id])->update($data);
+    }else{
+        //未登录
+        $data = cookie('car');
+        $data = unserialize($data);
+        $data[$id]['goods_num']=$goods_num;
+        cookie('car',serialize($data));
+    }
+    return json([
+        'sell_price'=>$sell_price,
+        'goods_num'=>$goods_num,
+        'status'=>'success'
+    ]);
+
+
+}
+
+
+//点击增加物品
+    public function add(){
+//        //传过来的goods_id
+//        $id=input('goods_id');
+//        $goods_num=input('goods_num');
+//        $goods_num=$goods_num+1;
+//
+//        $goodsData=db('goods')->find($id);
+//        $sell_price=$goodsData['sell_price'];
+//        return json([
+//            'sell_price'=>$sell_price,
+//            'goods_num'=>$goods_num,
+//            'status'=>'success'
+//        ]);
+
+//        //判断登录状态
+//        $isLogin = $this->isLogin();
+//        if($isLogin){
+//            //已登录
+//            $data['$goods_num']=$goods_num;
+//            db('car')->where(['member_id'=>$isLogin['member_id'],'goods_id'=>$id])->update($data);
+//        }else{
+//            //未登录
+//            $data = cookie('car');
+//            $data = unserialize($data);
+//            $data[$id]['goods_num']=$goods_num;
+//            cookie('car',serialize($data));
+//        }
+
+
+    }
+
 }

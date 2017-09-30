@@ -81,3 +81,50 @@
     background-image: url(../img/pic_alipay.png);
     cursor: pointer;
 }
+.order{
+    background-image: none;
+    background-color: #d6e2e6;
+    font-weight: bold;
+    border: 0;
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.order_num{
+    float: right;
+}
+.pay{
+    margin-bottom:150px;
+    font-weight: bold;
+    font-size: 14px;
+    height: 16px;
+}
+.pay_title{
+
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.pay_way{
+    border: 2px solid #d6e2e6;
+    padding:20px 10px;
+    border-radius: 4px;
+    width: 20%;
+    float: left;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 37px center;
+    background-size: 145px;
+    color: transparent;
+}
+.finish{
+    position: relative;
+    left: 1000px;
+    bottom: 50px;
+    width: 100px;
+    line-height: 30px;
+    border: 2px solid lightskyblue;
+    background-color: #fff;
+}
